@@ -1,4 +1,4 @@
-baseurl = "http://username.github.io/"
+baseurl = "https://onthedock.github.io/"
 title = "On The Dock"
 theme = "aglaus-custom"
 
