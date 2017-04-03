@@ -1,0 +1,17 @@
+baseurl = "http://username.github.io/"
+title = "On The Dock"
+theme = "aglaus-custom"
+
+googleAnalytics = "" # Optional
+
+[params]
+  dateformat = "2 Jan 2006" # Optional
+  latestSize = 4 # Optional
+  ampscripts = """
+<script async custom-element="amp-twitter" src="https://cdn.ampproject.org/v0/amp-twitter-0.1.js"></script>
+<script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+<script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+"""
+  details = "Un blog sobre Docker, Kubernetes, DevOps y Raspberry Pi por Xavier Aznar"
+  author = "Xavier Aznar"
+  
