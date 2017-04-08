@@ -195,7 +195,7 @@ section>header span {
   margin-right: .25rem;
   font-size: .6rem;
   background-color: #eceff1;
-  font-weight: 700k
+  font-weight: 700;
 }
 
 .p-share a.ht { color: #00a4de; }
@@ -358,7 +358,7 @@ article.li.sm .header-wrapper {
 .article-body blockquote {
   margin: 1.5rem 0;
   padding: .5rem 0;
-  font-size: .8rem;
+  /*font-size: .8rem;*/
   border-top: 1px solid #eceff1;
   border-bottom: 1px solid #eceff1;
   color: #607d8b;
@@ -370,13 +370,16 @@ article.li.sm .header-wrapper {
 }
 
 .article-body strong {
-  box-shadow: 0 -.5rem 0 0 #f06292 inset;
+  /*box-shadow: 0 -.5rem 0 0 #f06292 inset;*/
+  font-style: bold;
+  font-weight: 700;
+  color: #ff5722;
 }
 
 .article-body em {
   font-style: normal;
-  font-weight: 700;
-  color: #ff5722;
+  /*font-weight: 700;*/
+  color: #00c300;
 }
 
 .article-body figure { margin: 1.5rem -2rem; }
