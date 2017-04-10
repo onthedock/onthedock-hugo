@@ -332,6 +332,9 @@ article.li.sm .header-wrapper {
 .article-body ol {
   padding-left: 1.5rem;
 }
+.article-body li {
+  line-height: 2rem;
+}
 
 .article-body code {
   display: inline-block;
