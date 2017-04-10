@@ -7,6 +7,8 @@ baseurl = "https://onthedock.github.io/"
 title = "On The Dock"
 theme = "aglaus-custom"
 
+copyright = "Handmade with &#9829; by Xavi Aznar"
+
 googleAnalytics = "" # Optional
 
 [params]
