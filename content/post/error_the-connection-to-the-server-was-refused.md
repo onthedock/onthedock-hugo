@@ -14,7 +14,7 @@ A continuación explico cómo solucionar el error y evitar que vuelva a mostrars
 
 <!--more-->
 
-En la guía oficial para instalar Kubernetes en Linux con kubeadm [Installing Kubernetes on Linux with kubeadm](https://kubernetes.io/docs/getting-started-guides/kubeadm/), en la salida del comando `kubeadm init` en el punto _(2/4) - Initializing your master_, se muestra:
+En la guía oficial para instalar Kubernetes en Linux con `kubeadm` [Installing Kubernetes on Linux with kubeadm](https://kubernetes.io/docs/getting-started-guides/kubeadm/), en la salida del comando `kubeadm init` en el punto _(2/4) - Initializing your master_, se muestra:
 
 
 ```
@@ -86,3 +86,21 @@ $
 ```
 
 ¡Problema solucionado!
+
+Otra solución alternativa, si no quieres modificar el fichero `$HOME/admin.conf` es pasar la ubicación del fichero como parámetro a `kubectl`: 
+
+```shell
+$ kubectl get nodes
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+$ kubectl --kubeconfig ./admin.conf get nodes
+NAME      STATUS    AGE       VERSION
+k1        Ready     3d        v1.6.1
+$
+```
+
+Puedes usar también este método para conectar, por ejemplo, desde otro equipo al nodo master del clúster (debes copiar primero el fichero `admin.conf` a tu equipo, desde su ubicación original `/etc/kubernetes/admin.conf` o desde la carpeta `$HOME` del usuario, si lo has copiado):
+
+```shell
+$ scp pirate@k1.local:/home/pirate/admin.conf .
+kubectl --kubeconfig ./admin.conf get nodes
+```
