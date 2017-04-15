@@ -218,7 +218,7 @@ Para evitar confusiones, lo más conveniente es eliminar el nodo del clúster me
 ```
 $ kubectl delete node k2.local
 node "k2.local" deleted
-HypriotOS/armv7: pirate@k1 in ~
+
 $ kubectl get nodes
 NAME      STATUS    AGE       VERSION
 k1        Ready     4d        v1.6.1
