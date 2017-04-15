@@ -186,7 +186,8 @@ Para comprobar que el nodo `k2` se ha añadido correctamente al clúster, nos co
 ```shell
 $ kubectl get nodes
 NAME       STATUS     AGE       VERSION
-k1         Ready      4d        v1.6.1k2         NotReady   40s       v1.6.1
+k1         Ready      4d        v1.6.1
+k2         NotReady   40s       v1.6.1
 ```
 
 El nodo `k2` del clúster aparece como `NotReady`. Esta situación debe ser temporal. Tras unos instantes, al ejecutar de nuevo el comando, el _status_ del nuevo nodo debería haber cambiado y mostrarse como `Ready`:
