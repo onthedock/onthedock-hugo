@@ -1,5 +1,5 @@
 +++
-title = "Solución al error de instalación de Kubernetes en Debian Jessie (Missin cgroups: memory)"
+title = "Solución al error de instalación de Kubernetes en Debian Jessie (Missing cgroups: memory)"
 thumbnail = "images/kubernetes.png"
 categories = ["ops"]
 tags = ["linux", "debian","kubernetes"]
