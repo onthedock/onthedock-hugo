@@ -1,5 +1,5 @@
 +++
-title = "Solucion al error missing cgroups memory en Debian Jessie"
+title = "Solución al error de instalación de Kubernetes en Debian Jessie (Missin cgroups: memory)"
 thumbnail = "images/kubernetes.png"
 categories = ["ops"]
 tags = ["linux", "debian","kubernetes"]
@@ -8,7 +8,7 @@ date = "2017-04-22T07:57:14+02:00"
 
 +++
 
-Al lanzar la inicialización del clúster con `kubeadm init` en Debian Jessie, las comprobaciones inciales indican que no se encuentran los _cgroups_ para la memoria. Los _cgroups_ son una de las piezas fundamentales en las que se basa Docker para _aislar_ los procesos de los contenedores, por lo que la inicialización del clúster de Kubernetes se detiene.
+Al lanzar la inicialización del clúster con `kubeadm init` en Debian Jessie, las comprobaciones inciales indican que no se encuentran los _cgroups_ para la memoria (échale un vistazo al artículo [La instalación de Kubernetes falla en Debian Jessie (missing cgroups: memory)]({{< relref "post/instalacion-de-kubernetes-falla-missing-cgroups-memory.md" >}})). Los _cgroups_ son una de las piezas fundamentales en las que se basa Docker para _aislar_ los procesos de los contenedores, por lo que la inicialización del clúster de Kubernetes se detiene.
 
 La solución es tan sencilla como habilitar los _cgroups_ durante el arranque.
 
