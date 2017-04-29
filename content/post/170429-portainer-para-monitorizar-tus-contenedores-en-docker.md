@@ -77,19 +77,19 @@ Abre un navegador y accede a `http://IP-nodo:9000/`.
 
 La primera vez que accedes a la URL de Portainer debes introducir el password del usuario `admin`.
 
-{{% img src="images/portainer-1-define-admin-password.png" %}}
+{{% img src="images/170429/portainer-1-define-admin-password.png" %}}
 
 Una vez introducido, puedes acceder a la UI de gestión de Portainer.
 
-{{% img src="images/portainer-2-first-login.png" %}}
+{{% img src="images/170429/portainer-2-first-login.png" %}}
 
 Para mostrar información sobre los contendores (imágenes, volúmenes, etc) en Docker, Portainer necesita conectarse -vía API- al _host_ en el que corre Docker. Tenemos dos opciones, un _endpoint remoto_ (opción por defecto) o conectar con el _host_ donde corre Portainer:
 
-{{% img src="images/portainer-3-remote_endpoint_by_default.png" %}}
+{{% img src="images/170429/portainer-3-remote_endpoint_by_default.png" %}}
 
 El problema es que, como vemos, al seleccionar un _endpoint_ local, se indica que hay que lanzar el contenedor de Portainer dando acceso al contenedor sobre `/var/run/docker.sock`:
 
-{{% img src="images/portainer-4-local_endpoint_require_docker.sock.png" %}}
+{{% img src="images/170429/portainer-4-local_endpoint_require_docker.sock.png" %}}
 
 Como este _detalle_ no se indica en ningún sitio hasta que estás intentando configurar Portainer, lo más probable es que no hayas lanzado el contenedor con el volumen necesario.
 
@@ -116,14 +116,14 @@ $
 
 Después de validarnos, podemos conectar con el _docker-engine_ local y visualizar el _dashboard_:
 
-{{% img src="images/portainer-5-dashboard.png" %}}
+{{% img src="images/170429/portainer-5-dashboard.png" %}}
 
 Desde la interfaz web podemos gestionar los contenedores, imágenes y volúmenes existentes:
 
-{{% img src="images/portainer-6-containers.png" caption="Contenedores." %}}
+{{% img src="images/170429/portainer-6-containers.png" caption="Contenedores." %}}
 
-{{% img src="images/portainer-7-images.png" caption="Imágenes." %}}
+{{% img src="images/170429/portainer-7-images.png" caption="Imágenes." %}}
 
-{{% img src="images/portainer-8-volumes.png" caption="Volúmenes." %}}
+{{% img src="images/170429/portainer-8-volumes.png" caption="Volúmenes." %}}
 
 En el próximo artículo me concentraré en usar [Portainer](/tags/portainer/) para realizar la gestión de Docker. 

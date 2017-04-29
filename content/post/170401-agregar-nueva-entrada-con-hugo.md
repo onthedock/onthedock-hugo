@@ -33,7 +33,7 @@ A continuación, elige un tema (o crea el tuyo propio con `hugo new theme`).
 
 Configura los parámetros usados en el tema que hayas escogido en el fichero `$HUGO/config.toml` y ¡listo!.
 
-{{% img src="images/hugo-publicacion-01.png" h="412" %}}
+{{% img src="images/170401/hugo-publicacion-01.png" h="412" %}}
 
 ## Crea una entrada
 
@@ -46,7 +46,7 @@ $ hugo new post/mi-primera-entrada.md
 
 Esta acción crea el fichero `$HUGO/content/post/nueva-entrada.md`.
 
-{{% img src="images/hugo-publicacion-02.png" h="256" %}}
+{{% img src="images/170401/hugo-publicacion-02.png" h="256" %}}
 
 ## Edita la entrada
 
@@ -82,7 +82,7 @@ Para crear estos ficheros a partir de tus entradas y el tema que has escogido, s
 
 Hugo hace su magia y genera todos los ficheros necesarios, analizando el contenido de los ficheros. Estos ficheros se generan en la carpeta $HUGO/public`.
 
-{{% img src="images/hugo-publicacion-03.png" h="428" %}}
+{{% img src="images/170401/hugo-publicacion-03.png" h="428" %}}
 
 ## Sube los ficheros al servidor web
 
@@ -104,11 +104,11 @@ Después, copio el contendio de `$HUGO/public` a `~/web` en el servidor remoto:
 $ cd $HUGO/public
 $ scp -r * pirate@rpi.local:/home/pirate/web
 ```
-{{% img src="images/hugo-publicacion-04.png" h="428" %}}
+{{% img src="images/170401/hugo-publicacion-04.png" h="428" %}}
 
 Desde un navegador, comprueba que el blog se ha actualizado con la nueva entrada.
 
-Puedes descargar la referencia para todo el proceso: [Publicación en Hugo: Referencia](../../images/hugo-publicacion-paso-a-paso.png)
+Puedes descargar la referencia para todo el proceso: [Publicación en Hugo: Referencia](../../images/170401/hugo-publicacion-paso-a-paso.png)
 
 
 

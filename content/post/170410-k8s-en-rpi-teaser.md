@@ -8,8 +8,8 @@ thumbnail = "images/kubernetes.png"
 
 +++
 
-{{% img src="images/itsalive.jpg" w="400" h="292" %}}
+{{% img src="images/170410/itsalive.jpg" w="400" h="292" %}}
 
 <!--more-->
 
-{{% img src="images/k8s-en-rpi.png" h="259" caption="Todos los componentes necesarios en Running" %}}
+{{% img src="images/170410/k8s-en-rpi.png" h="259" caption="Todos los componentes necesarios en Running" %}}
