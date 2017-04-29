@@ -1,8 +1,8 @@
 # Publicacion en GitHub Pages
-#baseurl = "https://onthedock.github.io/"
+baseurl = "https://onthedock.github.io/"
 
 # Publicacion en RPi
-baseurl = "http://192.168.1.9:8000/"
+#baseurl = "http://192.168.1.9:8000/"
 
 title = "On The Dock"
 theme = "aglaus-custom"
