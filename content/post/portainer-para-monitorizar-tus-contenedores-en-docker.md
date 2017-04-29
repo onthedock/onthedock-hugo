@@ -30,7 +30,7 @@ docker run -d -p 9000:9000 portainer/portainer
 
 Por muy minimalista que quiera ser la página, la verdad es que no les hubiera costado nada indicar que existen diferentes versiones disponibles de la imagen (como por ejemplo, la que proporciona soporte para ARM).
 
-Además, lanzando el comando _tal cual_, si quieres configurar Portainer para monitorizar el nodo _local_ donde, no funcionará (requiere montar `/var/run/docker.sock` en el contenedor).
+Además, lanzando el comando _tal cual_, si quieres configurar Portainer para monitorizar el nodo _local_, **no funcionará** (requiere montar `/var/run/docker.sock` en el contenedor).
 
 El artículo de Hypriot apunta a una imagen llamada `portainer/portainer:arm`, que ya no existe en DockerHub. Revisando las [etiquetas disponibles para las imágenes de Portainer](https://hub.docker.com/r/portainer/portainer/tags/), encontramos:
 
