@@ -8,7 +8,7 @@ draft = false
 
 +++
 
-Después de [conseguir arrancar Kubernetes tras la instalación]({{< ref "k8s-en-rpi-teaser.md" >}}), al intentar ejecutar comandos vía `kubectl` obtengo el mensaje de error `The connection to the server localhost:8080 was refused - did you specify the right host or port?`
+Después de [conseguir arrancar Kubernetes tras la instalación]({{< ref "170410-k8s-en-rpi-teaser.md" >}}), al intentar ejecutar comandos vía `kubectl` obtengo el mensaje de error `The connection to the server localhost:8080 was refused - did you specify the right host or port?`
 
 A continuación explico cómo solucionar el error y evitar que vuelva a mostrarse.
 
