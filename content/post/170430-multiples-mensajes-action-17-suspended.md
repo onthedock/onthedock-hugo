@@ -62,3 +62,11 @@ Ahora sólo queda esperar -normalmente unas cuantas horas- a ver qué pasa: hay 
 1. No se cuelga ni **k2** ni **k3**: Era un problema de alguno de los componetes actualizados que sólo afecta a la RPi 3.
 
 Informaré en cuanto tenga resultados.
+
+# Unas horas después...
+
+Ya tenngo resultados: la configuración de _rsyslog_ es la que causa el cuelgue del sistema en las RPi3.
+
+Échale un vistazo a cómo solucionar este error en la entrada: [El nodo k3 del clúster colgado de nuevo]({{% ref "170430-k3-colgado-de-nuevo.md" %}})
+
+
