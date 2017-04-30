@@ -12,6 +12,8 @@ En la entrada anterior [Múltiples mensajes 'action 17 suspended' en los logs]({
 
 Este resultado parece demostrar que la mala configuración de _rsyslog_ es la causante de los _cuelgues_ de las RPi 3 en el clúster de Kubernetes.
 
+**Actualización**: Las RPi3 siguen colgándose :(
+
 <!--more-->
 
 A modo de recordatorio, los cambios realizados en los dos nodos sobre Raspberry Pi 3 han sido (incluyo el nodo **k1** con RPi2):
