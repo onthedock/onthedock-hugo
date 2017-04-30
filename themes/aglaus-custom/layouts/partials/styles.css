@@ -309,13 +309,15 @@ article.li.sm .header-wrapper {
 
 .article-body h2 {
   padding: 1rem 0;
+  color: #55bbbb;
   border-bottom: 2px solid #eceff1;
 }
 
 .article-body h2:first-child { margin-top: 0; }
 
 .article-body h3 {
-  color: #cddc39;
+  color: #8997e4;
+  font-style: italic;
 }
 
 .article-body h4 {
