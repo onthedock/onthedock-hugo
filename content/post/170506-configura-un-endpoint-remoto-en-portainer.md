@@ -8,7 +8,7 @@ thumbnail = "images/portainer.png"
 
 +++
 
-En el artículo [Portainer para gestionar tus contenedores en Docker]({{< ref "170429-portainer-para-gestionar-tus-contenedores-en-docker.md" >}}) entrada anterior usamos **Portainer** para gestionar el Docker Engine local.
+En el artículo [Portainer para gestionar tus contenedores en Docker]({{< ref "170429-portainer-para-gestionar-tus-contenedores-en-docker.md" >}}) usamos **Portainer** para gestionar el Docker Engine local.
 
 En el artículo [Habilita el API remoto de Docker]({{< ref "170506-habilita-el-api-remoto-de-docker.md">}}) habilitamos el acceso remoto al API de Docker Engine.
 
