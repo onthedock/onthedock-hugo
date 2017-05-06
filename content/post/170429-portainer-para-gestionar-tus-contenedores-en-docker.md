@@ -1,18 +1,18 @@
 +++
 date = "2017-04-29T12:55:04+02:00"
-title = "Portainer para monitorizar tus contenedores en Docker"
-tags = ["raspberry pi", "docker", "portainer"]
+title = "Portainer para gestionar tus contenedores en Docker"
+tags = ["raspberry pi", "hypriot os", "docker", "portainer"]
 draft = false
-thumbnail = "images/docker.png"
+thumbnail = "images/portainer.png"
 categories = ["ops"]
 
 +++
-
 [Portainer](http://portainer.io/) es una herramienta ligera y _open-source_ de gestión de contenedores sobre Docker (o Docker Swarm). Portainer ofrece una interfaz gráfica para gestionar el _host_ Docker desde cualquier navegador, tiene soporte para Raspberry Pi y se puede desplegar como un simple contenedor.
 
 Espero que este artículo ayude a todos aquellos que tengan ganas de probar Portainer y evitarles los problemas que me he encontrado yo.
 
 <!--more-->
+{{% img src="images/portainer-logo.png" w="1106" h="361" %}}
 
 He estado buscando algún tipo de solución gráfica para monitorizar las Raspberry Pi ya que, por algún motivo, los nodos _worker_ del clúster de Kubernetes se _cuelgan_.
 
