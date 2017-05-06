@@ -1,10 +1,20 @@
 +++
 draft = true
-tags = [""]
-categories = [""]
+
+# TAGS
+# HW->OS->PRODUCT->specific tag
+# Example: "raspberry pi", "hypriot os", "kubernetes"
+
+tags = []
+
+# CATEGORIES = "dev" / "ops"
+categories = []
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/thumbnail.jpg"
+
+# SHORTCODES (for reference)
+
 # YouTube
 # {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
 # Imagenes

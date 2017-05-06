@@ -1,7 +1,7 @@
 +++
 thumbnail = "images/kubernetes.png"
 categories = ["ops"]
-tags = ["raspberry pi", "kubernetes"]
+tags = ["raspberry pi", "hypriot os", "kubernetes"]
 draft = false
 date = "2017-04-15T16:27:30+02:00"
 title = "Cómo agregar un nodo a un cluster Kubernetes"

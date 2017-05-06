@@ -2,7 +2,7 @@
 
 thumbnail = "images/linux.png"
 categories = ["ops"]
-tags = ["linux", "docker", "ubuntu"]
+tags = ["linux", "ubuntu", "docker"]
 date = "2017-01-10T15:12:46+01:00"
 title = "Instala Docker en Ubuntu Server 16.04"
 

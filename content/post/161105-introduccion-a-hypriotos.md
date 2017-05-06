@@ -1,6 +1,6 @@
 +++
 thumbnail = "images/hypriot.png"
-tags = ["Raspberry Pi", "linux", "Hypriot OS" , "docker"]
+tags = ["raspberry pi", "hypriot os", "docker"]
 categories = ["ops"]
 date = "2016-11-05T10:37:47+01:00"
 title = "Introducción a Hypriot OS"

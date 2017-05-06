@@ -1,7 +1,7 @@
 +++
 date = "2017-04-30T11:39:20+02:00"
 title = "El nodo k3 del clúster colgado de nuevo"
-tags = ["debian", "raspberry pi"]
+tags = ["raspberry pi", "hypriot os", "kubernetes"]
 draft = false
 thumbnail = "images/raspberry_pi.png"
 categories = ["ops"]
@@ -12,7 +12,9 @@ En la entrada anterior [Múltiples mensajes 'action 17 suspended' en los logs]({
 
 Este resultado parece demostrar que la mala configuración de _rsyslog_ es la causante de los _cuelgues_ de las RPi 3 en el clúster de Kubernetes.
 
-**Actualización**: Las RPi3 siguen colgándose :(
+**Actualización**: El nodo **k2** sobre RPi3 sigue colgándose :(
+
+**Actualización II**: [Parece solucionado]({{< ref "170506-troubleshooting-kubernetes-ii.md">}})
 
 <!--more-->
 

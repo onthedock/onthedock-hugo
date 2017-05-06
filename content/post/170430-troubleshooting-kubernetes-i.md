@@ -1,7 +1,7 @@
 +++
 draft = false
 thumbnail = "images/kubernetes.png"
-categories = ["kubernetes", "troubleshooting kubernetes"]
+categories = ["raspberry pi", "hypriot os", "kubernetes", "troubleshooting kubernetes"]
 tags = ["ops"]
 date = "2017-04-30T15:24:35+02:00"
 title = "Troubleshooting Kubernetes (I)"

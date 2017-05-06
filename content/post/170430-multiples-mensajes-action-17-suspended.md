@@ -4,7 +4,7 @@ title = "Múltiples mensajes 'action 17 suspended' en los logs"
 draft = false
 thumbnail = "images/raspberry_pi.png"
 categories = ["ops"]
-tags = ["debian", "raspberry pi"]
+tags = ["raspberry pi", "hypriot os"]
 
 +++
 Investigando las causas por las que los dos nodos con Raspberry Pi 3 se _cuelgan_, he encontrado múltiples apariciones de este mensaje en `/var/log/messages`:
@@ -67,6 +67,6 @@ Informaré en cuanto tenga resultados.
 
 Ya tenngo resultados: la configuración de _rsyslog_ es la que causa el cuelgue del sistema en las RPi3.
 
-Échale un vistazo a cómo solucionar este error en la entrada: [El nodo k3 del clúster colgado de nuevo]({{% ref "170430-k3-colgado-de-nuevo.md" %}})
+Échale un vistazo a cómo solucionar este error en la entrada: [El nodo k3 del clúster colgado de nuevo]({{% ref "170430-k3-colgado-de-nuevo.md" %}}).
 
 

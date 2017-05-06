@@ -3,7 +3,7 @@ thumbnail = "images/kubernetes.png"
 date = "2017-04-14T18:10:34+02:00"
 title = "Error: The connection to the server localhost:8080 was refused"
 categories = ["ops"]
-tags = ["kubernetes", "errores conocidos"]
+tags = ["raspberry pi", "hypriot os", "kubernetes", "errores conocidos"]
 draft = false
 
 +++
