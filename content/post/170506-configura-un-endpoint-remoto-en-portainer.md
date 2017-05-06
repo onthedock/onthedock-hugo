@@ -15,7 +15,7 @@ En el artículo [Habilita el API remoto de Docker]({{< ref "170506-habilita-el-a
 En este artículo configuramos **Portainer** para conectar con un _endpoint_ remoto (el API expuesta de un Docker Engine).
 <!--more-->
 
-Accedemos a **Portainer** y selecciona _Endpoints_ en el panel izquierdo.
+Accede a **Portainer** y selecciona _Endpoints_ en el panel izquierdo.
 
 Para configurar el _endopoint_ remoto (no seguro) sólo necesitas proporcionar un nombre para el _endpoint_ y la URL de acceso:
 
