@@ -2,7 +2,7 @@
 title = "Solución al error de instalación de Kubernetes en Debian Jessie (Missing cgroups: memory)"
 thumbnail = "images/kubernetes.png"
 categories = ["ops"]
-tags = ["linux", "debian", "docker", kubernetes", "errores conocidos"]
+tags = ["linux", "debian", "docker", "kubernetes", "errores conocidos"]
 draft = false
 date = "2017-04-22T07:57:14+02:00"
 
