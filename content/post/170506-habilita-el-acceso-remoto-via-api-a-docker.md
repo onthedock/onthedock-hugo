@@ -1,6 +1,6 @@
 +++
 date = "2017-05-06T15:23:36+02:00"
-title = "Habilita el API remoto de Docker"
+title = "Habilita el acceso remoto vía API a Docker"
 categories = ["dev", "ops"]
 tags = ["linux", "debian", "docker"]
 draft = false
