@@ -3,7 +3,7 @@ title = "Tags, categorias y organización en Hugo"
 draft = false
 thumbnail = "images/hugo.png"
 categories = ["dev"]
-tags = []
+tags = ["hugo"]
 date = "2017-05-06T06:23:50+02:00"
 
 +++
