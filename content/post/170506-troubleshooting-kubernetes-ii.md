@@ -2,7 +2,7 @@
 title = "Troubleshooting Kubernetes (II)"
 thumbnail = "images/kubernetes.png"
 categories = ["ops"]
-tags = ["raspberry pi", "hypriot os", "kubernetes", "troubleshooting kubernetes"]
+tags = ["raspberry pi", "hypriot os", "kubernetes", "troubleshooting"]
 draft = false
 date = "2017-05-06T05:21:09+02:00"
 
@@ -28,7 +28,7 @@ Antes de empezar a borrar _a lo loco_, revisé el contenido de estas carpetas.
 En `/var/run/kubernetes`:
 
 ```shell
-$ ls -la /var/run/kubernetes/ 
+$ ls -la /var/run/kubernetes/
 total 8
 drwxr-xr-x  2 root root   80 May  5 18:43 .
 drwxr-xr-x 18 root root  600 May  5 18:43 ..
