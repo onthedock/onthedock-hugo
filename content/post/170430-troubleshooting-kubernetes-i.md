@@ -1,8 +1,8 @@
 +++
 draft = false
 thumbnail = "images/kubernetes.png"
-categories = ["raspberry pi", "hypriot os", "kubernetes", "troubleshooting kubernetes"]
-tags = ["ops"]
+categories = ["ops"]
+tags = ["raspberry pi", "hypriot", "kubernetes", "troubleshooting"]
 date = "2017-04-30T15:24:35+02:00"
 title = "Troubleshooting Kubernetes (I)"
 
@@ -27,7 +27,7 @@ k2        NotReady   15d       v1.6.2    <none>        Raspbian GNU/Linux 8 (jes
 k3        NotReady   14d       v1.6.2    <none>        Raspbian GNU/Linux 8 (jessie)   4.4.50-hypriotos-v7+
 ```
 
-## Ping 
+## Ping
 
 ### Ping al nombre del nodo
 
@@ -70,7 +70,7 @@ $
 
 En este caso, el nodo **k2** sí que responde a ping a la IP, mientras que el nodo **k3** actúa como si estuviera apagado o con la red deshabilitada.
 
-### SSH 
+### SSH
 
 Aunque el nodo **k2** responde a ping, no es posible conectar vía SSH; el intento de conectar no tiene éxito, pero tampoco falla (por _timeout_, por ejemplo). He probado a conectar tanto desde el portátil como desde el nodo **k1**, con el mismo resulado:
 
@@ -280,4 +280,3 @@ ls: cannot access /var/log/kube*: No such file or directory
 ```
 
 Es probable que la documentación no esté actualizada, así que continuaré en cuanto encuentre los logs para poder revisarlos.
-
