@@ -23,11 +23,11 @@ La solución de `RenaudWasTaken` al problema de consumo excesivo de memoria (32G
 
 Antes de empezar a borrar _a lo loco_, revisé el contenido de estas carpetas.
 
-## `/var/run/kubernetes`
+# `/var/run/kubernetes`
 
 En `/var/run/kubernetes`:
 
-```shell
+```sh
 $ ls -la /var/run/kubernetes/
 total 8
 drwxr-xr-x  2 root root   80 May  5 18:43 .
@@ -38,15 +38,15 @@ drwxr-xr-x 18 root root  600 May  5 18:43 ..
 
 Estos ficheros son certificados, por lo que no parecen implicados en el problema y decido no borrarlos.
 
-## `/var/lib/kubelet`
+# `/var/lib/kubelet`
 
-### Nodo **k2**
+## Nodo **k2**
 
 Al intentar listar el contenido de la carpeta `/var/lib/kubelet/pods`, la Raspberry Pi 3 ha tardado una eternidad (en los primeros intentos he creído que había dejado de responder).
 
 Finalmente, el resultado del comando ha mostrado una gran cantidad de carpetas dentro de esta carpeta:
 
-```shell
+```sh
 $ ls -la /var/lib/kubelet/pods
 ...
 drwx------    2 root root    4096 May  4 23:11 wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_flannel-cfg.deleting~443381808.deleting~108562981.deleting~938554959.deleting~743974077.deleting~207819844.deleting~559419937.deleting~142152710.deleting~494766199.deleting~952339001
@@ -63,7 +63,7 @@ Sin embargo, la existencia de estas carpetas parece indicar que la eliminación 
 
 He lanzado `rm -rf /var/lib/kubelet/pods/` y el comando ha fallado indicando que uno de los _pods_ estaba en uso. Así que he eliminado poco a poco los _pods_ hasta que al final:
 
-```shell
+```sh
 $ ls /var/lib/kubelet/pods/ -la
 total 24
 drwxr-x--- 4 root root 12288 May  5 18:40 .
@@ -76,11 +76,11 @@ Estos _pods_, sean los que sean, están en uso (no tengo nada desplegado en el c
 
 Tras la limpieza, he reiniciado el nodo.
 
-### Nodo **k3**
+## Nodo **k3**
 
 El nodo **k3** no presentaba estas _carpetas sospechosas_, pero también he realizado limpieza:
 
-```shell
+```sh
 $ rm -rf /var/lib/kubelet/pods/
 rm: cannot remove ‘/var/lib/kubelet/pods/3a5e2819-21e5-11e7-bcfd-b827eb650fdb/volumes/kubernetes.io~configmap’: Directory not empty
 rm: cannot remove ‘/var/lib/kubelet/pods/71290201-31bb-11e7-a0ed-b827eb650fdb/volumes/kubernetes.io~secret/kube-proxy-token-7zk2k’: Device or resource busy
@@ -90,13 +90,13 @@ $
 
 Igual que en el nodo **k2**, he reiniciado.
 
-## Resultados
+# Resultados
 
 Los nodos **k2** y **k3** siguen en estado `Ready` tras unas siete y ocho horas, que es bastante más de lo que _aguantaban_ antes.
 
 He comprobado que en la carpeta `/var/lib/kubelet/pods` sólo aparecen dos _pods_ (en el nodo **k2**):
 
-```shell
+```sh
 $ ls -la /var/lib/kubelet/pods/
 total 24
 drwxr-x--- 4 root root 12288 May  5 18:40 .
@@ -108,7 +108,7 @@ $
 
 En el nodo **k3**:
 
-```shell
+```sh
 $ ls -la /var/lib/kubelet/pods/
 total 28
 drwxr-x--- 5 root root 12288 May  5 19:44 .

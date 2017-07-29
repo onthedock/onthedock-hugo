@@ -16,13 +16,13 @@ En función de la distribución que uses, verás que el paquete de instalación 
 
 En la guía de instalación de Kubernetes [Installing Kubernetes on Linux with kubeadm](https://kubernetes.io/docs/getting-started-guides/kubeadm/) se indica que para instalar Docker, el comando a usar en Ubuntu o HypriotOS es mediante:
 
-```shell
+```sh
 # apt-get install -y docker.io
 ```
 
 Sin embargo, cuando he lanzado el comando en HypriotOS me ha llamado la atención el aviso `The following packages will be REMOVED: docker-engine`:
 
-```shell
+```sh
 $ apt-get install -y docker.io
 Reading package lists... Done
 Building dependency tree

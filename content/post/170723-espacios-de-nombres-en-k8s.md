@@ -235,7 +235,7 @@ metadata:
    namespace: developers  
 spec:
    ...
-``` 
+```
 
 Creamos un _deployment_:
 
@@ -324,7 +324,7 @@ Events:
 
 El _deployment_ crea un _ReplicaSet_, que a su vez intenta crear uno o más _pods_. Como en el _Deployment_ no se ha especificado un límite para la CPU y memoria del _pod_ y lo hemos exigido en las cuotas impuestas al _namespace_, la creación del _pod_ falla. El mensaje de error es claro:
 
-```
+```sh
 Error creating: pods "nginx-4217019353-" is forbidden: failed quota: compute-resources: must specify limits.cpu,limits.memory,requests.cpu,requests.memory
 ```
 
@@ -409,4 +409,4 @@ También hemos visto cómo crear un espacio de nombres, obtener información sob
 
 Hemos aplicado cuotas para limitar los recursos disponibles y hemos visto cómo afecta a la creación de _deployments_ en el espacio de nombres.
 
-Finalmente, hemos eliminado el espacio de nombres (y todos los objetos contenidos en él). 
+Finalmente, hemos eliminado el espacio de nombres (y todos los objetos contenidos en él).

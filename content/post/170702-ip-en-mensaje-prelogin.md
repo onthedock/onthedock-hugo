@@ -26,7 +26,7 @@ En primer lugar necesitamos ejecutar un _script_ durante el arranque del sistema
 
 Ya que no vamos a escribir nuestro propio servicio, usaremos el servicio _local_. Para ello, hay que añadir nuestro _script_ en la carpeta `/etc/local.d/`
 
-```shell
+```sh
 rc-update add local default
 ```
 
@@ -42,10 +42,9 @@ Después de convertir el _script_ en ejecutable, he reinciado la máquina para p
 
 Tras los mensajes de arranque, se muestra:
 
-```
+```sh
 192.168.1.208
 alpine login:
 ```
 
 Así no hace falta hacer _login_ en la máquina para obtener la IP.
-

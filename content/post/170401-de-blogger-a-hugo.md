@@ -13,7 +13,7 @@ Hugo es un _generador de sitios estáticos_ a partir de ficheros en formato _mar
 
 <!--more-->
 
-## Motivación
+# Motivación
 
 Aunque llevo _toda la vida_ con un blog personal en [Blogger](https://www.blogger.com/), Google ha desatendido la plataforma y poco a poco se ha ido quedando atrás en prestaciones.
 
@@ -23,11 +23,11 @@ Mi objetivo era ejecutar Ghost en la Raspberry Pi, pero al no existir soporte de
 
 Por otro lado, el objetivo del blog en la Raspberry Pi es documentar el proceso de aprendizaje sobre  Docker y Kubernetes (además de Linux). A diferencia de lo que pasaba en mi anterior trabajo, donde estuve usando Hugo de forma _experimental_, ahora estas notas no contienen ningún tipo de información privada, por lo que publicaré también los artículos en internet.
 
-En mis pruebas Hugo se integró en el flujo de trabajo diario sin interferir lo más mínimo, por lo que resultó una experiencia muy positiva.  
+En mis pruebas Hugo se integró en el flujo de trabajo diario sin interferir lo más mínimo, por lo que resultó una experiencia muy positiva.
 
 Quiero combinar este blog (orientado al avance, a las pruebas, es decir, al proceso) con Dokuwiki (como almacén de conocimiento y documentación). Sin embargo, con Dokuwiki la  _dualidad_ entre en entorno _local_ (en casa) y en internet es más difícil de conseguir de forma directa (usando recursos gratuitos). Tengo un [contenedor en OpenShift](http://wiki-ameisin.rhcloud.com/) con notas sobre diferentes temas, pero en esta instancia de Dokuwiki en OpenShift las carpetas de datos tienen una estructura diferente a la estándar, lo que dificulta mantener _sincronizadas_ la versión _local_ y la alojada en el _cloud_ de Red Hat.
 
-## Hugo
+# Hugo
 
 La idea detrás de un generador de sitios estáticos es que, en muchas ocasiones, no es necesario disponer de toda la potencia que ofrecen las plataformas de _blogging_ modernas como [Wordpress](https://wordpress.org), etc. Además, estas plataformas no son siempre fáciles de instalar, configurar y mantener en tu propio entorno local.
 
@@ -39,7 +39,7 @@ Estos _generadores de sitios estáticos_ parten de ficheros en formato _markdown
 
 Al final del proceso, tenemos un conjunto de ficheros _web_ (HTML, javascript, css) que podemos alojar en cualquier servidor (o en servicios como [GitHub Pages](https://pages.github.com) o [Bitbucket](https://confluence.atlassian.com/bitbucket/publishing-a-website-on-bitbucket-cloud-221449776.html)).
 
-## Siguientes pasos
+# Siguientes pasos
 
 En estas fase inicial, únicamente tengo un contenedor con un servidor web (Nginx) sirviendo el sitio estático generado por Hugo (en un portátil).
 

@@ -14,7 +14,7 @@ La instalación de Kubernetes se realiza de forma casi automática gracias al _s
 
 Para no _deshacer_ la instalación de Kubernetes sobre Raspberry Pi, he creado una máquina virtual con Debian 3 (_Jessie_):
 
-```shell
+```sh
 # uname -a
 Linux k8s 3.16.0-4-amd64 #1 SMP Debian 3.16.39-1+deb8u2 (2017-03-07) x86_64 GNU/Linux
 ```
@@ -25,7 +25,7 @@ Uno de los requisitos para instalar Kubernetes es tener Docker instalado. En mi 
 
 Verifico que Docker está instalado:
 
-```shell
+```sh
 # docker version
 Client:
  Version:      17.04.0-ce
@@ -48,14 +48,14 @@ Server:
 
 Antes de empezar la instalación, he actualizado el sistema mediante:
 
-```shell
+```sh
 # apt-get update && apt-get upgrade
 ...
 ```
 
 A partir de aquí, sigo las instrucciones de la guía oficial.
 
-```shell
+```sh
 # apt-get update && apt-get install -y apt-transport-https
 ...
 Reading state information... Done
@@ -66,14 +66,14 @@ apt-transport-https is already the newest version.
 
 Obtenemos la clave GPG de los paquetes de Kubernetes:
 
-```shell
+```sh
 # curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 OK
 ```
 
 Añadimos el repositorio de Kubernetes:
 
-```shell
+```sh
 apt-get update && apt-get install -y apt-transport-https
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
@@ -83,7 +83,7 @@ EOF
 
 Y ya sólo nos queda actualizar la información e instalar los componentes de Kubernetes:
 
-```shell
+```sh
 # apt-get update
 ...
 Fetched 22.1 kB in 3s (6,784 B/s)
@@ -107,7 +107,7 @@ Ya tenemos instalado Kubernetes en nuestro sistema.
 
 El siguiente paso es inicializar el clúster con `kubeadm init`.
 
-```shell
+```sh
 # kubeadm init
 [kubeadm] WARNING: kubeadm is in beta, please do not use it for production clusters.
 [init] Using Kubernetes version: v1.6.0
@@ -147,7 +147,7 @@ DOCKER_VERSION: 17.04.0-ce
 [preflight] WARNING: hostname "k8s" could not be reached
 [preflight] WARNING: hostname "k8s" lookup k8s on 80.58.61.254:53: no such host
 [preflight] Some fatal errors occurred:
-	missing cgroups: memory
+   missing cgroups: memory
 [preflight] If you know what you are doing, you can skip pre-flight checks with `--skip-preflight-checks`
 #
 ```

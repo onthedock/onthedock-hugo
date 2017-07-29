@@ -23,7 +23,7 @@ En Docker, este riesgo se encuentra _aislado_ **dentro** del contenedor. Pese a 
 
 Si le echas un vistazo a la [configuración del contenedor oficial de Nginx](https://github.com/nginxinc/docker-nginx/blob/0c7611139f2ce7c5a6b1febbfd5b436c8c7d2d53/mainline/alpine/nginx.conf) verás que la primera instrucción es:
 
-```
+```sh
 user nginx;
 ```
 
@@ -53,8 +53,8 @@ Considera el siguiente caso; hemos creado una imagen con Dokuwiki, por ejemplo, 
 
 Un usuario se descarga esta imagen y lanza un contenedor, montando una carpeta local de su _host_ desde la que quiere servir su propia wiki. Para ello lanza un comando como:
 
-```shell
-$ docker run -d --name miwiki -p 80:80 -v /wiki:/dokuwiki/data/pages xaviaznar/nginx-dokuwiki-seguro 
+```sh
+docker run -d --name miwiki -p 80:80 -v /wiki:/dokuwiki/data/pages xaviaznar/nginx-dokuwiki-seguro 
 ```
 
 (Es sólo un ejemplo ilustrativo, este _montaje_ de [carpetas](https://www.dokuwiki.org/devel:dirlayout) no es una buena idea).
@@ -77,7 +77,8 @@ Como indica [James Bottomley](https://twitter.com/jejb_), evangelista de contend
 
 > "This is a significant problem for running unprivileged containers alongside standard images. If we’ve all written out container images for different values of root, it’ll be a horrible nasty mess somewhere."
 
->  <small>Este es un problema significativo de cara a ejecutar contenedores sin privilegios junto a imágenes estándar. Si hemos creado imágenes de contenedores para diferentes valores de `root`, en algún sitio habrá un lío tremendo.</small>
+Traducción:
+
+> Este es un problema significativo de cara a ejecutar contenedores sin privilegios junto a imágenes estándar. Si hemos creado imágenes de contenedores para diferentes valores de `root`, en algún sitio habrá un lío tremendo.
 
 El artículo comenta algunas soluciones que se están desarrollando para solventar el problema, pero por ahora, el dilema entre seguridad y el acceso al _host_ sigue estando sobre la mesa.
-

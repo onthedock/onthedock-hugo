@@ -18,9 +18,9 @@ Siguiendo las instrucciones de la página de Hugo sobre [cómo publicar en Githu
 
 Creo una carpeta local llamada `onthedock-githubpages`.
 
-Dentro de la carpeta, lanzo: 
+Dentro de la carpeta, lanzo:
 
-```shell
+```sh
 $ git clone https://github.com/onthedock/onthedock-hugo.git`
 Cloning into '.'...
 warning: You appear to have cloned an empty repository.
@@ -29,7 +29,7 @@ $
 
 Compruebo que tengo un repositorio local inicializado:
 
-```shell
+```sh
 $ git status
 On branch master
 
@@ -41,7 +41,7 @@ $
 
 Copio el contenido del _site_ de Hugo (que previamente he movido a otra carpeta):
 
-```shell
+```sh
 $ git status
 On branch master
 Initial commit
@@ -61,7 +61,7 @@ Eliminamos la carpeta `$HUGO/public`.
 
 Añadimos un [_submodulo_](https://git-scm.com/book/es/v1/Las-herramientas-de-Git-Subm%C3%B3dulos):
 
-```shell
+```sh
 $ git submodule add -b master https://github.com/onthedock/onthedock.github.io.git public
 Cloning into '/Users/xavi/Dropbox/dev/hugo/onthedock-githubpages/public'...
 remote: Counting objects: 3, done.
@@ -73,7 +73,7 @@ $
 
 Comprobamos el estado del repositorio:
 
-```shell
+```sh
 $ git status
 On branch master
 
@@ -98,14 +98,14 @@ $
 
 Añadimos los ficheros del _andamiaje_ de Hugo:
 
-```shell
+```sh
 $ git add .
 $
 ```
 
 Verifico que el repositorio _remoto_ es el correcto:
 
-```shell
+```sh
 git remote -v
 origin https://github.com/onthedock/onthedock-hugo.git (fetch)
 origin https://github.com/onthedock/onthedock-hugo.git (push)
@@ -114,7 +114,7 @@ $
 
 Y subo el sitio al _repo_ remoto: `onthedock-hugo`:
 
-```shell
+```sh
 $  git push origin master
 error: src refspec master does not match any.
 error: failed to push some refs to 'https://github.com/onthedock/onthedock-hugo.git'
@@ -125,7 +125,7 @@ Oopps.
 
 El problema era que no había guardado ningún cambio, por lo que no existía la rama `master`. Aunque he interpretado correctamente el mensaje, he corregido el problema en el extremo opuesto (en el repositorio remoto); he creado un fichero `License.md` y he lanzado `git pull`:
 
-```shell
+```sh
 $ git pull origin
 remote: Counting objects: 3, done.
 remote: Compressing objects: 100% (2/2), done.
@@ -140,7 +140,7 @@ $
 
 Vuelvo a intentarlo y esta vez sí:
 
-```shell
+```sh
 $ git commit
 
 (había añadido los cambios al _staging area_ pero no los había guardado con _commit_)
@@ -161,7 +161,7 @@ $
 
 Ahora voy a generar el sitio (después de actualizar el fichero `config.toml` para que el parámetro `baseURL` apunte a la dirección _pública_ del sitio en GitHub):
 
-```shell
+```sh
 $ hugo
 Started building sites ...
 Built site for language en:
@@ -191,7 +191,7 @@ $
 
 El contenido de la carpeta `$HUGO/public`  está contenida en un _submódulo_ de Git.
 
-```shell
+```sh
 $ cd public/
 $ git status
 On branch master
@@ -215,7 +215,7 @@ $
 
 Ahora, desde este _sub-repositorio_, lanzo `git add`:
 
-```shell
+```sh
 $ git add .
 $ git status
 On branch master
@@ -238,13 +238,13 @@ Changes to be committed:
 
 Lanzo un _commit_ para guardar los cambios:
 
-```shell
+```sh
 git commit
 ```
 
 Verifico que el repositorio remoto es `onthedock.github.io`:
 
-```shell
+```sh
 $ git remote -v
 origin https://github.com/onthedock/onthedock.github.io.git (fetch)
 origin https://github.com/onthedock/onthedock.github.io.git (push)
@@ -253,7 +253,7 @@ $
 
 Ahora, subo los cambios al repositorio de GitHub Pages:
 
-```shell
+```sh
 $ git push origin master
 Username for 'https://github.com': onthedock
 Password for 'https://onthedock@github.com':
@@ -276,7 +276,7 @@ Se puede renombrar el repositorio desde GitHub, pero eso supone que también hay
 
 Para ello, usa el comando:
 
-```shell
+```sh
 $ git remote set-url origin https://github.com/onthedock/onthedock.github.io.git
 $ git remote -v
 origin https://github.com/onthedock/onthedock.github.io.git (fetch)

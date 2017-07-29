@@ -17,7 +17,7 @@ Para tener los diferentes ficheros implicados en el proceso organizados de forma
 
 <!--more-->
 
-## Dockerfile
+# Dockerfile
 
 El primero paso para ejecutar un contenedor es crear la imagen en la que está basado. Para ello debes crear un fichero `Dockerfile` en el que se indica la imagen base usada y los diferentes pasos de instalación de paquetes, configuración de usuarios, volúmenes y puertos expuestos.
 
@@ -29,11 +29,11 @@ Todos los ficheros relacionados con la _creación_ de la imagen se colocan en un
 
 En esta carpeta también se incluyen un fichero con instrucciones para la creación de la imagen (condiciones en las que reutilizar la cache, puntos a tener en cuenta, etc) y un _script_ para lanzar la creación de la imagen de forma siempre igual (quizás el script borra ficheros temporales o descargados en ejecuciones anteriores, por ejemplo).
 
-## Construcción de la imagen
+# Construcción de la imagen
 
 Una vez creado el `Dockerfile`, _construyes_ la imagen mediante `docker build`. Aunque en general la construcción se realiza mediante un sólo comando de la forma `docker build -t {repositorio/etiqueta} .`, puede ser interesante disponer de documentación con indicaciones sobre las reglas de etiquetado de la imagen definidas por la empresa o similar.
 
-## Ejecución del contenedor
+# Ejecución del contenedor
 
 Finalmente la creación de contenedores basados en la imagen se realiza mediante un comando `docker run`.
 
@@ -43,11 +43,11 @@ Para evitar errores o simplemente para no teclear una y otra vez comandos largu�
 
 Estos ficheros se guardan en el carpeta llamada `run`; básicamente el comando para lanzar la creación del contenedor de forma homogénea y las instrucciones con información sobre el uso del contenedor, volúmenes, etc.
 
-## Carpetas
+# Carpetas
 
 Para estructurar todos los ficheros implicados en el proceso de creación de un contenedor he definido la siguiente estructura de carpetas:
 
-```shell
+```sh
 ./nombre-contenedor/
  |
  ├─Readme.md
@@ -63,7 +63,7 @@ Para estructurar todos los ficheros implicados en el proceso de creación de un 
  | ├─Run-Instructions.md
 ```
 
-## Motivación
+# Motivación
 
 No he encontrado ningún artículo sobre la organización de los ficheros implicados en el creación de imágenes o de los flujos de trabajo asociados a estos procesos. Tampoco sobre las normas a la hora de etiquetar las imágenes o si se realizan validaciones a la hora de obtener/subir imágenes de repositorios públicos.
 

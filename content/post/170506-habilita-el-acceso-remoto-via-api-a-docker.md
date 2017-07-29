@@ -38,14 +38,14 @@ Esta opción debe pasarse en el arranque del _daemon_ de Docker. Para configurar
 
 Primero, hacemos una copia de seguridad del fichero `/lib/systemd/system/docker.service`:
 
-```shell
+```sh
 # cp /lib/systemd/system/docker.service /lib/systemd/system/docker.service.original
 #
 ```
 
 Editamos el fichero `/lib/systemd/system/docker.service`
 
-```shell
+```sh
 # nano /lib/systemd/system/docker.service
 [Unit]
 Description=Docker Application Container Engine
@@ -97,7 +97,7 @@ Recargamos la configuración y reiniciamos el servicio.
 
 Para comprobar que hemos el API funciona, lanzamos una consulta usando _curl_:
 
-```shell
+```sh
 # systemctl daemon-reload
 # systemctl restart docker
 # curl http://localhost:2375/version

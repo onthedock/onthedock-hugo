@@ -15,11 +15,11 @@ En este artículo protegemos el acceso usando TLS de manera que sólo se permita
 
 Seguiremos las instrucciones oficiales de Docker [Protect the Docker daemon socket](https://docs.docker.com/engine/security/https/).
 
-## Creamos una CA, claves para el cliente y el servidor con OpenSSL
+# Creamos una CA, claves para el cliente y el servidor con OpenSSL
 
 Primero, en la máquina _host_ del Docker _daemon_, generamos las claves públicas y privadas de la CA (_Certification Authority_, la entidad certificadora):
 
-```shell
+```sh
 # openssl genrsa -aes256 -out ca-key.pem 4096
 Generating RSA private key, 4096 bit long modulus
 ............................................................................................................................................................................................................................................++
@@ -32,7 +32,7 @@ Verifying - Enter pass phrase for ca-key.pem:
 
 Y a continuación:
 
-```shell
+```sh
 # openssl req -new -x509 -days 365 -key ca-key.pem -sha256 -out ca.pem
 Enter pass phrase for ca-key.pem:
 You are about to be asked to enter information that will be incorporated
@@ -54,7 +54,7 @@ Email Address []: {REDACTED}
 
 Ahora que tenemos una CA, podemos crear la clave para el servidor y la petición de firmado del certificado (_certificate signing request_, CSR). Por favor, verifica que `Common Name` (es decir, el _FQDN_ o _YOUR Name_) coincide con el nombre del _host_ que vas a usar para conectar a Docker.
 
-```shell
+```sh
 # openssl genrsa -out server-key.pem 4096
 Generating RSA private key, 4096 bit long modulus
 ............................................................................................................................................................................................................................................................................................................................++
@@ -68,7 +68,7 @@ A continuación vamos a firmar la clave pública con nuestra CA.
 
 Como las conexiones TLS pueden realizarse usando la dirección IP o un nombre DNS, deben especificarse durante la creación del certificado.
 
-```shell
+```sh
 # echo subjectAltName = IP:192.168.1.20,IP:127.0.0.1 > extfile.cnf
 # openssl x509 -req -days 365 -sha256 -in server.csr -CA ca.pem -CAkey ca-key.pem \
 >   -CAcreateserial -out server-cert.pem -extfile extfile.cnf
@@ -79,13 +79,13 @@ Enter pass phrase for ca-key.pem:
 #
 ```
 
-## Autenticación del cliente
+# Autenticación del cliente
 
 Para autenticar al cliente, crearemos una clave de cliente y una petición de firmado del certificado.
 
 > Para simplificar, los siguientes dos pasos pueden realizarse desde la máquina donde se encuentra el Docker _daemon_.
 
-```shell
+```sh
 # openssl genrsa -out key.pem 4096
 Generating RSA private key, 4096 bit long modulus
 ...............................................................................++
@@ -97,14 +97,14 @@ e is 65537 (0x10001)
 
 Para que la clave permita autenticar al cliente, creamos un fichero de configuración de extensiones:
 
-```shell
+```sh
 # echo extendedKeyUsage = clientAuth > extfile.cnf
 #
 ```
 
 Ahora firmamos la clave:
 
-```shell
+```sh
 # openssl x509 -req -days 365 -sha256 -in client.csr -CA ca.pem -CAkey ca-key.pem \
 >   -CAcreateserial -out cert.pem -extfile extfile.cnf
 Signature ok
@@ -116,7 +116,7 @@ Enter pass phrase for ca-key.pem:
 
 Después de haber generado `cert.pem` y `server-cert.pem` podemos eliminar las peticiones de firmado:
 
-```shell
+```sh
 # ls
 ca-key.pem  ca.srl    client.csr  extfile.cnf  server-cert.pem	server-key.pem
 ca.pem	    cert.pem  key.pem     server.csr
@@ -126,13 +126,13 @@ removed ‘server.csr’
 #
 ```
 
-## Protección de las claves
+# Protección de las claves
 
 Con una máscara `umask` por defecto de `022` las claves secretas que hemos generado dan a todo el mundo acceso de lectura y de escritura a tu usuario y tu grupo.
 
 Para proteger las claves de daños accidentales, vamos a eliminar los permisos de escritura sobre ellas. Para hacerlas de sólo lectura para tu usuario, usamos:
 
-```shell
+```sh
 # chmod -v 0400 ca-key.pem key.pem server-key.pem
 mode of ‘ca-key.pem’ changed from 0644 (rw-r--r--) to 0400 (r--------)
 mode of ‘key.pem’ changed from 0644 (rw-r--r--) to 0400 (r--------)
@@ -142,7 +142,7 @@ mode of ‘server-key.pem’ changed from 0644 (rw-r--r--) to 0400 (r--------)
 
 Los certificados pueden ser leídos por todo el mundo, pero para evitar daños accidentales, mejor eliminamos los permisos de escritura:
 
-```shell
+```sh
 # chmod -v 0444 ca.pem server-cert.pem cert.pem
 mode of ‘ca.pem’ changed from 0644 (rw-r--r--) to 0444 (r--r--r--)
 mode of ‘server-cert.pem’ changed from 0644 (rw-r--r--) to 0444 (r--r--r--)
@@ -150,13 +150,13 @@ mode of ‘cert.pem’ changed from 0644 (rw-r--r--) to 0444 (r--r--r--)
 #
 ```
 
-## Configurando el API de acceso remoto de forma segura
+# Configurando el API de acceso remoto de forma segura
 
 Para hacer que el Docker _daemon_ sólo acepte conexiones de clientes que proporcionen un certificado de confianza de tu CA.
 
 Para ello, modificamos las opciones de arranque del _daemon_ de Docker:
 
-```shell
+```sh
 # nano /lib/systemd/system/docker.service
 ```
 
@@ -168,7 +168,7 @@ ExecStart=/usr/bin/dockerd -H fd:// -H=0.0.0.0:2375
 
 De manera que quede como (lo he dividido en varias líneas por claridad):
 
-```shell
+```sh
 ExecStart=/usr/bin/dockerd --tlsverify 		\
          --tlscacert=/root/ca.pem 		\
          --tlscert=/root/server-cert.pem 	\
@@ -179,7 +179,7 @@ ExecStart=/usr/bin/dockerd --tlsverify 		\
 
 A continuación, recargamos la configuración y reinciamos el servicio:
 
-```shell
+```sh
 # systemctl daemon-reload
 # systemctl restart docker
 ```
@@ -188,7 +188,7 @@ A continuación, recargamos la configuración y reinciamos el servicio:
 
 Finalmente, comprobamos que podemos acceder usando el certificado con _curl_:
 
-```shell
+```sh
 # curl https://192.168.1.20:2376/version --cert /root/cert.pem --key /root/key.pem --cacert /root/ca.pem
 {"Version":"17.05.0-ce","ApiVersion":"1.29","MinAPIVersion":"1.12","GitCommit":"89658be","GoVersion":"go1.7.5","Os":"linux","Arch":"amd64","KernelVersion":"3.16.0-4-amd64","BuildTime":"2017-05-04T22:04:27.257991431+00:00"}
 #

@@ -16,8 +16,7 @@ A continuación explico cómo solucionar el error y evitar que vuelva a mostrars
 
 En la guía oficial para instalar Kubernetes en Linux con `kubeadm` [Installing Kubernetes on Linux with kubeadm](https://kubernetes.io/docs/getting-started-guides/kubeadm/), en la salida del comando `kubeadm init` en el punto _(2/4) - Initializing your master_, se muestra:
 
-
-```
+```sh
 Your Kubernetes master has initialized successfully!
 
 To start using your cluster, you need to run (as a regular >user):
@@ -30,7 +29,7 @@ To start using your cluster, you need to run (as a regular >user):
 El problema es que la _exportación_ de la variable de entorno realizada mediante `export KUBECONFIG=$HOME/admin.conf` **se pierde en cuanto se cierra la sesión**. 
 Por tanto, cuando reconectamos más tarde, la variable `KUBECONFIG` está vacía y el comando `kubectl` intenta conectar con `localhost:8080`. Como el API server no está escuchando en esta IP y puerto, lo que obtenemos el mensaje de error:
 
-```
+```sh
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
 ```
 
@@ -38,7 +37,7 @@ Si miramos el contenido del fichero `$HOME/admin.conf` mediante `cat $HOME/admin
 
 Parece que lo único que tenemos que hacer es especificar el servidor como parámetro para `kubectl`, pero...
 
-```shell
+```sh
 $ kubectl get nodes --server=https://192.168.1.11:6443
 Please enter Username: pirate
 Please enter Password: ********
@@ -49,7 +48,7 @@ Please enter Password: ********
 
 Observando el contenido del fichero `admin.conf` vemos que para el parámetro `user` se especifican certificados (mediante `client-certificate-data` y `client-key-data`):
 
-```
+```txt
 ...
 users:
 - name: kubernetes-admin
@@ -63,13 +62,13 @@ Así que no podemos autenticarnos en el API Server con los usuarios del sistema 
 
 Esto nos lleva de nuevo a la variable `KUBECONFIG`. Si lanzamos el comando `export KUBECONFIG...`, los comandos funcionarán durante la sesión en curso, pero tendremos que lanzar el comando `export` en cada nueva sesión:
 
-```shell
-$ export KUBECONFIG=$HOME/admin.conf
+```sh
+export KUBECONFIG=$HOME/admin.conf
 ```
 
 La solución para que la variable se establezca automáticamente en cada inicio de sesión es añadiéndo el valor en el fichero `$HOME/.bashrc`.
 
-```shell
+```sh
 $ nano $HOME/.bashrc
 export KUBECONFIG=$HOME/admin.conf
 ```
@@ -78,7 +77,7 @@ Para verificar que funciona como debe, cierra sesión y vuelve a iniciarla.
 
 Comprueba que puedes lanzar comandos sin problemas:
 
-```shell
+```sh
 $ kubectl get nodes
 NAME      STATUS    AGE       VERSION
 k1        Ready     3d        v1.6.1
@@ -89,7 +88,7 @@ $
 
 Otra solución alternativa, si no quieres modificar el fichero `$HOME/admin.conf` es pasar la ubicación del fichero como parámetro a `kubectl`: 
 
-```shell
+```sh
 $ kubectl get nodes
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
 $ kubectl --kubeconfig ./admin.conf get nodes
@@ -100,7 +99,7 @@ $
 
 Puedes usar también este método para conectar, por ejemplo, desde otro equipo al nodo master del clúster (debes copiar primero el fichero `admin.conf` a tu equipo, desde su ubicación original `/etc/kubernetes/admin.conf` o desde la carpeta `$HOME` del usuario, si lo has copiado):
 
-```shell
+```sh
 $ scp pirate@k1.local:/home/pirate/admin.conf .
 kubectl --kubeconfig ./admin.conf get nodes
 ```

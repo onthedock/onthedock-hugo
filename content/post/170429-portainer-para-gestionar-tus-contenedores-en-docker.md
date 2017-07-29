@@ -24,7 +24,7 @@ Portainer no es una herramienta de monitorizado (a nivel de _host_), sino que es
 
 En el apartado para obtener Portainer de la web, sólo se indica el comando:
 
-```shell
+```sh
 docker run -d -p 9000:9000 portainer/portainer
 ```
 
@@ -34,25 +34,25 @@ Además, lanzando el comando _tal cual_, si quieres configurar Portainer para mo
 
 El artículo de Hypriot apunta a una imagen llamada `portainer/portainer:arm`, que ya no existe en DockerHub. Revisando las [etiquetas disponibles para las imágenes de Portainer](https://hub.docker.com/r/portainer/portainer/tags/), encontramos:
 
-```shell
-TagName				Compressed Size 	Last Updated 
-ppc64le				4 MB			16 days ago
-demo				4 MB			23 days ago
-latest				0 B 			23 days ago
-1.12.4				0 B 			23 days ago
-windows-amd64 			337 MB			23 days ago
-windows-amd64-1.12.4	 	337 MB			23 days ago
-linux-arm64 			4 MB			23 days ago
-linux-arm64-1.12.4 		4 MB			23 days ago
-linux-arm 			4 MB			23 days ago
-linux-arm-1.12.4 		4 MB			23 days ago
-linux-amd64 			4 MB			23 days ago
-linux-amd64-1.12.4 		4 MB			23 days ago
+```sh
+TagName                Compressed Size    Last Updated 
+ppc64le                  4 MB             16 days ago
+demo                     4 MB             23 days ago
+latest                   0 B              23 days ago
+1.12.4                   0 B              23 days ago
+windows-amd64          337 MB             23 days ago
+windows-amd64-1.12.4   337 MB             23 days ago
+linux-arm64              4 MB             23 days ago
+linux-arm64-1.12.4       4 MB             23 days ago
+linux-arm                4 MB             23 days ago
+linux-arm-1.12.4         4 MB             23 days ago
+linux-amd64              4 MB             23 days ago
+linux-amd64-1.12.4       4 MB             23 days ago
 ```
 
 Seleccionamos la versión adecuada para nuestra Raspberry Pi y la descargamos mediante:
 
-```shell
+```sh
 $ docker pull portainer/portainer:linux-arm-1.12.4
 linux-arm-1.12.4: Pulling from portainer/portainer
 a3ed95caeb02: Pull complete
@@ -65,7 +65,7 @@ $
 
 A continuación he lanzado la creación del contenedor usando:
 
-```shell
+```sh
 $ docker run -d -p 9000:9000 --name portainer portainer/portainer:linux-arm-1.12.4
 d5ad5764788a932cd19942dcb0e70471101173c8d14801b0ce7c172ef9ac72ff
 $
@@ -97,7 +97,7 @@ Así que es necesario detener el contenedor -y eliminarlo, si quieres reusar el 
 
 No son más que unos pocos comandos en Linux (o en tu Mac), pero sin duda es una molestia que podría evitarse dando algo más de información. Mucho más grave es si el sistema operativo de tu _host_ es Windows, ya que **esta opción no está disponible**.
 
-```shell
+```sh
 $ docker stop portainer
 portainer
 $ docker rm portainer
@@ -108,10 +108,9 @@ portainer
 
 Lanzamos el contenedor de Portainer montando `docker.sock` y pasamos por los mismos pasos que en intento anterior:
 
-```shell
+```sh
 $ docker run -d -p 9000:9000 --name portainer -v "/var/run/docker.sock:/var/run/docker.sock" portainer/portainer:linux-arm-1.12.4
 3f0ad98393ed5c67cda864737d83fe098a13d1317e1f6c299419ab1a3c1d153c
-$
 ```
 
 Después de validarnos, podemos conectar con el _docker-engine_ local y visualizar el _dashboard_:

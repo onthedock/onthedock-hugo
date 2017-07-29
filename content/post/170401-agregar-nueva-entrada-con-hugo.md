@@ -11,7 +11,7 @@ Cómo publicar una entrada usando Hugo, el generador de sitios estáticos, desde
 
 <!--more-->
 
-## Algunas consideraciones previas
+# Algunas consideraciones previas
 
 En primer lugar, es importante que Hugo esté correctamente configurado. Asegúrate de que todos los pequeños detalles estén controlados -como que en el parámetro `baseURL` se incluya la `/` final- y te evitarás un montón de problemas.
 
@@ -23,10 +23,10 @@ Para evitar confusiones, en esta entrada a la ruta al ejecutable de Hugo la llam
 
 El primer paso para crear un sitio con Hugo es crear una carpeta llamada y lanzar el comando `hugo new site`:
 
-```shell
-$ mkdir mi-sitio-web
-$ cd mi-sitio-web
-$ hugo new site mi-sitio-web
+```sh
+mkdir mi-sitio-web
+cd mi-sitio-web
+hugo new site mi-sitio-web
 ```
 
 A continuación, elige un tema (o crea el tuyo propio con `hugo new theme`).
@@ -39,9 +39,9 @@ Configura los parámetros usados en el tema que hayas escogido en el fichero `$H
 
 Para crear una entrada, lanza el comando `hugo new post/nombre-entrada.md`.
 
-```shell
-$ cd mi-sitio-web
-$ hugo new post/mi-primera-entrada.md
+```sh
+cd mi-sitio-web
+hugo new post/mi-primera-entrada.md
 ```
 
 Esta acción crea el fichero `$HUGO/content/post/nueva-entrada.md`.
@@ -52,7 +52,7 @@ Esta acción crea el fichero `$HUGO/content/post/nueva-entrada.md`.
 
 Abre el fichero de la nueva entrada. Encontrarás algo como:
 
-```
+```yaml
 +++
 title = "mi primera entrada"
 thumbnail = "images/thumbnail.png"
@@ -100,17 +100,13 @@ pirate@rpi.local: ~/web $ rm -rf *
 
 Después, copio el contendio de `$HUGO/public` a `~/web` en el servidor remoto:
 
-```shell
-$ cd $HUGO/public
-$ scp -r * pirate@rpi.local:/home/pirate/web
+```sh
+cd $HUGO/public
+scp -r * pirate@rpi.local:/home/pirate/web
 ```
+
 {{% img src="images/170401/hugo-publicacion-04.png" h="428" %}}
 
 Desde un navegador, comprueba que el blog se ha actualizado con la nueva entrada.
 
 Puedes descargar la referencia para todo el proceso: [Publicación en Hugo: Referencia](../../images/170401/hugo-publicacion-paso-a-paso.png)
-
-
-
-
-

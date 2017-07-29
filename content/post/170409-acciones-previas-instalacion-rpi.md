@@ -26,11 +26,11 @@ El siguiente paso, la instalación de Kubernetes en la Raspberry será objeto de
 * Crea un backup del fichero de configuración de la tarjeta de red: `sudo cp /etc/network/interfaces.d/eth0 /etc/network/interfaces.d/eth0.original`
 * Edita el fichero `/etc/network/interfaces.d/eth0` para establecer una IP estática para la RPi:
 
-  ```shell
+  ```sh
   allow-hotplug eth0
   iface eth0 inet static
-	address 192.168.1.11
-	gateway 192.168.1.1
+  address 192.168.1.11
+  gateway 192.168.1.1
   ```
 
 * Reinicia la RPi para que los cambios sean efectivos: `sudo reboot`

@@ -57,7 +57,7 @@ spec:
         - containerPort: 80
 ```
 
-## Cabecera
+## Cabecera del _deployment_
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -68,7 +68,7 @@ En primer lugar, la [versión de API](https://kubernetes.io/docs/api-reference/v
 
 En `kind`, especificamos el tipo de objeto que vamos a definir.
 
-## Metadatos
+## Metadatos del _deployment_
 
 ```yaml
 metadata:
@@ -77,7 +77,7 @@ metadata:
 
 Datos que describen el _deployment_; el único necesario es el nombre del _deployment_. 
 
-## Especificaciones
+## Especificaciones del _deployment_
 
 ```yaml
 spec:
@@ -103,7 +103,6 @@ Como, al fin y al cabo estamos definiendo un objeto de tipo _pod_, tenemos de nu
 Pueden definirse muchos otros parámetros, pero estos son los mínimos indispensables para tener un _deployment_ funcional (el único requerido es el `name`).
 
 > La imagen se descarga por defecto desde DockerHub; si quieres usar un _registry_ alternativo, debes indicar la URL completa al recurso.
-
 
 # Crea el _deployment_
 
@@ -194,7 +193,7 @@ Si intentas algo parecido _desde fuera_ del clúster, no tendrás respuesta.
 A modo de experimento, puedes modificar el número de réplicas directamente desde la línea de comandos usando:
 
 ```sh
-$ kubectl scale deployment nginx --replicas 3
+kubectl scale deployment nginx --replicas 3
 ```
 
 Y revisando el resultado del comando anterior:
@@ -241,7 +240,7 @@ spec:
   type: LoadBalancer
 ```
 
-## Cabecera
+## Cabecera del _service_
 
 ```yaml
 apiVersion: v1
@@ -254,7 +253,7 @@ En la cabecera tenemos la versión de la API. Los _services_ existen desde la pr
 
 En cuanto al tipo de objeto, en este caso definimos un `Service`.
 
-## Metadatos
+## Metadatos del _service_
 
 ```yaml
 metadata:
@@ -265,7 +264,7 @@ metadata:
 
 Tampoco hay sorpresas en cuanto a los metadatos del servicio; en este caso, además del nombre, he añadido la etiqueta `app: nginx`.
 
-## Especificaciones
+## Especificaciones del _service_
 
 ```yaml
 spec:
@@ -296,7 +295,7 @@ En resumen, el servicio expone el conjunto de _pods_ que verifican la condición
 El método para crear/actualizar el _service_ es el mismo que para el _deployment_:
 
 ```sh
-$ kubectl apply -f nginx-service.yaml
+kubectl apply -f nginx-service.yaml
 ```
 
 Una vez aplicado el _service_, usa `describe` para inspeccionar en detalle el objeto:
@@ -335,4 +334,3 @@ En este artículo he explicado los pasos necesarios para publicar una aplicació
 1. Crear un _Service_
 
 El _deployment_ crea los diferentes _pods_ que componen la aplicación. El _service_ los agrupa de manera funcional y los expone para que sean accesibles _desde el exterior_ del clúster.
-

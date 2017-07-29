@@ -13,13 +13,13 @@ Tras la alegría inicial pensando que la configuración de _rsyslog_ era la caus
 Así que es el momento de atacar el problema de forma algo más sistemática. Para ello seguiré las instrucciones que proporcina la página de Kubernetes [Troubleshooting Clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/).
 <!--more-->
 
-## Descripción del problema
+# Descripción del problema
 
 Tras unas horas activos y formando parte del clúster, los dos nodos que corren sobre Raspberry Pi 3 dejan de responder y el clúster los muestra como _NotReady_.
 
 El clúster está formado por tres Raspberry Pi; el nodo _master_ es una Raspberry Pi 2 B mientras que los dos nodos _worker_ son Raspberry Pi 3 B.
 
-```shell
+```sh
 $ kubectl get nodes -o wide
 NAME      STATUS     AGE       VERSION   EXTERNAL-IP   OS-IMAGE                        KERNEL-VERSION
 k1        Ready      19d       v1.6.2    <none>        Raspbian GNU/Linux 8 (jessie)   4.4.50-hypriotos-v7+
@@ -27,13 +27,13 @@ k2        NotReady   15d       v1.6.2    <none>        Raspbian GNU/Linux 8 (jes
 k3        NotReady   14d       v1.6.2    <none>        Raspbian GNU/Linux 8 (jessie)   4.4.50-hypriotos-v7+
 ```
 
-## Ping
+# Ping
 
-### Ping al nombre del nodo
+## Ping al nombre del nodo
 
 La prueba más sencilla para ver si los nodos están colgados, es lanzar un ping desde el portátil:
 
-```shell
+```sh
 $ ping -c5 k2.local
 ping: cannot resolve k2.local: Unknown host
 $ ping -c5 k3.local
@@ -42,9 +42,9 @@ ping: cannot resolve k3.local: Unknown host
 
 En esta prueba vemos que ninguno de los nodos responde al nombre que _publica_ el servicio [Avahi](https://en.wikipedia.org/wiki/Avahi_(software)) en el sistema.
 
-### Ping a la IP del nodo
+## Ping a la IP del nodo
 
-```shell
+```sh
 $ ping -c5 192.168.1.12
 PING 192.168.1.12 (192.168.1.12): 56 data bytes
 64 bytes from 192.168.1.12: icmp_seq=0 ttl=64 time=3.842 ms
@@ -70,22 +70,22 @@ $
 
 En este caso, el nodo **k2** sí que responde a ping a la IP, mientras que el nodo **k3** actúa como si estuviera apagado o con la red deshabilitada.
 
-### SSH
+## SSH
 
 Aunque el nodo **k2** responde a ping, no es posible conectar vía SSH; el intento de conectar no tiene éxito, pero tampoco falla (por _timeout_, por ejemplo). He probado a conectar tanto desde el portátil como desde el nodo **k1**, con el mismo resulado:
 
-```shell
-$ ssh pirate@192.168.1.12
+```sh
+ssh pirate@192.168.1.12
 
 ```
 
-## kubelet describe node
+# kubelet describe node
 
 Usamos el comando `kubelet describe node` para los dos nodos colgados.
 
-### Nodo **k2**
+## Nodo **k2**
 
-```shell
+```sh
 $ kubectl describe node k2
 Name:			k2
 Role:
@@ -141,7 +141,7 @@ Events:		<none>
 
 ### Nodo **k3**
 
-```shell
+```sh
 $ kubectl describe node k3
 Name:			k3
 Role:
@@ -204,7 +204,7 @@ El nodo **k2** deja de responder a las 11:56:26, mientras que el **k3** lo hace 
 
 Como referencia, incluimos el mismo comando para el nodo _master_ **k1**:
 
-```shell
+```sh
 $ kubectl describe node k1
 Name:			k1
 Role:
@@ -274,7 +274,7 @@ En la guía de _Troubleshooting_ de Kubernetes, el siguiente paso es revisar los
 
 Sin embargo, los logs indicados **no existen en la ruta indicada**:
 
-```shell
+```sh
 $ ls /var/log/kube*
 ls: cannot access /var/log/kube*: No such file or directory
 ```

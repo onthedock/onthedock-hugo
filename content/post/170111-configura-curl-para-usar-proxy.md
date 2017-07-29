@@ -17,7 +17,7 @@ Si estás trabajando con el usuario `root`, coloca el fichero en `/root/.curlrc`
 
 Edita el fichero y añade la dirección del _proxy_:
 
-```bash
+```sh
 proxy = https://${USERNAME}:${PASSWORD}@proxy.ameisin.com:8080/proxy.pac
 ```
 

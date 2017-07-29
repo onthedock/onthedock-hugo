@@ -32,7 +32,7 @@ Los recursos de CPU se miden en **cpus**. Se admiten valores fraccionados. Puede
 
 Los recursos de RAM se miden en **bytes**. Puedes indicar la RAM como un entero usando alguno de los siguientes sufijos: `E`, `P`, `T`, `G`, `M`, `Ei`, `Pi`,`Ti`, `Gi`, `Mi`y `Ki`. Por ejemplo, las siguientes cantidades representan aproximadamente el mismo valor:
 
-```
+```txt
 128974848, 129e6, 129M , 123Mi
 ```
 
@@ -79,5 +79,3 @@ Los límites establecidos en el _namespace_ se aplican durante la creación o mo
 Se pueden establecer límites en los recursos consumidos por diferentes motivos, pero normalmente se limitan para evitar problemas _a posteriori_. Por ejemplo, si un nodo tiene 2GB de RAM, evitando la creación de _pods_ que requieran más memoria previene que el _pod_ no pueda desplegarse nunca (al no disponer de memoria suficiente disponible), por lo que es mejor evitar directamente su creación.
 
 El otro motivo habitual para imponer límites es para distribuir los recursos del nodo entre los diferentes equipos/entornos; por ejemplo, asignando un 25% de la capacidad al equipo de desarrollo y el resto a los servicios en producción.
-
-

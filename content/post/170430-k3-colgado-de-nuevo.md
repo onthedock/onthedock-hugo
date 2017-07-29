@@ -20,7 +20,7 @@ Este resultado parece demostrar que la mala configuración de _rsyslog_ es la ca
 
 A modo de recordatorio, los cambios realizados en los dos nodos sobre Raspberry Pi 3 han sido (incluyo el nodo **k1** con RPi2):
 
-```
+```txt
                                 |  k1  |  k2  |  k3  |
                                 | RPi2 | RPi3 | RPi3 |
  -------------------------------|------|------|------|
@@ -33,7 +33,7 @@ Hasta ahora, los únicos nodos que se _colgaban_ eran el **k2** y el **k3** (sob
 
 Al modificar la configuración en de _rsyslog_ en **k2** y pasadas unas horas, el único nodo que se sigue colgando es el **k3**. 
 
-```shell
+```sh
 $ kubectl get nodes
 NAME      STATUS     AGE       VERSION
 k1        Ready      19d       v1.6.2
@@ -43,34 +43,36 @@ k3        NotReady   14d       v1.6.2
 
  Es decir, el fallo a la hora de redirigir los mensajes a `/dev/xconsole`:
 
- * sólo afectan a las RPi3
- * provoca que el sistema se acabe colgando
+* sólo afectan a las RPi3
+* provoca que el sistema se acabe colgando
 
- Para solucionarlo, como `root`:
+Para solucionarlo, como `root`:
 
- 1. Abre `/etc/rsyslog.conf`
- 1. Modifica las últimas líneas (al final del fichero) y coméntalas: 
+1. Abre `/etc/rsyslog.conf`
+1. Modifica las últimas líneas (al final del fichero) y coméntalas: 
 
     ```txt
     # The named pipe /dev/xconsole is for the `xconsole' utility.  To use it,
-# you must invoke `xconsole' with the `-file' option:
-#
-#    $ xconsole -file /dev/xconsole [...]
-#
-# NOTE: adjust the list below, or you'll go crazy if you have a reasonably
-#      busy site..
-#
-daemon.*;mail.*;\
-        news.err;\
-        *.=debug;*.=info;\
-        *.=notice;*.=warn       |/dev/xconsole
+    # you must invoke `xconsole' with the `-file' option:
+    #
+    #    $ xconsole -file /dev/xconsole [...]
+    #
+    # NOTE: adjust the list below, or you'll go crazy if you have a reasonably
+    #      busy site..
+    #
+    daemon.*;mail.*;\
+            news.err;\
+            *.=debug;*.=info;\
+            *.=notice;*.=warn       |/dev/xconsole
+        ```
+    deben quedar como:
+    ```txt
+    #daemon.*;mail.*;\
+    #        news.err;\
+    #        *.=debug;*.=info;\
+    #        *.=notice;*.=warn       |/dev/xconsole
     ```
-   deben quedar como:
-   ```txt
-#daemon.*;mail.*;\
-#        news.err;\
-#        *.=debug;*.=info;\
-#        *.=notice;*.=warn       |/dev/xconsole
-   ```
-   Podrías comentar la redirección `|/dev/xconsole`, pero en este caso el bloque no tendría ninguna funcionalidad, por lo que creo que es _más limpio_ comentar todo el bloque.
+
+    Podrías comentar la redirección `|/dev/xconsole`, pero en este caso el bloque no tendría ninguna funcionalidad, por lo que creo que es _más limpio_ comentar todo el bloque.
+
 1. Reinicia el equipo mediante `reboot`.

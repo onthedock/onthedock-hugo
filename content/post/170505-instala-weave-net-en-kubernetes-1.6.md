@@ -17,7 +17,7 @@ La instalación de Weave Net en Kubernetes consiste únicamente en una línea, c
 
 Antes de instalar la _red_ en el clúster (de momento, de un solo nodo), _kubectl_ indica que el estado del nodo es `NotReady`:
 
-```shell
+```sh
 $ kubectl get nodes
 NAME      STATUS     AGE       VERSION
 k8s       NotReady   5h        v1.6.1
@@ -28,7 +28,7 @@ En la salida del comando tenemos que la versión de Kubernetes es la 1.6.1. Este
 
 Si obtenemos la lista de _pods_, comprobamos que no tenemos ningún _pod de red_:
 
-```shell
+```sh
 $ kubectl get pods --all-namespaces
 NAMESPACE     NAME                          READY     STATUS    RESTARTS   AGE
 kube-system   etcd-k8s                      1/1       Running   0          5h
@@ -39,11 +39,12 @@ kube-system   kube-proxy-l02zn              1/1       Running   0          5h
 kube-system   kube-scheduler-k8s            1/1       Running   0          5h
 $
 ```
+
 Además, los _pods_ de _DNS_ `kube-dns-*` están en estado `Pending`.
 
 Siguiendo las instrucciones del artículo de Weave Net, lanzamos el comando de instalación para versiones 1.6 (o superior):
 
-```shell
+```sh
 $ kubectl apply -f https://git.io/weave-kube-1.6
 clusterrole "weave-net" created
 serviceaccount "weave-net" created
@@ -54,7 +55,7 @@ $
 
 Obtenemos la lista de _pods_ de nuevo y observamos que se están creando dos nuevos contenedores: 
 
-```shell 
+```sh 
 operador@k8s:~$ kubectl get pods --all-namespaces
 NAMESPACE     NAME                          READY     STATUS              RESTARTS   AGE
 kube-system   etcd-k8s                      1/1       Running             0          5h
@@ -71,7 +72,7 @@ De hecho, se creado el _daemonset_ "weave-net". Un _daemonset_ es un _pod_ que s
 
 Pasados unos segundos la creación de los nodos se ha completado:
 
-```shell
+```sh
 $  kubectl get pods --all-namespaces
 NAMESPACE     NAME                          READY     STATUS         RESTARTS   AGE
 kube-system   etcd-k8s                      1/1       Running        0          5h
@@ -86,7 +87,7 @@ $
 
 Finalmente, verificamos que el primer nodo del clúster ya es operativo:
 
-```shell
+```sh
 $ kubectl get nodes
 NAME      STATUS    AGE       VERSION
 k8s       Ready     5h        v1.6.1
@@ -95,7 +96,7 @@ $
 
 Además, una vez que tenemos la red instalada en el clúster, el _pod_ `kube-dns` comienza la creación de los contenedores (quizás tengas que reiniciar):
 
-```shell
+```sh
 $ kubectl get pods --all-namespaces
 NAMESPACE     NAME                          READY     STATUS              RESTARTS   AGE
 kube-system   etcd-k8s                      1/1       Running             1          11d
@@ -109,7 +110,7 @@ kube-system   weave-net-32ptg               2/2       Running             3     
 
 Tras unos segundos, tenemos todos los _pods_ del clúster funcionales:
 
-```shell
+```sh
 $ kubectl get pods --all-namespaces
 NAMESPACE     NAME                          READY     STATUS    RESTARTS   AGE
 kube-system   etcd-k8s                      1/1       Running   1          11d

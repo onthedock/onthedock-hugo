@@ -16,7 +16,7 @@ Revisando el contenido de `/var/lib/kubernetes/pods/` he visto que algunos _pods
 
 <!--more-->
 
-```shell
+```sh
 ...
 /var/lib/kubelet/pods/3a5e2819-21e5-11e7-bcfd-b827eb650fdb/volumes/kubernetes.io~configmap/wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_flannel-cfg.deleting~470691428.deleting~439642480.deleting~747926470.deleting~067946013.deleting~791070092.deleting~964331938.deleting~717873461.deleting~755129373.deleting~499171027
 /var/lib/kubelet/pods/3a5e2819-21e5-11e7-bcfd-b827eb650fdb/volumes/kubernetes.io~configmap/wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_wrapped_flannel-cfg.deleting~504683568.deleting~184413472.deleting~138413964.deleting~985160408.deleting~943143520.deleting~459558341.deleting~578589077.deleting~501462031.deleting~769373718
@@ -35,7 +35,7 @@ Finalmente, he usado el mismo sistema que la otra vez: eliminar todas las subcar
 
 Después de la purga masiva de `rm -rf /var/lib/kubelet/pods/` sólo han quedado dos carpetas _en uso_; el número corresponde con el número de _pods_ planificados sobre el nodo **k3** desde `kubectl`:
 
-```shell
+```sh
 $ kubectl get pods --all-namespaces -o wide
 NAMESPACE     NAME                         READY     STATUS    RESTARTS   AGE       IP             NODE
 kube-system   etcd-k1                      1/1       Running   4          36d       192.168.1.11   k1

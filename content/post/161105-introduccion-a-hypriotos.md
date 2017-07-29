@@ -15,10 +15,10 @@ title = "Introducción a Hypriot OS"
 
 Las características principales de HypriotOs son:
 
-*  Sistema operativo basado de Debian: la mayor parte de la gente saber cómo usar Debian y las distribuciones basadas en Ubuntu.
-*  Optimizado para Docker: Todo en HypriotOS está orientado a conseguir que Docker se ejecute de maravilla, desde las configuraciones del kernel de Linux hasta el sistema de ficheros.
-*  Versiones actualizadas de Docker: Hypriot se actualiza cada vez que se publica una nueva versión de Docker.
-*  Listo para usar: descargar, *flashear* y arrancar, es lo único que hace falta para ponerse en marcha con HypriotOS.
+* Sistema operativo basado de Debian: la mayor parte de la gente saber cómo usar Debian y las distribuciones basadas en Ubuntu.
+* Optimizado para Docker: Todo en HypriotOS está orientado a conseguir que Docker se ejecute de maravilla, desde las configuraciones del kernel de Linux hasta el sistema de ficheros.
+* Versiones actualizadas de Docker: Hypriot se actualiza cada vez que se publica una nueva versión de Docker.
+* Listo para usar: descargar, *flashear* y arrancar, es lo único que hace falta para ponerse en marcha con HypriotOS.
 
 ## Instalación de HypriotOS
 
@@ -29,8 +29,8 @@ En el blog de Hypriot tienes información para grabar la imagen en una tarjeta S
 En mi caso, he usado un equipo con Windows para pasar la imagen a la tarjeta SD siguiendo los siguientes pasos:
 
 1. Descarga la imagen con Hypriot en formato comprimido desde [sección de descargas del blog de Hypriot](http://blog.hypriot.com/downloads/)).
-2. Descomprime el *zip*.
-3. Usa [Win32DiskImager](http://sourceforge.net/projects/win32diskimager/) para pasar la imagen descomprimida a la tarjeta SD.
+1. Descomprime el *zip*.
+1. Usa [Win32DiskImager](http://sourceforge.net/projects/win32diskimager/) para pasar la imagen descomprimida a la tarjeta SD.
 
 ¡Eso es todo!
 
@@ -38,7 +38,7 @@ El siguiente paso es colocar de nuevo la tarjeta SD en la Raspberry Pi y arranca
 
 ## Obtener la dirección IP de la Raspberry Pi
 
-Por defecto, la Raspberry Pi con HypriotOS obtiene una dirección IP del DHCP local. En el blog de Hypriot recomiendan usar un programa para escanear tu red local y obtener la dirección asignada a la Raspberry Pi ([ZenMap](http://sourceforge.net/projects/nmap.mirror/?source=typ_redirect) o [Angry IP Scanner](http://angryip.org/download/#windows, en los comentarios). En mi caso, he accedido a la lista de clientes a los cuales el DHCP les ha asignado una dirección IP y he obtenido la dirección asignada al equipo llamado *black-pearl*.
+Por defecto, la Raspberry Pi con HypriotOS obtiene una dirección IP del DHCP local. En el blog de Hypriot recomiendan usar un programa para escanear tu red local y obtener la dirección asignada a la Raspberry Pi ([ZenMap](http://sourceforge.net/projects/nmap.mirror/?source=typ_redirect) o [Angry IP Scanner](http://angryip.org/download/#windows), en los comentarios). En mi caso, he accedido a la lista de clientes a los cuales el DHCP les ha asignado una dirección IP y he obtenido la dirección asignada al equipo llamado *black-pearl*.
 
 Una vez obtenida la dirección IP, conéctate usando [*Putty*](http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe).
 
@@ -54,8 +54,8 @@ Finalmente, para verificar que Docker se encuentra presente, ejecuta `docker inf
 
 Ya está todo listo para ejecutar tu primer contenedor. Y es tan sencillo como lanzar el comando:
 
-```
-$ docker run -d -p 80:80 hypriot/rpi-busybox-httpd
+```sh
+docker run -d -p 80:80 hypriot/rpi-busybox-httpd
 ```
 
 Este comando ejecuta un contendor (`docker run`) en segundo plano, de forma no interactiva (`-d`, *dettached*), conectando el puerto 80 (web) de tu equipo local con el puerto 80 del contenedor. El contenedor se creará a partir de la imagen `hypriot/rpi-busybox-httpd`.
@@ -64,7 +64,7 @@ Cuando Docker intenta crear el contenedor, busca la imagen indicada en su regist
 
 Una vez localizada la imagen, descarga en el registro local una copia de la imagen y finalmente arranca un contenedor basado en esa imagen.
 
-```
+```sh
 $ docker run -d -p  80:80 hypriot/rpi-busybox-httpd
 Unable to find image 'hypriot/rpi-busybox-httpd:latest' locally
 latest: Pulling from hypriot/rpi-busybox-httpd
@@ -85,8 +85,8 @@ Como ejemplo de primer contenedor y de lo fácil que es lanzar contenedores con 
 
 Sin embargo, vamos a seguir los mismos pasos para crear un contenedor que proporciona un entorno web de gestión de Docker:
 
-```
-$ docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock hypriot/rpi-dockerui
+```sh
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock hypriot/rpi-dockerui
 ```
 
 En este caso observamos que, además de las instrucciones que hemos visto en el caso anterior, tenemos un nuevo parámetro `-v`, que permite *montar* una ruta local del equipo *host* en el contenedor. Sin embargo, no te preocupes si ahora no entindes todos los detalles.
@@ -130,20 +130,18 @@ Por supuesto, debes indicar la configuración de red de tu entorno.
 
 Guardamos los cambios y reiniciamos el servicio de red mediante:
 
-```
+```sh
 $ sudo $ sudo /etc/init.d/networking restart
 [....] Restarting networking (via systemctl): networking.service
 . ok
 ```
 
->  Como la IP de la Raspberry Pi ha cambiado, la conexión remota desde tu equipo se perderá.
+> Como la IP de la Raspberry Pi ha cambiado, la conexión remota desde tu equipo se perderá.
 >
->  Debes conectar de nuevo con la Raspberry Pi usando la IP que acabas de asignar.
+> Debes conectar de nuevo con la Raspberry Pi usando la IP que acabas de asignar.
 
 ### Encontrando tu Raspberry Pi en la red gracias a Avahi
 
 Desde la versión 0.3 *Jack*, HypriotOS usa [Avahi](https://en.wikipedia.org/wiki/Avahi_(software)), el sistema que permite a los programas publicar y descubrir servicios y hosts en una red local. De esta forma puedes acceder a los servicios publicados por los contenedores vía web (o hacer un ping) usando el nombre del sistema: **`black-pearl`** (por defecto).
 
->  He comprobado que funciona desde un equipo Mac; falta comprobarlo desde un equipo Windows.
-
-
+> He comprobado que funciona desde un equipo Mac; falta comprobarlo desde un equipo Windows.

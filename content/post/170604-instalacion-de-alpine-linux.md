@@ -16,13 +16,13 @@ En este artículo explico qué diferencias he encontrado en Alpine.
 
 <!--more-->
 
-## Descargando Alpine Linux
+# Descargando Alpine Linux
 
 La primera diferencia respecto al resto de distribuciones es el tamaño de la ISO de instalación. En la [página de descarga](https://alpinelinux.org/downloads/) de Alpine Linux, tienes varias versiones para descargar. Además de las habituales, en función de la arquitectura (x86, x86-64, Raspberry Pi, Generic ARM), tienes disponibles versiones orientadas a entornos virtuales, para Xen, etc.
 
 En mi caso he descargado la versión `Virtual`, orientada a sistemas virtuales y la imagen de instalación ocupa 35MB!.
 
-## Máquina virtual
+# Máquina virtual
 
 He creado una máquina virtual y he conectado la ISO.
 
@@ -34,7 +34,7 @@ Mi primera sorpresa ha sido que no se ha solicitado la contraseña.
 
 Una vez dentro, ara configurar el sistema, lanza la utilidad `setup-alpine`.
 
-```
+```sh
 Welcome to Alpine!
 
 The Alpine Wiki contains a large amount of how-to guides and general
@@ -76,14 +76,14 @@ Alpine Linux es una distribución tan ligera -y en la máquina de laboratorio te
 
 Una vez expulsada la ISO, he reiniciado de nuevo y he accedido al sistema ya instalado en la VM ;)
 
-## Acceso remoto vía SSH
+# Acceso remoto vía SSH
 
 Por comodidad, prefiero trabajar desde la consola del Mac, pero no quiero crear un nuevo usuario.
 
 Por defecto, OpenSSH no permite la conexión remota del usuario `root`, así que el siguiente paso es modificar el fichero de configuración.
 
-```
-# vi /etc/ssh/sshd_config
+```sh
+vi /etc/ssh/sshd_config
 ```
 
 * Desplázate hasta la línea `PermitRootLogin`
@@ -94,28 +94,20 @@ Por defecto, OpenSSH no permite la conexión remota del usuario `root`, así que
 
 Para que los cambios tengan efecto, reinicia el servicio SSH:
 
-```
+```txt
 # service sshd restart
 ```
 
-## Siguientes pasos
+# Siguientes pasos
 
 A continuación realizaré la instalación de algunos paquetes.
 
 El objetivo es probar el proceso que se realiza durante la creación de una imagen en Docker, pero en un entorno donde poder observar la salida de los comandos ejecutados, etc.
 
-## Resumen
+# Resumen
 
 En este artículo hemos instalado Alpine Linux en una máquina virtual.
 
 También hemos modificado el servidor SSH para poder conectar remotamente como `root` (por comodidad, en un entorno seguro de laboratorio).
 
 En los próximos artículos seguiremos familiarizándonos con Alpine Linux.
-
-
-
-
-
-
-
-

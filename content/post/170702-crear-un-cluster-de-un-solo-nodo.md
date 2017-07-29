@@ -17,13 +17,13 @@ Para permitir que el nodo master pueda ejecutar _pods_, debemos modificar las op
 
 En primer lugar, comprobamos que todos los pods del espacio de nombres de sistema han arrancado y se ejecutan correctamente: 
 
-```
-$ kubectl get nodes --all-namespaces
+```sh
+kubectl get nodes --all-namespaces
 ```
 
 Para que el nodo master admita el despliegue de _pods_, modificamos mediante:
 
-```
+```sh
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
 node "k8s-snc" untainted
 ```

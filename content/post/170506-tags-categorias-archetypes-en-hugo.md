@@ -21,7 +21,7 @@ Pasa algo parecido con las imágenes; con unas pocas no hay problema, pero cuand
 
 Para evitar complicaciones, creo que lo mejor es definir unas reglas sobre cómo organizar el contenido y definir _consistentemente_ etiquetas, categorías, etc.
 
-## Categorías
+# Categorías
 
 El blog está orientado al _DIY tecnológico_ en el aprendizaje sobre contenedores y tecnologías relacionadas.
 
@@ -31,7 +31,7 @@ De momento estoy montando el clúster de Kubernetes, realizando troubleshooting,
 
 Cuando tenga el clúster montado y pueda crear _pods_ (_replication controllers_, etc), empezaré con la parte más `Dev`; de momento, los únicos artículos `Dev` son los relacionados con Hugo, su configuración, etc.
 
-## Etiquetas
+# Etiquetas
 
 El objetivo de las etiquetas es permitir organizar de forma flexible los artículos en conjuntos relacionados. Esta flexibilidad puede degenerar rápidamente en un montón de etiquetas que se usan sólo una vez y que no aportan nada.
 
@@ -53,7 +53,7 @@ Creo que esta organización de etiquetas permite identificar todo el _stack_ usa
 
 Sería interesante poder incluir el número de versión de _cada capa_ (RPi 1,2,3, versión del SO, de Docker y Kubernetes...) pero no se me ocurre cómo hacerlo de manera que sea a la vez útil para agrupar artículos y sin provocar _ruido_ (mogollón de etiquetas similares, como con `raspberry pi`, `raspberry pi 2` para poder agrupar por RPi, pero también sobre sólo los artículos sobre RPi2 y no los RPi 3, por ejemplo).
 
-## Fecha en el nombre de fichero
+# Fecha en el nombre de fichero
 
 Para que los ficheros se muestren en un orden similar en el blog y en el sistema de ficheros del portátil, el truco es sencillo: los prefijo con la fecha: `yymmdd-nombre-articulo.md`.
 
@@ -72,7 +72,7 @@ $ ls -la content/post/
 
 En cuanto al nombre del fichero, uso el guión `-` como sustituyo del espacio en el nombre del fichero. Si cambio el título del artículo, renombro el fichero para que **siempre** el nombre del fichero y el artículo coincidan el máximo posible. 
 
-## Agrupar imágenes
+# Agrupar imágenes
 
 Al estar conectado por consola a las máquinas virtuales o las Raspberry Pi, no suelo hacer muchas capturas de pantalla.
 
@@ -81,4 +81,3 @@ En un blog o un wiki, la propia plataforma se encarga de gestionar las imágenes
 Sin embargo, al escribir los artículos en markdown y tener que enlazar las imágenes manualmente, el nombre del fichero de la imagen **es relevante**.
 
 He decidido crear una carpeta para evitar problemas de _colisión de nombres_ y tener organizadas todas las imágenes de un mismo artículo. El nombre de la carpeta corresponde a la fecha del artículo (de nuevo, en formato `yymmdd`). Dentro de cada carpeta las imágenes se llaman como se tengan que llamar (de manera que tengan un nombre descriptivo) pero sin preocuparme de si ya existe otra imagen con el mismo nombre de fichero.
-

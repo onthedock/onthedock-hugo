@@ -15,7 +15,7 @@ La configuración del _proxy_ para `APT` en Ubuntu Server 16.04 se realiza a tra
 
 Crea el fichero si no existe y escribe:
 
-```bash
+```sh
 Acquire::http::Proxy "http://${USERNAME}:${PASSWORD}@proxy.ameisin.vwg:8080/amisin.pac";
 ```
 

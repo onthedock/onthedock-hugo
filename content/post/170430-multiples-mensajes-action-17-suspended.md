@@ -17,7 +17,7 @@ Apr 30 06:40:42 k3 rsyslogd-2007: action 'action 17' suspended, next retry is Su
 
 De hecho, revisando el origen del problema he encontrado este comando que cuenta las apariciones del mensaje:
 
-```shell
+```sh
 $ sudo grep "action.*suspend" /var/log/messages | wc -l
 1394
 ```
@@ -36,7 +36,7 @@ Para comprobar si esta es la causa del _cuelgue_ de la RPi 3, he modificado la c
 
 También he actualizado el sistema (en todos los nodos) y _kubelet_, _kubectl_ y _kubeadm_ se han actualizado a la versión 1.6.2:
 
-```shell
+```sh
 ...
 Setting up libldap-2.4-2:armhf (2.4.40+dfsg-1+deb8u2) ...
 Setting up libicu52:armhf (52.1-8+deb8u5) ...
@@ -47,7 +47,7 @@ Processing triggers for libc-bin (2.19-18+deb8u7)
 ...
 ```
 
-```shell
+```sh
 $ kubectl get nodes
 NAME      STATUS    AGE       VERSION
 k1        Ready     19d       v1.6.2
@@ -63,10 +63,8 @@ Ahora sólo queda esperar -normalmente unas cuantas horas- a ver qué pasa: hay 
 
 Informaré en cuanto tenga resultados.
 
-# Unas horas después...
+# Unas horas después
 
 Ya tenngo resultados: la configuración de _rsyslog_ es la que causa el cuelgue del sistema en las RPi3.
 
 Échale un vistazo a cómo solucionar este error en la entrada: [El nodo k3 del clúster colgado de nuevo]({{% ref "170430-k3-colgado-de-nuevo.md" %}}).
-
-

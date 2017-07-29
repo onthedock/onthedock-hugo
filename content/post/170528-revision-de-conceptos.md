@@ -15,7 +15,7 @@ Muchos artículos empiezan creando el fichero YAML para un _pod_, después const
 En este artículo intento determinar qué objetos son los que deben crearse en un clúster Kubernetes.
 <!--more-->
 
-## Pod
+# Pod
 
 La unidad fundamental de despliegue en Kubernetes es el [**Pod**](https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/). Un _pod_ sería el equivalente a la mínima unidad funcional de la aplicación.
 
@@ -29,7 +29,7 @@ Como indica la [documentación para los _pods_ de la API para la versión 1.6 de
 
 > It is recommended that users create Pods only through a Controller, and not directly.
 
-## ReplicaSet y Replication Controller
+# ReplicaSet y Replication Controller
 
 El [**Replication Controller**](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) o la versión _mejorada_, el [**ReplicaSet**](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) se encarga de mantener un determinado número de réplicas del _pod_ en el clúster. 
 
@@ -46,7 +46,7 @@ Si embargo, la [documentación oficial](https://kubernetes.io/docs/api-reference
 
 Es decir, tenemos una opción mejor: el [**Deployment**](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
-## Deployment
+# Deployment
 
 El _Deployment_ añade la capacidad de poder actualizar la aplicación definida en un _ReplicaSet_ sin pérdida de servicio, mediante **actualización continua** (_rolling update_).
 
@@ -54,7 +54,7 @@ Si el estado deseado de la aplicación son tres réplicas de un pod basado en `y
 
 El proceso se hace de forma controlada, por lo que si surgen problemas con la nueva versión de la aplicación, la actualización se detiene y es posible realizar _marcha atrás_ hacia la versión estable.
 
-## Resumiendo
+# Resumiendo
 
 Así pues, después de leer la sección de [Concepts](https://kubernetes.io/docs/concepts/) de la documentación de Kubernetes, parece que ya tengo claro cuál es el proceso para desplegar aplicaciones en Kubernetes.
 
@@ -72,7 +72,7 @@ Hay otros objetos específicos que pueden ser más adecuados para tus necesidade
 * _Jobs_ y _CronJobs_: crean _pods_ hasta asegurar que un número determinado finaliza con éxito, lo que completa el _job_.
 * _StatefulSets_ : todavía en Beta, asignan una identidad única a los _pods_, lo que garantiza que se creen o escalen en un orden determinado.
 
-## Siguientes pasos
+# Siguientes pasos
 
 Al final de este proceso tendré una aplicación _simple_ desplegada en el clúster. Con "sencilla" quiero decir que las diferentes instancias de la aplicación actuan de forma independiente. Un ejemplo sería un servidor web: con el _deployment_ sería posible escalar la aplicación para dar respuesta a la demanda en todo momento y actualizar el contenido de la web sin interrupciones.
 

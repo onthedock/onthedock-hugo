@@ -12,7 +12,7 @@ Los nodos **k2** y **k3** del clúster dejan de responder pasadas unas horas. La
 
 <!--more-->
 
-```shell
+```sh
 $ grep "kubelet_volumes.go:114] Orphaned pod" /var/log/syslog | wc -l
 118938
 $ grep "kubelet_volumes.go:114] Orphaned pod" /var/log/syslog | wc -l
@@ -35,4 +35,3 @@ Apr 30 10:58:08 k2 kubelet[3619]: E0430 10:58:08.435567    3619 kubelet_volumes.
 Todas estas entradas se encuentran en los logs del nodo **k2**, donde no hay ningún _pod_ en ejecución (a parte de los propios de  Kubernetes que el clúster planifica en los diferentes nodos).
 
 **Actualización**: [Troubleshooting Kubernetes (II)]({{< ref "170506-troubleshooting-kubernetes-ii.md" >}})
-

@@ -16,14 +16,14 @@ La solución es tan sencilla como habilitar los _cgroups_ durante el arranque.
 
 En primer lugar, verificamos la versión del _kernel_ que tenemos instalada:
 
-```shell
+```sh
 # uname -a
 Linux k8s 3.16.0-4-amd64 #1 SMP Debian 3.16.39-1+deb8u2 (2017-03-07) x86_64 GNU/Linux
 ```
 
 Al lanzar `kubeadm init` obtenemos el error:
 
-```shell
+```sh
 # kubeadm init
 [kubeadm] WARNING: kubeadm is in beta, please do not use it for production clusters.
 [init] Using Kubernetes version: v1.6.0
@@ -61,7 +61,7 @@ CGROUPS_MEMORY: missing
 DOCKER_VERSION: 17.04.0-ce
 [preflight] WARNING: docker version is greater than the most recently validated version. Docker version: 17.04.0-ce. Max validated version: 1.12
 [preflight] Some fatal errors occurred:
-	missing cgroups: memory
+  missing cgroups: memory
 [preflight] If you know what you are doing, you can skip pre-flight checks with `--skip-preflight-checks`
 #
 ```
@@ -76,11 +76,11 @@ La solución la he encontrado en [Enable memory cgroups for default Jessie image
 1. Actualizamos _grub_: `update-grub2`
 1. Reiniciamos la máquina: `reboot`
 
-```shell
+```sh
 ...
 [preflight] WARNING: docker version is greater than the most recently validated version. Docker version: 17.04.0-ce. Max validated version: 1.12
 [preflight] Some fatal errors occurred:
-	missing cgroups: memory
+  missing cgroups: memory
 [preflight] If you know what you are doing, you can skip pre-flight checks with `--skip-preflight-checks`
 root@k8s:~# nano /etc/default/grub
 root@k8s:~# update-grub2
@@ -90,9 +90,10 @@ Found initrd image: /boot/initrd.img-3.16.0-4-amd64
 done
 root@k8s:~# reboot
 ```
+
 Al lanzar `kubeadm init` de nuevo, el clúster arranca con normalidad:
 
-```shell
+```sh
 root@k8s:~# kubeadm init
 [kubeadm] WARNING: kubeadm is in beta, please do not use it for production clusters.
 [init] Using Kubernetes version: v1.6.0
