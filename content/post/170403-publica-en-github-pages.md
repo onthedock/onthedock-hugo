@@ -13,8 +13,8 @@ Cómo publicar el sitio web generado con Hugo en GitHub Pages.
 
 Siguiendo las instrucciones de la página de Hugo sobre [cómo publicar en Github Pages](https://gohugo.io/tutorials/github-pages-blog/#hosting-personal-organization-pages):
 
-*   Creo un repo llamado `onthedock.github.io`: este albergará el sitio público.
-*   Creo un repo llamado `onthedock-hugo` que contendrá todo el site: ficheros de hugo, el template, etc.
+* Creo un repo llamado `onthedock.github.io`: este albergará el sitio público.
+* Creo un repo llamado `onthedock-hugo` que contendrá todo el site: ficheros de hugo, el template, etc.
 
 Creo una carpeta local llamada `onthedock-githubpages`.
 
@@ -47,15 +47,15 @@ On branch master
 Initial commit
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
-	config.toml
-	content/
-	static/
-	themes/
+   config.toml
+   content/
+   static/
+   themes/
 nothing added to commit but untracked files present (use "git add" to track)
 $
 ```
 
->   Las carpetas vacías no se añaden a Git.
+> Las carpetas vacías no se añaden a Git.
 
 Eliminamos la carpeta `$HUGO/public`.
 
@@ -82,16 +82,16 @@ Initial commit
 Changes to be committed:
   (use "git rm --cached <file>..." to unstage)
 
-	new file:   .gitmodules
-	new file:   public
+   new file:   .gitmodules
+   new file:   public
 
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	config.toml
-	content/
-	static/
-	themes/
+   config.toml
+   content/
+   static/
+   themes/
 
 $
 ```
@@ -107,8 +107,8 @@ Verifico que el repositorio _remoto_ es el correcto:
 
 ```shell
 git remote -v
-origin	https://github.com/onthedock/onthedock-hugo.git (fetch)
-origin	https://github.com/onthedock/onthedock-hugo.git (push)
+origin https://github.com/onthedock/onthedock-hugo.git (fetch)
+origin https://github.com/onthedock/onthedock-hugo.git (push)
 $
 ```
 
@@ -183,7 +183,7 @@ Changes not staged for commit:
   (use "git checkout -- <file>..." to discard changes in working directory)
   (commit or discard the untracked or modified content in submodules)
 
-	modified:   public (untracked content)
+   modified:   public (untracked content)
 
 no changes added to commit (use "git add" and/or "git commit -a")
 $
@@ -199,15 +199,15 @@ Your branch is up-to-date with 'origin/master'.
 Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
-	404.html
-	categories/
-	images/
-	index.html
-	index.xml
-	page/
-	post/
-	sitemap.xml
-	tags/
+   404.html
+   categories/
+   images/
+   index.html
+   index.xml
+   page/
+   post/
+   sitemap.xml
+   tags/
 
 nothing added to commit but untracked files present (use "git add" to track)
 $
@@ -223,14 +223,14 @@ Your branch is up-to-date with 'origin/master'.
 Changes to be committed:
   (use "git reset HEAD <file>..." to unstage)
 
-	new file:   404.html
-	new file:   categories/dev/index.html
-	new file:   categories/dev/index.xml
-	new file:   categories/dev/page/1/index.html
-	new file:   categories/index.html
-	new file:   categories/ops/index.html
-	new file:   categories/ops/index.xml
-	new file:   categories/ops/page/1/index.html
+   new file:   404.html
+   new file:   categories/dev/index.html
+   new file:   categories/dev/index.xml
+   new file:   categories/dev/page/1/index.html
+   new file:   categories/index.html
+   new file:   categories/ops/index.html
+   new file:   categories/ops/index.xml
+   new file:   categories/ops/page/1/index.html
 .
 .
 .
@@ -239,15 +239,15 @@ Changes to be committed:
 Lanzo un _commit_ para guardar los cambios:
 
 ```shell
-$ git commit
+git commit
 ```
 
 Verifico que el repositorio remoto es `onthedock.github.io`:
 
 ```shell
 $ git remote -v
-origin	https://github.com/onthedock/onthedock.github.io.git (fetch)
-origin	https://github.com/onthedock/onthedock.github.io.git (push)
+origin https://github.com/onthedock/onthedock.github.io.git (fetch)
+origin https://github.com/onthedock/onthedock.github.io.git (push)
 $
 ```
 
@@ -270,7 +270,7 @@ $
 
 La web estará accesible en los próximos diez minutos, aproximadamente, en `http://onthedock.github.io`.
 
->    El nombre del repositorio debe ser `onthedock.github.io`, y no sólo  `onthedock`. Si te pasa como a mi y debes cambiar el nombre del _repo_ , recuerda que ¡puedes hacerlo!
+> El nombre del repositorio debe ser `onthedock.github.io`, y no sólo  `onthedock`. Si te pasa como a mi y debes cambiar el nombre del _repo_ , recuerda que ¡puedes hacerlo!
 
 Se puede renombrar el repositorio desde GitHub, pero eso supone que también hay que actualizar el nombre del repositorio en la configuración del  _remote_ en el repositorio local.
 
@@ -279,8 +279,8 @@ Para ello, usa el comando:
 ```shell
 $ git remote set-url origin https://github.com/onthedock/onthedock.github.io.git
 $ git remote -v
-origin	https://github.com/onthedock/onthedock.github.io.git (fetch)
-origin	https://github.com/onthedock/onthedock.github.io.git (push)
+origin https://github.com/onthedock/onthedock.github.io.git (fetch)
+origin https://github.com/onthedock/onthedock.github.io.git (push)
 $
 ```
 
