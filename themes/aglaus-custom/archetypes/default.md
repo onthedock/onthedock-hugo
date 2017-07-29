@@ -11,7 +11,7 @@ tags = []
 categories = []
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
-thumbnail = "images/thumbnail.jpg"
+thumbnail = "images/thumbnail.png"
 
 # SHORTCODES (for reference)
 
