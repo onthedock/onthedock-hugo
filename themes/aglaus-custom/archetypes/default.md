@@ -27,6 +27,8 @@ thumbnail = "images/thumbnail.png"
 # Twitter
 # {{% twitter tweetid="780599416621297xxx" %}}
 
+title: "{{ replace .TranslationBaseName "-" " " | title }}"
+date: {{ .Date }}
 +++
 
 <!--more-->
