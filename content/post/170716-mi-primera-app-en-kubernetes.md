@@ -8,7 +8,7 @@ thumbnail = "images/kubernetes.png"
 
 +++
 
-Después de [crear un cluster de un solo nodo]({{< ref "170702-ip-en-mensaje-prelogin.md" >}}), en esta entrada explico los pasos para publicar una aplicación en el clúster.
+Después de [crear un cluster de un solo nodo]({{< ref "170702-crear-un-cluster-de-un-solo-nodo.md" >}}), en esta entrada explico los pasos para publicar una aplicación en el clúster.
 
 <!--more-->
 
