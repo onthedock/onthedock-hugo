@@ -1,7 +1,7 @@
 +++
 categories = ["ops"]
 tags = ["linux", "kubernetes", "tareas"]
-draft = true
+draft = false
 thumbnail = "images/kubernetes.png"
 date = "2017-07-29T21:12:35+02:00"
 title = "Asignar recursos de CPU y RAM a un contenedor"
@@ -79,3 +79,10 @@ Los límites establecidos en el _namespace_ se aplican durante la creación o mo
 Se pueden establecer límites en los recursos consumidos por diferentes motivos, pero normalmente se limitan para evitar problemas _a posteriori_. Por ejemplo, si un nodo tiene 2GB de RAM, evitando la creación de _pods_ que requieran más memoria previene que el _pod_ no pueda desplegarse nunca (al no disponer de memoria suficiente disponible), por lo que es mejor evitar directamente su creación.
 
 El otro motivo habitual para imponer límites es para distribuir los recursos del nodo entre los diferentes equipos/entornos; por ejemplo, asignando un 25% de la capacidad al equipo de desarrollo y el resto a los servicios en producción.
+
+## Actualización
+
+En el caso de que se establezca sólo una de las dos opciones (es decir, sólo _request_ o sólo límites), Kubernetes actúa de la siguiente manera:
+
+* Si sólo se establecen límites, Kubernetes establece una reserva (_request_) **igual** al límite.
+* Si sólo se establece una reserva, no hay un límite definido, por lo que el _pod_ puede llegar a consumir el total de la memoria/CPU disponible en el nodo.
