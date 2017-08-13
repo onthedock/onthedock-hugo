@@ -1,7 +1,7 @@
 +++
 categories = ["ops"]
 tags = ["linux", "kubernetes", "tareas"]
-draft = false
+draft = true
 thumbnail = "images/kubernetes.png"
 date = "2017-07-29T21:12:35+02:00"
 title = "Asignar recursos de CPU y RAM a un contenedor"
