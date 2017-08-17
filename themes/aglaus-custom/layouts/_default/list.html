@@ -8,11 +8,9 @@
   </header>
   {{ end }}
 
-   {{ if .IsHome }}
-   	<img src="images/MabelAmber-pixabay-dock-1846008.png" class="p-articles" width="100%">
-   <p style="text-align: right"><small><a href="https://www.pexels.com/photo/jetty-feet-sign-wooden-128299/">Photo</a> by <a href="https://www.pexels.com/u/mabelamber/">Mabel Amber</a></small></p>
-   {{ end }}
-
+  <img src="{{ .Site.BaseURL }}/images/MabelAmber-pixabay-dock-1846008.png" class="p-articles" width="100%">
+  <p style="text-align: right"><small><a href="https://www.pexels.com/photo/jetty-feet-sign-wooden-128299/">Photo</a> by <a href="https://www.pexels.com/u/mabelamber/">Mabel Amber</a></small></p>
+   
   <ul class="p-articles">
     {{ range .Paginator.Pages }}<li>{{ .Render "li" }}</li>{{ end }}
   </ul>
