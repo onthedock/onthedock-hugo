@@ -13,9 +13,9 @@ Para tener un clúster de desarrollo con la versatilidad de poder hacer y deshac
 <!--more-->
 Por defecto, el nodo master de un clúster de Kubernetes no ejecuta ningún tipo de carga de trabajo relacionada con los pods desplegados en el clúster, centrándose en las tareas de gestión de los _pods_ y del propio clúster.
 
-Para permitir que el nodo master pueda ejecutar _pods_, debemos modificar las opciones por defecto de Kubernetes. 
+Para permitir que el nodo master pueda ejecutar _pods_, debemos modificar las opciones por defecto de Kubernetes.
 
-En primer lugar, comprobamos que todos los pods del espacio de nombres de sistema han arrancado y se ejecutan correctamente: 
+En primer lugar, comprobamos que todos los pods del espacio de nombres de sistema han arrancado y se ejecutan correctamente:
 
 ```sh
 kubectl get nodes --all-namespaces

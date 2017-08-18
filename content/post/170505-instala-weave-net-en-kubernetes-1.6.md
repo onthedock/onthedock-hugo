@@ -53,9 +53,9 @@ daemonset "weave-net" created
 $
 ```
 
-Obtenemos la lista de _pods_ de nuevo y observamos que se están creando dos nuevos contenedores: 
+Obtenemos la lista de _pods_ de nuevo y observamos que se están creando dos nuevos contenedores:
 
-```sh 
+```shell
 operador@k8s:~$ kubectl get pods --all-namespaces
 NAMESPACE     NAME                          READY     STATUS              RESTARTS   AGE
 kube-system   etcd-k8s                      1/1       Running             0          5h

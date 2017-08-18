@@ -10,7 +10,7 @@ categories = ["dev"]
 
 He estado probando [Vagrant](https://www.vagrantup.com) para automatizar la creación de máquinas virtuales en las que probar Docker, etc.
 
-En este artículo comento mis primeras impresiones con Vagrant. 
+En este artículo comento mis primeras impresiones con Vagrant.
 
 <!--more-->
 
@@ -69,7 +69,7 @@ Inicialmente he pensado que sería una buena idea poder disponer de una carpeta 
 
 Otro problema que me he encontrado es que la máquina virtual se crea en la misma carpeta desde donde se lanza el fichero `Vagrantfile`.
 
-En Hyper-V se puede definir una ruta por defecto donde almacenar las máquinas virtuales, pero parece que Vagrant ignora esta configuración. 
+En Hyper-V se puede definir una ruta por defecto donde almacenar las máquinas virtuales, pero parece que Vagrant ignora esta configuración.
 
 En el equipo de laboratorio tengo dos discos, un SSD y un disco mecánico y he distribuido las máquinas virtuales según mis preferencias. Así que el hecho de que Vagrant cree las máquinas sin tener en cuenta la configuración del proveedor Hyper-V supone un problema que debería corregir, buscando en la configuración de Vagrant (si es que es posible modificar este comportamiento).
 

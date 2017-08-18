@@ -31,7 +31,7 @@ A modo de recordatorio, los cambios realizados en los dos nodos sobre Raspberry 
 
 Hasta ahora, los únicos nodos que se _colgaban_ eran el **k2** y el **k3** (sobre RPi3).
 
-Al modificar la configuración en de _rsyslog_ en **k2** y pasadas unas horas, el único nodo que se sigue colgando es el **k3**. 
+Al modificar la configuración en de _rsyslog_ en **k2** y pasadas unas horas, el único nodo que se sigue colgando es el **k3**.
 
 ```sh
 $ kubectl get nodes
@@ -49,7 +49,7 @@ k3        NotReady   14d       v1.6.2
 Para solucionarlo, como `root`:
 
 1. Abre `/etc/rsyslog.conf`
-1. Modifica las últimas líneas (al final del fichero) y coméntalas: 
+1. Modifica las últimas líneas (al final del fichero) y coméntalas:
 
     ```txt
     # The named pipe /dev/xconsole is for the `xconsole' utility.  To use it,

@@ -42,7 +42,7 @@ El fichero de declaración del _deployment_ tiene tres bloques (la estructura es
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: nginx 
+  name: nginx
 spec:
   replicas: 1
   template:
@@ -72,10 +72,10 @@ En `kind`, especificamos el tipo de objeto que vamos a definir.
 
 ```yaml
 metadata:
-  name: nginx 
+  name: nginx
 ```
 
-Datos que describen el _deployment_; el único necesario es el nombre del _deployment_. 
+Datos que describen el _deployment_; el único necesario es el nombre del _deployment_.
 
 ## Especificaciones del _deployment_
 
@@ -316,7 +316,7 @@ Session Affinity: None
 Events:        <none>
 ```
 
-Para saber con qué puerto externo se ha conectado el puerto local 80/TCP necesitamos revisar el detalle del servicio creado. Como no hemos especificado ningún `targetPort` Kubernetes asigna uno libre al azar. 
+Para saber con qué puerto externo se ha conectado el puerto local 80/TCP necesitamos revisar el detalle del servicio creado. Como no hemos especificado ningún `targetPort` Kubernetes asigna uno libre al azar.
 
 > El comportamiento es el mismo que cuando se lanza un contenedor mediante `docker run -P`
 

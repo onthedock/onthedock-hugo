@@ -12,7 +12,7 @@ Alpine Linux se ha convertido en la distribución por defecto con la que constru
 
 Alpine tiene sus propias particularidades, ya que no deriva de otra distribución, de manera que he pensado que sería una buena idea tener una máquina virtual con la que entrenarme.
 
-En este artículo explico qué diferencias he encontrado en Alpine. 
+En este artículo explico qué diferencias he encontrado en Alpine.
 
 <!--more-->
 

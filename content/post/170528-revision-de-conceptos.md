@@ -31,12 +31,12 @@ Como indica la [documentación para los _pods_ de la API para la versión 1.6 de
 
 # ReplicaSet y Replication Controller
 
-El [**Replication Controller**](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) o la versión _mejorada_, el [**ReplicaSet**](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) se encarga de mantener un determinado número de réplicas del _pod_ en el clúster. 
+El [**Replication Controller**](https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/) o la versión _mejorada_, el [**ReplicaSet**](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) se encarga de mantener un determinado número de réplicas del _pod_ en el clúster.
 
 El _ReplicaSet_ asegura que un determinado número de copias -**réplicas**- del _pod_ se encuentran en ejecución en el clúster en todo momento. Por tanto, si alguno de los _pods_ es eliminado, el _ReplicaSet_ se encarga de crear un nuevo _pod_. Para ello, el _ReplicaSet_ incluye una plantilla con la que crear nuevos _pods_.
 
-Así, el _ReplicaSet_ define el **estado deseado** de la aplicación: cuántas copias de mi aplicación quiero tener en todo momento en ejecución en el clúster. 
-Modificando el número de réplicas para el _ReplicaSet_ podemos **escalar** (incrementar o reducir) el número de copias en ejecución en función de las necesidades. 
+Así, el _ReplicaSet_ define el **estado deseado** de la aplicación: cuántas copias de mi aplicación quiero tener en todo momento en ejecución en el clúster.
+Modificando el número de réplicas para el _ReplicaSet_ podemos **escalar** (incrementar o reducir) el número de copias en ejecución en función de las necesidades.
 
 Por tanto, parece que el mejor candidato para ponerse a definir ficheros `YAML` y desplegar aplicaciones en el clúster de Kubernetes sería un _ReplicaSet_.
 

@@ -11,7 +11,7 @@ title = "Introducción a Hypriot OS"
 
 <!--more-->
 
-# HypriotOS 
+# HypriotOS
 
 Las características principales de HypriotOs son:
 
@@ -81,7 +81,7 @@ La imagen descargada contiene `busybox` y un servidor web minimalista. Puedes ac
 
 ### Un contenedor más útil
 
-Como ejemplo de primer contenedor y de lo fácil que es lanzar contenedores con Docker, el ejemplo anterior no está mal. 
+Como ejemplo de primer contenedor y de lo fácil que es lanzar contenedores con Docker, el ejemplo anterior no está mal.
 
 Sin embargo, vamos a seguir los mismos pasos para crear un contenedor que proporciona un entorno web de gestión de Docker:
 
@@ -119,7 +119,7 @@ Vemos que está configurada en modo `DHCP`, por lo que comentamos la segunda lí
 ```config
 # iface eth0 inet dhcp
 
-# Set static IP 
+# Set static IP
 iface eth0 inet static
 address 192.168.1.51
 gateway 192.168.1.1

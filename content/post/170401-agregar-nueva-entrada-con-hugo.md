@@ -7,7 +7,7 @@ date = "2017-04-01T22:36:46+02:00"
 
 +++
 
-Cómo publicar una entrada usando Hugo, el generador de sitios estáticos, desde la creación del _site_ hasta la subida de los ficheros en el servidor web. 
+Cómo publicar una entrada usando Hugo, el generador de sitios estáticos, desde la creación del _site_ hasta la subida de los ficheros en el servidor web.
 
 <!--more-->
 

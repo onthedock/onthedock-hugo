@@ -12,7 +12,7 @@ Cuando se crea un _pod_ se pueden reservar recursos de CPU y RAM para los conten
 
 <!--more-->
 
-Kubernetes planifica un _pod_ en un nodo sólo si el nodo tiene suficientes recursos de CPU y RAM disponibles para satisfacer la demanda de CPU y RAM total de todos los contenedores en el _pod_. Es decir, la _request_ es la cantidad que necesita el _pod_ para arrancar y ponerse en funcionamiento. 
+Kubernetes planifica un _pod_ en un nodo sólo si el nodo tiene suficientes recursos de CPU y RAM disponibles para satisfacer la demanda de CPU y RAM total de todos los contenedores en el _pod_. Es decir, la _request_ es la cantidad que necesita el _pod_ para arrancar y ponerse en funcionamiento.
 
 En función de las tareas que ejecute el _pod_, los recursos que consume pueden aumentar. Mediante el establecimiento de los _limits_ podemos acotar el uso máximo de recursos disponible para el _pod_.
 

@@ -17,7 +17,7 @@ Hugo genera sitios web a partir de un conjunto de ficheros organizados en carpet
 
 Con unos pocos artículos, es fácil identificar qué fichero corresponde a un artículo concreto (simplemente a partir del título). Pero cuando el número de ficheros aumenta, la cosa se complica; el sistama operativo ordena los ficheros por orden alfabético, mientras que en el blog están organizados por fecha de creación. Para complicar más las cosas, el nombre del fichero _puede_ no ser el mismo que el título del artículo.
 
-Pasa algo parecido con las imágenes; con unas pocas no hay problema, pero cuando tenga un montón, será complicado identificar qué imagen corresponde a cada artículo. 
+Pasa algo parecido con las imágenes; con unas pocas no hay problema, pero cuando tenga un montón, será complicado identificar qué imagen corresponde a cada artículo.
 
 Para evitar complicaciones, creo que lo mejor es definir unas reglas sobre cómo organizar el contenido y definir _consistentemente_ etiquetas, categorías, etc.
 
@@ -70,7 +70,7 @@ $ ls -la content/post/
 6.0K May  6 06:11 170506-troubleshooting-kubernetes-ii.md
 ```
 
-En cuanto al nombre del fichero, uso el guión `-` como sustituyo del espacio en el nombre del fichero. Si cambio el título del artículo, renombro el fichero para que **siempre** el nombre del fichero y el artículo coincidan el máximo posible. 
+En cuanto al nombre del fichero, uso el guión `-` como sustituyo del espacio en el nombre del fichero. Si cambio el título del artículo, renombro el fichero para que **siempre** el nombre del fichero y el artículo coincidan el máximo posible.
 
 # Agrupar imágenes
 

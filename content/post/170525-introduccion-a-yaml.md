@@ -28,7 +28,6 @@ Usar YAML para las definiciones de Kubernetes proporciona las siguientes ventaja
 
 YAML es un superconjunto de JSON, lo que significa que cualquier fichero JSON válido también es un fichero YAML válido.
 
-
 Como consejos generales a la hora de crear un fichero YAML:
 
 * Usa siempre la codificación UTF-8 para evitar errores.

@@ -34,7 +34,7 @@ El `README` ubicado en `/etc/local.d/README` indica que cualquier fichero ejecut
 
 En mi caso, he usado el _script_ para obtener la IP de la máquina como se indica en [Show IP address of VM as console pre-login message](http://offbytwo.com/2008/05/09/show-ip-address-of-vm-as-console-pre-login-message.html) y la he escrito en el fichero `/etc/issue`:
 
-```
+```shell
 /sbin/ifconfig | grep "inet addr" | grep -v "127.0.0.1" | awk '{ print $2 }' | awk -F: '{ print $2 }' > /etc/issue
 ```
 

@@ -14,13 +14,11 @@ A continuación indico cómo activar y verificar el acceso remoto al API de Dock
 
 <!--more-->
 
-Buscando en Google cómo habilitar el API remoto de Docker Engine probablemente encuentres el artículo 
-[Enabling Docker Remote API on Ubuntu 16.04](https://www.ivankrizsan.se/2016/05/18/enabling-docker-remote-api-on-ubuntu-16-04/). Como bien dice en el párrafo inicial, no es fácil encontrar unas instrucciones claras sobre cómo configurar el API de principio a fin.
-
+Buscando en Google cómo habilitar el API remoto de Docker Engine probablemente encuentres el artículo [Enabling Docker Remote API on Ubuntu 16.04](https://www.ivankrizsan.se/2016/05/18/enabling-docker-remote-api-on-ubuntu-16-04/). Como bien dice en el párrafo inicial, no es fácil encontrar unas instrucciones claras sobre cómo configurar el API de principio a fin.
 
 Lanzando `docker man`, vemos que la opción que buscamos es:
 
-```
+```shell
 -H, --host=[unix:///var/run/docker.sock]: tcp://[host]:[port][path] to bind or
        unix://[/path/to/socket] to use.
          The socket(s) to bind to in daemon mode specified using one or more
@@ -59,7 +57,7 @@ Type=notify
 # the default is not to use systemd for cgroups because the delegate issues still
 # exists and systemd currently does not support the cgroup feature set required
 # for containers run by docker
-ExecStart=/usr/bin/dockerd -H fd:// 
+ExecStart=/usr/bin/dockerd -H fd://
 ExecReload=/bin/kill -s HUP $MAINPID
 LimitNOFILE=1048576
 # Having non-zero Limit*s causes performance problems due to accounting overhead

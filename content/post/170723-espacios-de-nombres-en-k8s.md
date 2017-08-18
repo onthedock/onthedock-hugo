@@ -124,7 +124,7 @@ metadata:
 spec:
   hard:
     persistentvolumeclaims: "2"
-    services.loadbalancers: "2"    
+    services.loadbalancers: "2"
     services.nodeports: "0"
 ```
 
@@ -134,7 +134,7 @@ Esta cuota limita el número de:
 * balanceadores de carga (2)
 * _node ports_ (0)
 
-Para crear la cuota, aplica el fichero `YAML`. 
+Para crear la cuota, aplica el fichero `YAML`.
 
 > Debes especificar el _namespace_ donde aplicar la cuota.
 
@@ -179,9 +179,9 @@ metadata:
 spec:
   hard:
     limits.cpu: "2"
-    limits.memory: 2Gi    
+    limits.memory: 2Gi
     requests.cpu: "1"
-    requests.memory: 1Gi 
+    requests.memory: 1Gi
     pods: "4"
 ```
 
@@ -232,7 +232,7 @@ apiVersion: v1
 kind: Service
 metadata:
    name: ejemplo
-   namespace: developers  
+   namespace: developers
 spec:
    ...
 ```

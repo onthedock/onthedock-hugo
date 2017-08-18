@@ -26,7 +26,7 @@ To start using your cluster, you need to run (as a regular >user):
  export KUBECONFIG=$HOME/admin.conf
 ```
 
-El problema es que la _exportación_ de la variable de entorno realizada mediante `export KUBECONFIG=$HOME/admin.conf` **se pierde en cuanto se cierra la sesión**. 
+El problema es que la _exportación_ de la variable de entorno realizada mediante `export KUBECONFIG=$HOME/admin.conf` **se pierde en cuanto se cierra la sesión**.
 Por tanto, cuando reconectamos más tarde, la variable `KUBECONFIG` está vacía y el comando `kubectl` intenta conectar con `localhost:8080`. Como el API server no está escuchando en esta IP y puerto, lo que obtenemos el mensaje de error:
 
 ```sh
@@ -86,7 +86,7 @@ $
 
 ¡Problema solucionado!
 
-Otra solución alternativa, si no quieres modificar el fichero `$HOME/admin.conf` es pasar la ubicación del fichero como parámetro a `kubectl`: 
+Otra solución alternativa, si no quieres modificar el fichero `$HOME/admin.conf` es pasar la ubicación del fichero como parámetro a `kubectl`:
 
 ```sh
 $ kubectl get nodes

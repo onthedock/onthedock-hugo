@@ -10,7 +10,6 @@ date = "2017-05-06T05:21:09+02:00"
 
 Sigo con el _troubleshooting_ del _cuelgue_ de los nodos sobre Raspberry Pi 3 del clúster.
 
-
 Ayer estuve _haciendo limpieza_ siguiendo _vagamente_ la recomendación de [esta respuesta](https://github.com/kubernetes/kubernetes/issues/43593#issuecomment-288899231) en el hilo [Kubernetes memory consumption explosion](https://github.com/kubernetes/kubernetes/issues/43593#issuecomment-288899231).
 
 <!--more-->

@@ -53,8 +53,7 @@ Para añadir nodos, pulsa el botón "+ADD NEW INSTANCE" en el panel lateral izqu
 
 En la última versión de PWD, el equipo de PWK anunciaba a través de [Easiest Single Node Kubernetes Cluster](https://medium.com/@marcosnils/easiest-single-node-kubernetes-cluster-f1deaf229bd5) la opción de subir ficheros arrastrando y soltando sobre la ventana del navegador, lo que simplifica todavía más la creación de los diferentes objetos en el clúster:
 
-<small>Puedes visualizar el gif en una nueva pestaña, a pantalla completa, pulsando en : 
-<a href="/images/170818/pwk-uploads.gif" target="_blank">Subida de ficheros a PWK</a></small>
+<small>Puedes visualizar el gif en una nueva pestaña, a pantalla completa, pulsando en : <a href="/images/170818/pwk-uploads.gif" target="_blank">Subida de ficheros a PWK</a></small>
 
 {{% img src="images/170818/pwk-uploads.gif" %}}
 

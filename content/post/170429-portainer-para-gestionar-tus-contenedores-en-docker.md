@@ -16,7 +16,7 @@ Espero que este artículo ayude a todos aquellos que tengan ganas de probar Port
 
 He estado buscando algún tipo de solución gráfica para monitorizar las Raspberry Pi ya que, por algún motivo, los nodos _worker_ del clúster de Kubernetes se _cuelgan_.
 
-Buscando alguna solución de monitorizado he encontrado Portainer referenciado en el blog de Hypriot: [Visualize your Raspberry Pi containers with Portainer or UI for Docker](https://blog.hypriot.com/post/new-docker-ui-portainer/).	 
+Buscando alguna solución de monitorizado he encontrado Portainer referenciado en el blog de Hypriot: [Visualize your Raspberry Pi containers with Portainer or UI for Docker](https://blog.hypriot.com/post/new-docker-ui-portainer/).
 
 Portainer no es una herramienta de monitorizado (a nivel de _host_), sino que está enfocada a la _visualización_ básicamente del estado de los contenedores de uno (o varios) _endpoints_ Docker (o Docker Swarm). Sin embargo, ofreciendo soporte para ARM y estando disponible en forma de contenedor, no había motivo para no probarlo ;)
 
@@ -35,7 +35,7 @@ Además, lanzando el comando _tal cual_, si quieres configurar Portainer para mo
 El artículo de Hypriot apunta a una imagen llamada `portainer/portainer:arm`, que ya no existe en DockerHub. Revisando las [etiquetas disponibles para las imágenes de Portainer](https://hub.docker.com/r/portainer/portainer/tags/), encontramos:
 
 ```sh
-TagName                Compressed Size    Last Updated 
+TagName                Compressed Size    Last Updated
 ppc64le                  4 MB             16 days ago
 demo                     4 MB             23 days ago
 latest                   0 B              23 days ago
@@ -125,4 +125,4 @@ Desde la interfaz web podemos gestionar los contenedores, imágenes y volúmenes
 
 {{% img src="images/170429/portainer-8-volumes.png" caption="Volúmenes." %}}
 
-En el próximo artículo me concentraré en usar [Portainer](/tags/portainer/) para realizar la gestión de Docker. 
+En el próximo artículo me concentraré en usar [Portainer](/tags/portainer/) para realizar la gestión de Docker.

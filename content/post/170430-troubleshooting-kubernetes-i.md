@@ -19,7 +19,7 @@ Tras unas horas activos y formando parte del clúster, los dos nodos que corren 
 
 El clúster está formado por tres Raspberry Pi; el nodo _master_ es una Raspberry Pi 2 B mientras que los dos nodos _worker_ son Raspberry Pi 3 B.
 
-```sh
+```shell
 $ kubectl get nodes -o wide
 NAME      STATUS     AGE       VERSION   EXTERNAL-IP   OS-IMAGE                        KERNEL-VERSION
 k1        Ready      19d       v1.6.2    <none>        Raspbian GNU/Linux 8 (jessie)   4.4.50-hypriotos-v7+
@@ -33,7 +33,7 @@ k3        NotReady   14d       v1.6.2    <none>        Raspbian GNU/Linux 8 (jes
 
 La prueba más sencilla para ver si los nodos están colgados, es lanzar un ping desde el portátil:
 
-```sh
+```shell
 $ ping -c5 k2.local
 ping: cannot resolve k2.local: Unknown host
 $ ping -c5 k3.local
@@ -44,7 +44,7 @@ En esta prueba vemos que ninguno de los nodos responde al nombre que _publica_ e
 
 ## Ping a la IP del nodo
 
-```sh
+```shell
 $ ping -c5 192.168.1.12
 PING 192.168.1.12 (192.168.1.12): 56 data bytes
 64 bytes from 192.168.1.12: icmp_seq=0 ttl=64 time=3.842 ms
@@ -74,7 +74,7 @@ En este caso, el nodo **k2** sí que responde a ping a la IP, mientras que el no
 
 Aunque el nodo **k2** responde a ping, no es posible conectar vía SSH; el intento de conectar no tiene éxito, pero tampoco falla (por _timeout_, por ejemplo). He probado a conectar tanto desde el portátil como desde el nodo **k1**, con el mismo resulado:
 
-```sh
+```shell
 ssh pirate@192.168.1.12
 
 ```
@@ -85,7 +85,7 @@ Usamos el comando `kubelet describe node` para los dos nodos colgados.
 
 ## Nodo **k2**
 
-```sh
+```shell
 $ kubectl describe node k2
 Name:			k2
 Role:
@@ -141,7 +141,7 @@ Events:		<none>
 
 ### Nodo **k3**
 
-```sh
+```shell
 $ kubectl describe node k3
 Name:			k3
 Role:
@@ -204,7 +204,7 @@ El nodo **k2** deja de responder a las 11:56:26, mientras que el **k3** lo hace 
 
 Como referencia, incluimos el mismo comando para el nodo _master_ **k1**:
 
-```sh
+```shell
 $ kubectl describe node k1
 Name:			k1
 Role:
@@ -274,7 +274,7 @@ En la guía de _Troubleshooting_ de Kubernetes, el siguiente paso es revisar los
 
 Sin embargo, los logs indicados **no existen en la ruta indicada**:
 
-```sh
+```shell
 $ ls /var/log/kube*
 ls: cannot access /var/log/kube*: No such file or directory
 ```

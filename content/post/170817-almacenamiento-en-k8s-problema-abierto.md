@@ -65,7 +65,7 @@ Desafortunadamente, no hay ningún tutorial sobre cómo crear los _PersistentVol
 
 Sobre **cómo** encuentra el clúster el _claim_ en el espacio de nombres del _pod_ y lo relaciona con un _PersistentVolume_ disponible, no se dan detalles.
 
-En la próxima entrada explicaré cómo conseguí crear correctamente los _pods_ del _StatefulSet_ del tutorial. 
+En la próxima entrada explicaré cómo conseguí crear correctamente los _pods_ del _StatefulSet_ del tutorial.
 
 > **Actualización**: La entrada ya está publicada: [Troubleshooting: Creación de pods del tutorial 'StatefulSet Basics']({{< ref "170818-troubleshooting-creacion-de-pods-del-tutorial-statefulset-basics.md" >}})
 
