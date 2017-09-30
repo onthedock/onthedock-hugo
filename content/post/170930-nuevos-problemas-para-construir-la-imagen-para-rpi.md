@@ -31,7 +31,7 @@ title=  "Nuevos problemas al construir la imagen con Caddy y PHP, ahora para Ras
 date = "2017-09-30T17:30:45+02:00"
 +++
 
-En la entrada anterior [Dokuwiki en un contendor]({{< ref "20170924-dokuwiki_en_un_contenedor_notas.md">}}) dejaba constancia de los problemas que encontré creando una imagen para ejecutar Dokuwiki en un contenedor.
+En la entrada anterior [Dokuwiki en un contendor]({{< ref "170924-dokuwiki_en_un_contenedor_notas.md">}}) dejaba constancia de los problemas que encontré creando una imagen para ejecutar Dokuwiki en un contenedor.
 
 Al final de la entrada indicaba que la creación de la misma imagen, pero para ARM sería tan sencillo como cambiar la imagen base. **Pues no.**
 

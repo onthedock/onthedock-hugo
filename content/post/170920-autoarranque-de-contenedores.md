@@ -27,7 +27,7 @@ systemd se organiza alrededor de dos conceptos: el `unit file` y el `target`. El
 
 Los ficheros `unit file` se encuentran en `/etc/systemd/system`.
 
-Creamos un fichero `home-dns.service` para el  [servicio de DNS creado en la entrada anterior]({{< ref "20170827-dnsmasq-en-docker.md" >}}) usando **dnsmasq**.
+Creamos un fichero `home-dns.service` para el  [servicio de DNS creado en la entrada anterior]({{< ref "170827-dnsmasq-en-docker.md" >}}) usando **dnsmasq**.
 
 ```shell
 [Unit]
