@@ -49,6 +49,8 @@ Así que he seguido el camino inverso y he decidido _meterlo todo_ en un solo co
 
 ### Configuración inicial de Dokuwiki
 
+> Puedes encontrar todos los ficheros en [Github: ontheDock/alpine-caddy-php](https://github.com/onthedock/alpine-caddy-php) y la imagen final en [DockerHub: xaviaznar/alpine-caddy-php](https://hub.docker.com/r/xaviaznar/alpine-caddy-php/)
+
 No ha sido difícil crear una imagen base con Nginx, PHP (y PHP-FPM), pero todavía quedaba la parte difícil: configurarlo todo para que funcionase.
 
 He realizado algunas pruebas de configuración de PHP en Nginx, sin éxito.
@@ -131,7 +133,7 @@ Otro punto que me ha despistado es que el fichero inicial de pruebas `index.htm`
 
 ## Ejecutando el contenedor
 
-Una vez he conseguido crear un contenedor con Caddy y PHP funcional (verificado a partir de `$BASEURL/info.php`), el siguiente paso era _conectarlo_ con los ficheros de Dokuwiki. La manera más sencilla ha sido creando una carpeta local en la Raspberry Pi y montarla en el contenedor como un volumen.
+Una vez he conseguido crear un contenedor con Caddy y PHP funcional (verificado a partir de `$BASEURL/info.php`), el siguiente paso era _conectarlo_ con los ficheros de Dokuwiki. La manera más sencilla ha sido creando una carpeta local en la _host_ y montarla en el contenedor como un volumen.
 
 He descargado y descomprimido la última versión estable de Dokuwiki en la carpeta `~/dokuwiki` y la he montado en el contenedor:
 
@@ -141,7 +143,7 @@ docker run -d --name wiki -p 8910:2015 -v /home/operador/dokuwiki:/var/www xavia
 
 ### Permisos
 
-Como el usuario con el que se ejecuta Caddy en el contenedor no existe en el sistema local, he cambiado los permisos de `~/dokuwiki` a `777` (todo el mundo tiene acceso). A diferencia del usuario `root`, el usuario `caddy` no existe en el _host_ (en la Raspberry Pi), por lo que no tendría problemas para "salir" de la carpeta `dokuwiki` y acceder a otras partes del sistema más sensibles.
+Como el usuario con el que se ejecuta Caddy en el contenedor no existe en el sistema local, he cambiado los permisos de `~/dokuwiki` a `777` (todo el mundo tiene acceso). A diferencia del usuario `root`, el usuario `caddy` no existe en el _host_, por lo que tendría problemas para "salir" de la carpeta `dokuwiki` y acceder a otras partes del sistema más sensibles.
 
 ### Librerías adicionales
 
@@ -161,3 +163,11 @@ Dado que todo el proceso por el que he pasado ha sido el resultado de innumerabl
 He creado unos scripts auxiliares para construir la imagen, parar y eliminar el contenedor y para ejecutarlo de nuevo. Para poder conectar al contenedor y revisar la configuración, la correcta ubicación de los ficheros (o si el proceso `php-fpm` estaba funcionando), también he credo un script para conectar al contenedor y ejecutar una terminal.
 
 Obviamente dista mucho de ser un _pipeline_ de integración continua, pero es un primer paso en la dirección correcta ;)
+
+## Siguientes pasos
+
+Todo el proceso de desarrollo lo he realizado en mi equipo de laboratorio, sobre una máquina virtual x64 para evitar añadir problemas de compatibilidad o de disponibilidad de librerías al proceso.
+
+El paso de una imagen x64 a una ARM no debería suponer ningún problema, ya que estuve revisando que todos los paquetes estuvieran disponibles para las dos arquitecturas.
+
+El siguiente paso es aprovechar todo lo aprendido con la imagen de prueba y crear una imagen para la Raspberry Pi.
