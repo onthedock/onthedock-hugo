@@ -171,3 +171,9 @@ Todo el proceso de desarrollo lo he realizado en mi equipo de laboratorio, sobre
 El paso de una imagen x64 a una ARM no debería suponer ningún problema, ya que estuve revisando que todos los paquetes estuvieran disponibles para las dos arquitecturas.
 
 El siguiente paso es aprovechar todo lo aprendido con la imagen de prueba y crear una imagen para la Raspberry Pi.
+
+> [Nuevos problemas al construir la imagen con Caddy y PHP, ahora para Raspberry Pi]({{<ref "170930-nuevos-problemas-para-construir-la-imagen-para-rpi.md">}})
+
+Y la guía paso a paso:
+
+> [Cómo crear una imagen con Caddy y PHP]({{<ref "170930-como-crear-una-imagen-con-caddy-y-php.md" >}})

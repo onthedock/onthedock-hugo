@@ -13,20 +13,6 @@ categories = ["dev"]
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/docker.png"
 
-# SHORTCODES (for reference)
-
-# YouTube
-# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes
-# {{% img src="images/image.jpg" w="600" h="400" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="right" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="left" %}}
-# {{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# Clear (floats)
-# {{% clear %}}
-# Twitter
-# {{% twitter tweetid="780599416621297xxx" %}}
-
 title=  "Nuevos problemas al construir la imagen con Caddy y PHP, ahora para Raspberry Pi"
 date = "2017-09-30T17:30:45+02:00"
 +++
@@ -67,6 +53,12 @@ Otro punto que hay que tener en cuenta es que el contenido de la carpeta del con
 
 En mi caso, por ejemplo, al construir la imagen se copian los ficheros `index.htm` y `phpinfo.php` en `/var/www`. Pero cuando se monta la carpeta `~/wiki` en `/var/wwww`, sólo aparecen los ficheros presentes en `~/wiki`. Los ficheros `index.php` y `phpinfo.php` sólo son _visibles_ si no se monta un volumen en el contenedor.
 
+### File not found al acceder a http://$IPHOST:puerto/
+
+Al acceder a la URL del servidor web sin indicar el nombre del fichero, por defecto se busca un fichero llamado `index.html`. En mi caso, como el fichero se llamaba `index.htm` (sin la "l" final), se mostraba un error `File Not Found`.
+
+He renombrado el fichero de `index.htm` a `index.html` después de [consultar la documentación de Caddy](https://caddyserver.com/docs/index) para que no suceda. En el fichero `index.html` he incluido un enlace al fichero `phpinfo.php` para verificar la configuración de PHP en el contenedor.
+
 ## Volúmenes compartidos entre el host y el contenedor
 
 Para simplificar la organización de las carpetas montadas en los contenedores, he creado una carpeta llamada `/shared`, en la raíz del árbol de carpetas. Dentro de esta carpeta habrá una carpeta para cada contenedor que tenga un volumen local montado.
@@ -90,3 +82,5 @@ Este cambio hace que tenga que modificar todos los _lanzadores_ -como el `runWik
 ## Siguientes pasos
 
 Una vez he resuelto todos los problemas que han ido apareciendo en esta fase de desarrollo, el siguiente paso es documentar todos los pasos -correctos- que hay que dar para obtener tanto la imagen con Caddy y PHP como para usarla en un contenedor sirviendo una aplicación web en PHP.
+
+> Actualización: Ya está lista la guía paso a paso: [Cómo crear una imagen con Caddy y PHP]({{<ref "170930-como-crear-una-imagen-con-caddy-y-php.md" >}})
