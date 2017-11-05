@@ -15,6 +15,8 @@ thumbnail = "images/thumbnail.png"
 
 # SHORTCODES (for reference)
 
+# Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
+
 # YouTube
 # {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
 # Imagenes
