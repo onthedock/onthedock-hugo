@@ -2,7 +2,7 @@
 draft = false
 
 categories = ["dev", "ops"]
-tags = []
+tags = ["raspberry pi", "linux", "kubernetes"]
 
 thumbnail = "images/kubernetes.png"
 

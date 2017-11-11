@@ -5,7 +5,7 @@ draft = false
 # HW->OS->PRODUCT->specific tag
 # Example: "raspberry pi", "hypriot os", "kubernetes"
 
-tags = []
+tags = ["linux"]
 
 # CATEGORIES = "dev" / "ops"
 categories = ["dev", "ops"]
