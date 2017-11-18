@@ -224,7 +224,7 @@ En cualquier caso, puedes recuperar el _token_ para usarlo en cualquier otro mom
 
 Después de los problemas que tuve en el pasado con _Flannel_, siempre instalado Weave como red para los _pods_ en mis clústers.
 
-La inslación de la red de _pods_ de Weave Net puedes encontrarla en el enlace [Integrating Kubernetes via the Addon](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/) de la lista de [Add-Ons](https://kubernetes.io/docs/concepts/cluster-administration/addons/) de Kubernetes.
+La instalación de la red de _pods_ de Weave Net puedes encontrarla en el enlace [Integrating Kubernetes via the Addon](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/) de la lista de [Add-Ons](https://kubernetes.io/docs/concepts/cluster-administration/addons/) de Kubernetes.
 
 > El comando de instalación de Weave Net requiere Kubernetes 1.4 o superior
 
