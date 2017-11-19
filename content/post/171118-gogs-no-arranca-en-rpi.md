@@ -264,9 +264,11 @@ La [solución](https://github.com/docker/for-mac/issues/1317) pasa por desinstal
 
 {{% img src="images/171118/gogs-back-to-live.png" w="914" h="411" %}}
 
-En caunto a la imagen para Raspberry Pi, también se ha construido una nueva versión:
+En cuanto a la imagen para Raspberry Pi, también se ha construido una nueva versión:
 
 {{% img src="images/171118/gogs-rpi-image-4min-ago.png" w="716" h="483" %}}
+
+Después de comprobar que todo ha sido un problema puntual, he vuelto a establecer IP estática en el _host_ y he verificado que Gogs sigue arrancando después de parar el contenedor (y de modificar la configuración).
 
 ## Resumen
 
