@@ -30,7 +30,7 @@ En esta entrada indico cómo lanzar el registro oficial de Docker en nuestra inf
 
 <!--more-->
 
-El [registro oficial de Docker](https://docs.docker.com/registry/) es es _open source_ bajo [licencia Apache](http://en.wikipedia.org/wiki/Apache_License) y se distribuye como una imagen que puedes obtener desde Docker Hub.
+El [registro oficial de Docker](https://docs.docker.com/registry/) es _open source_ bajo [licencia Apache](http://en.wikipedia.org/wiki/Apache_License) y se distribuye como una imagen que puedes obtener desde Docker Hub.
 
 ## Arranca tu registro local
 
@@ -69,7 +69,7 @@ alpine                  3.6                 053cde6e8953        4 weeks ago     
 localhost:5000/alpine   3.6                 053cde6e8953        4 weeks ago         3.97MB
 ```
 
-Una vez etiquetada, la _push_eamos al registro:
+Una vez etiquetada, la _subimos_ al registro:
 
 ```shell
 $ docker push localhost:5000/alpine:3.6
@@ -139,7 +139,7 @@ Como vemos, tenemos la imagen `alpine` subida desde el equipo local y la que hem
 De la misma forma podemos obtener la lista de tags existente para cualquier imagen; por ejemplo, para `arm32v6/alpine`:
 
 ```shell
-$ wget -qO - http://192.168.1.10:5000/v2/alpine/tags/list
+$ wget -qO - http://192.168.1.10:5000/v2/arm32v6/alpine/tags/list
 {"name":"arm32v6/alpine","tags":["3.6"]}
 ```
 
