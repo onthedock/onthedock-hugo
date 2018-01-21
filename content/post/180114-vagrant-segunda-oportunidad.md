@@ -9,15 +9,6 @@ tags = ["windows", "hyper-v", "vagrant", "automation"]
 
 thumbnail = "images/vagrant.png"
 
-# SHORTCODES (for reference)
-
-# Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
-
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
-
 title=  "Vagrant: Segunda oportunidad (y mejores sensaciones que la primera vez)"
 date = "2018-01-14T17:28:40+01:00"
 +++
