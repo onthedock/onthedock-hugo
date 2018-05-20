@@ -21,7 +21,7 @@ thumbnail = "images/gogs.png"
 # Twitter {{% twitter tweetid="780599416621297xxx" %}}
 
 title=  "Pipeline: Gogs - El repositorio de código"
-#date = "2018-05-20T07:30:49+02:00"
+date = "2018-05-20T07:30:49+02:00"
 +++
 
 Gogs es un servidor de Git escrito en Go. Proporciona un interfaz web similar a GitHub.
