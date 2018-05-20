@@ -24,7 +24,7 @@ title=  "Pipeline: Gogs - El repositorio de código"
 date = "2018-05-20T07:30:49+02:00"
 +++
 
-Gogs es un servidor de Git escrito en Go. Proporciona un interfaz web similar a GitHub.
+[Gogs](https://gogs.io) es un servidor de Git escrito en Go. Proporciona un interfaz web similar a GitHub.
 
 En esta entrada se describe cómo lanzar los contenedores necesarios para tener una instalación funcional de Gogs.
 
