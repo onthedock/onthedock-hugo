@@ -45,13 +45,15 @@ Al ejecutar el comando _tal cual_, se muestra el consumo en tiempo real, actuali
 
 Podemos lanzar el comando para obtener el estado de manera puntual (es decir, que no se actualice automáticamente) mediante el parámetro `--no-stream`.
 
-Podemos usar Este comando puede ser la base de un sistema de monitorización sencillo, pero para ello deberíamos poder exportar la salida de `docker stats --no-stream` a un fichero. Podemos usar la redirección de Linux para volcar la salida a un fichero `docker stats --no-stream > stats.txt`. El fichero lo podemos importar después en una herramienta que pueda _ingestar_ estos valores separados por tabulaciones... O podemos usar el parámetro `--format`,para definir el formato de la salida. Así podemos conseguir un fichero CSV:
+Este comando puede ser la base de un sistema de monitorización sencillo, pero para ello deberíamos exportar la salida de `docker stats --no-stream` a un fichero; usando la redirección de Linux por ejemplo: `docker stats --no-stream > stats.txt`.
+
+El fichero lo podemos importar después en una herramienta que pueda _ingestar_ estos valores separados por tabulaciones... O podemos usar el parámetro `--format`, para definir convertir la salida en un fichero CSV:
 
 ```shell
 sudo docker stats --no-stream --format "{{ .Container }}, {{ .Name }}, {{ .MemUsage }}, {{ .MemPerc }}, {{ .CPUPerc }}" >> stats.csv
 ```
 
-La salida del comando sería:
+Con esta parametrización, la salida del comando sería:
 
 ```shell
 $ cat stats.csv
@@ -66,6 +68,6 @@ d3202c39fbe4, nexus, 413.8MiB / 1.877GiB, 21.53%, 2.34%
 $
 ```
 
-Si lo ejecutamos de manera periódica -vía `cron`- tenemos una buena base para obtener monitorizar nuestros contenedores...
+Si lo ejecutamos de manera periódica -vía `cron`- tenemos la base para una monitorización simple de nuestros contenedores...
 
 Quizás hay que darle una vuelta, pero teniendo la información, ahora la ¡imaginación es el límite!
