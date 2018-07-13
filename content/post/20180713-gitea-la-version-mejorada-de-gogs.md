@@ -1,24 +1,9 @@
 +++
-draft = true
+draft = false
 
-# CATEGORIES = "dev" / "ops"
 categories = ["dev", "ops"]
-# TAGS (HW->OS->PRODUCT->specific tag)
-# Example: "raspberry pi", "hypriot os", "kubernetes"
-
 tags = ["docker", "git", "gitea"]
-
-# Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/gitea.jpg"
-
-# SHORTCODES (for reference)
-
-# Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
-
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
 
 title=  "Gitea: la versión mejorada de Gogs"
 date = "2018-07-13T20:04:36+02:00"
