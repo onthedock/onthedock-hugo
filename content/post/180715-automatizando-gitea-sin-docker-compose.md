@@ -108,6 +108,6 @@ Una vez tenemos todo preparado, arrancamos el contenedor de la base de datos y e
 
 Al arrancar Gitea encuentra el fichero de configuración en el volumen de datos, por lo que no es necesario realizar ninguna configuración adicional.
 
-En la [siguiente entrada]({{<ref "20180715-automatizando-gitea-con-docker-compose.md">}}) uso [Docker Compose](https://docs.docker.com/compose/) para automatizar la instalación y analizaré similitudes y diferencias con el método _manual_ (Docker y scripts).
+En la [siguiente entrada]({{<ref "180715-automatizando-gitea-con-docker-compose.md">}}) uso [Docker Compose](https://docs.docker.com/compose/) para automatizar la instalación y analizaré similitudes y diferencias con el método _manual_ (Docker y scripts).
 
 > El robot de la cabecera proviene de Wikimedia Commons: [Robotics is fun!](https://commons.wikimedia.org/wiki/File:Robot-clip-art-book-covers-feJCV3-clipart.png) creado por Deepa Avudiappan.
