@@ -6,7 +6,7 @@ categories = ["ops"]
 # TAGS (HW->OS->PRODUCT->specific tag)
 # Example: "raspberry pi", "hypriot os", "kubernetes"
 
-tags = ["linux"]
+tags = ["linux", "automatizacion"]
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/linux.png"
