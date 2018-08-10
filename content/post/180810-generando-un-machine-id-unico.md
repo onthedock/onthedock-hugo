@@ -59,3 +59,4 @@ Referencias:
 
 - [machine-id — Local machine ID configuration file en FreeDesktop.org](https://www.freedesktop.org/software/systemd/man/machine-id.html)
 - [systemd-machine-id-setup — Initialize the machine ID in /etc/machine-id en FreeDesktop.org](https://www.freedesktop.org/software/systemd/man/systemd-machine-id-setup.html#)
+- [On IDs](http://0pointer.de/blog/projects/ids.html)
