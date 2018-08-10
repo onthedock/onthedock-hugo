@@ -83,3 +83,7 @@ sudo systemd-machine-id-setup
 ```
 
 Tras reiniciar los nodos del clúster, el _pod_ de prueba del clúster se ha iniciado con normalidad.
+
+## Update (2018-08-10)
+
+En la documentación oficial de Kubernetes sobre cómo instalar `kubeadm` se incluye una sección específica sobre este tema: [Verify the MAC address and product_uuid are unique for every node](https://kubernetes.io/docs/setup/independent/install-kubeadm/#verify-the-mac-address-and-product-uuid-are-unique-for-every-node). Además, se hace referencia a que, en caso contrario, la instalación puede fallar, haciendo referencia a este _bug_ documentado en GitHub que hace referencia a Weave.net: [The product_uuid and the hostname should be unique across nodes](https://github.com/kubernetes/kubeadm/issues/31).
