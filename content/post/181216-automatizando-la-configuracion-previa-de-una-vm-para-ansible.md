@@ -31,6 +31,8 @@ En mi caso he estado haciendo pruebas con máquinas generadas usando Vagrant, co
 
 El script de configuración se encuentra en un repositorio de Git, por lo que en la máquina gestionada tenemos que descargarlo -usando `curl` o `wget`- y convertirlo en ejecutable (`chmod +x vmconfig4ansible.sh`).
 
+> He subido el script al repositorio [onthedock/vmconfig4ansible](https://github.com/onthedock/vmconfig4ansible) en GitHub.
+
 Asumo que "de alguna manera" tienes forma de conectar a la máquina recién creada y que conoces las credenciales para poder acceder (y elevar permisos una vez conectado).
 
 ## Conexión a la máquina gestionada
