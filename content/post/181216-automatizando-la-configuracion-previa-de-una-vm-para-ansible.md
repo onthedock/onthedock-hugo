@@ -37,7 +37,7 @@ Asumo que "de alguna manera" tienes forma de conectar a la máquina recién crea
 
 ## Conexión a la máquina gestionada
 
-Tras crear la máquina con Vagrant, obtendo la IP asignada por DHCP consultando el hipervisor. Supongamos que esta IP es 192.168.1.221.
+Tras crear la máquina con Vagrant, obtengo la IP asignada por DHCP consultando el hipervisor. Supongamos que esta IP es 192.168.1.221.
 Al tratarse de una máquina Vagrant, el usuario `vagrant` tiene contraseña `vagrant`, aunque también puedes acceder usando el comando `vagrant ssh`.
 
 > En las máquinas Vagrant el usuario `vagrant` tiene permisos para elevar permisos sin necesidad de introducir el password, por lo que el _script_ funciona sin interrupción al ejecutar las instrucciones `sudo ...`.
