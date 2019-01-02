@@ -1,25 +1,9 @@
 +++
 draft = false
 
-# CATEGORIES = "dev" / "ops"
 categories = ["dev"]
-# TAGS (HW->OS->PRODUCT->specific tag)
-# Example: "raspberry pi", "hypriot os", "kubernetes"
-
 tags = ["linux", "aws", "cloud-init"]
-
-# Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/190101/amazonlinux.png"
-
-# SHORTCODES (for reference)
-
-# Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
-
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
-
 title=  "Probando Amazon Linux 2"
 date = "2019-01-01T16:43:58+01:00"
 +++
@@ -96,6 +80,20 @@ Tras buscar en Google, descubro que en RHEL/CentOS, la red viene desactivada por
 sudo systemctl enable network
 sudo systemctl start network
 ```
+
+# Haciendo las cosas bien (actualización)
+
+En la primera prueba con Amazon Linux 2 cometí el error de especificar una IP que estaba siendo usada por una máquina Vagrant. Al tener una IP duplicada, la máquina virtual con Amazon Linux 2 no podía levantar la red.
+
+Una vez descubierto el problema (que documento paso a paso más abajo), he repetido los pasos necesarios para arrancar una máquina virtual con Amazon Linux 2 y no he tenido ningún problema.
+
+Es necesario habilitar la red después del primer arranque, aunque esto es una característica que Amazon Linux 2 hereda de RHEL/CentOS.
+
+Una vez habilitado el servicio de red, se puede *levantar* sin más.
+
+> El problema para levantar la red se deben a que la IP que había especificado en el fichero de configuración `meta-data` estaba duplicada :(
+
+## Diagnosticando el problema de red (spoiler: IP duplicada)
 
 De nuevo, error, aunque esta vez **Failed to start LSB: Bring up/down**. El [primer resultado en Google](https://unix.stackexchange.com/questions/278155/network-service-failed-to-start-lsb-bring-up-down-networking-centos-7) apunta a que la causa puede ser que no existe el fichero `/etc/sysconfig/network`.
 
