@@ -15,13 +15,13 @@ KVM es un módulo de virtualización que permite al kernel de Linux funcionar co
 
 KVM es un hipervisor desarrollado originalmente por Qumranet, una starup que más tarde fue adquirida por RedHat. KVM usa una versión modificada de QEMU como _front-end_. El uso de QEMU -asociado al mal recuerdo del rendimiento que obtuve con QEMU en el pasado- me habían mantenido alejado de KVM hasta que hace un par de semanas decidí darle una oportunidad.
 
-Mi objetivo era convertir el laboratorio casero a un entorno 100% linux, eliminando Hyper-V como hipervisor. Estuve jugando con la idea de volver a Xen, e incluso estuve tentado de usar una distribución con escritorio y usar un entorno con Vagrant/VirtualBox. Pero decidí salir completamente de mi zona de confort y empezar con algo completamente desconocido como KVM.
+Mi objetivo era convertir el laboratorio casero a un entorno 100% linux, eliminando Hyper-V como hipervisor. Estuve dando vueltas a la idea de volver a Xen, e incluso me tentó la opción de usar una distribución de escritorio y optar por la vía Vagrant/VirtualBox. Al final decidí salir completamente de mi zona de confort y empezar con algo desconocido como KVM.
 
 Amazon empezó a migrar en 2017 toda su infraestructura a [Nitro](https://aws.amazon.com/es/ec2/faqs/#ec2-hypervisor), basado en KVM así que aprender cómo funciona KVM también me serviría en mi avance hacia obtener un conocimiento profundo del _cloud_ a todos los niveles.
 
 ## Firmware Bug
 
-Al intentar instalar Ubuntu Server, encontré el siguiente error:
+Al intentar instalar Ubuntu Server 18.04.1, me topé con el siguiente mensaje:
 
 ```bash
 ...
@@ -31,21 +31,21 @@ AMD-Vi: Disabling interrupt remapping
 ...
 ```
 
-El error se produce al arrancar el instalador de Ubuntu; el instalador fallaba, se quedaba la pantalla en negro y finalmente el equipo se reiniciaba. Tras el reinicio, el equipo se quedaba congelado en la pantalla de POST.
+El error se produce al arrancar el instalador de Ubuntu; la pantalla se queda en negro y el equipo se reinicia. A continuación el equipo se queda congelado en la pantalla de POST.
 
 Encontré información relativa al error en múltiples sitios de internet (como por ejemplo [IOAPIC[0] not in IVRS table](https://superuser.com/questions/1052023/ioapic0-not-in-ivrs-table)), pero incluso tras haber actualizado la BIOS a la última versión disponible en la web del fabricante, seguía obteniendo el mismo error.
 
 A partir de aquí estuve probando varias distribuciones, como Xubuntu, que pude instalar sin problemas. Pero los tutoriales que seguía para instalar KVM hacían referencia a otras distribuciones "de servidor", por lo que me sentía remando a contracorriente y dedicando mucho más tiempo del necesario para instalar el hipervisor y configurar la tarjeta de red en modo _bridge_.
 
-Antes de darme por vencido, decidí probar con otra distribución "de servidor"; descargué e instalé CentOS 6 sin problemas. Aunque al arrancar el instalador se mostraba el error, el instalador en modo texto continuaba, permitiendo la instalación del sistema operativo.
+Antes de darme por vencido, decidí probar con otra distribución "de servidor"; descargué e instalé CentOS 6 sin problemas. Aunque al arrancar el proceso de instalación se mostraba el error, la instalación continuaba permitiendo instalar el sistema operativo con normalidad.
 
-No estoy demasiado familizarizado con distros basadas en RPM (como CentOS/RHEL), pero la documentación (y Google) me ayudaron a ir solucionando todas las dudas que tenía. Después de leer en múltiples sitios que la actualización de versión _major_ de CentOS es complicada (y que se recomienda instalar desde 0), decidí que ya que me ponía, lo haría con CentOS 7 (y así me ahorraba el problema de actualizar en el futuro).
+No estoy demasiado familizarizado con distros basadas en RPM (como CentOS/RHEL), pero la documentación (y Google) me ayudaron a ir solucionando todas las dudas que surgían. Después de leer en múltiples sitios que la actualización de versión _major_ de CentOS es complicada (y que se recomienda instalar desde 0), decidí que ya que me ponía, lo haría con CentOS 7 (y así me ahorraba el problema de actualizar en el futuro).
 
-Sin embargo, la instalación de CentOS 7 ya no es en modo texto, sino de forma gráfica. Y fue así, buscando la forma de instalar el sistema operativo en modo texto cuando descubrí que podía usar las opciones de configuración para "forzar" el modo texto y realizar la instalación pese al fallo del instalador en modo gráfico.
+Sin embargo, la instalación de CentOS 7 ya no es en modo texto, sino de forma gráfica. Y fue así, buscando la forma de lanzar la el instalador en modo texto cuando descubrí que podía usar las opciones de configuración para "forzarlo" y continuar con la instalación pese al fallo del instalador en modo gráfico.
 
-Aunque conseguí instalar CentOS 7, decidí probar el "truco" del instalador en modo texto con Ubuntu Server ([BootOptions](https://help.ubuntu.com/community/BootOptions)) y finalmente conseguí instalar Ubuntu Server 18.04.1 LTS (Bionic Beaver).
+Aunque finalmente instalé CentOS 7, decidí darle una nueva oportunidad a Ubuntu Server usando el "truco" del instalador en modo texto ([BootOptions](https://help.ubuntu.com/community/BootOptions)). Así, después de mucho ensayo y error, finalmente conseguí instalar Ubuntu Server 18.04.1 LTS (Bionic Beaver).
 
-> Una vez instalado el sistema operativo, el error sigue apareciendo en los logs, pero no afecta -hasta donde he podido comprobar- el funcionamiento del sistema.
+> El error sigue apareciendo en los logs, pero no afecta -hasta donde he podido comprobar- el funcionamiento del sistema.
 
 ## Configurar la red _bridge_
 
@@ -66,7 +66,7 @@ network:
 
 Eliminamos la configuración automática de la tarjeta de red mediante DHCP y añadimos un _bridge_:
 
-> Es recomendable realizar la configuración de forma local, ya que al aplicar los cambios cambia la dirección de IP asignadas y se perderá la conexión vía SSH.
+> Es recomendable realizar la configuración de forma local, ya que al aplicar los cambios, el equipo cambia de dirección de IP y se pierde la conexión vía SSH.
 
 ```yaml
 network:
@@ -108,7 +108,7 @@ $ ip address show
        valid_lft forever preferred_lft forever
 ```
 
-## Instalar de KVM
+## Instalar KVM
 
 ### Comprobar soporte de virtualización
 
@@ -147,7 +147,7 @@ Aunque la aplicación base ya está instalada, todavía no hemos creado ninguna 
 
 Mi objetivo es realizar una gestión de las VMs lo más desatendida posible; para ello quiero poder gestionar todas las operaciones a realizar sobre las  máquinas virtuales desde la línea de comandos o desde scripts, en remoto.
 
-> Para realizar la instalación desde la ISO del fabricante del SO he creado la máquina localmente, pero para completar todos los pasos de configuración desde el instalador he usado Virtual Machine Manager desde el equipo remoto.
+> Para realizar la instalación desde la ISO del fabricante del sistema operativo he creado la máquina localmente, pero para completar todos los pasos de configuración desde el instalador he usado Virtual Machine Manager desde el equipo remoto.
 
 ### `virtinstall`
 
@@ -157,9 +157,9 @@ Usando `virt-install` puedes lanzar una nueva máquina desde línea de comando m
 virt-install --name userver --vcpus 1 --memory 2048 --cdrom /var/lib/libvirt/images/ubuntu-server-18.04.1-amd64.iso --disk size=10 --network bridge:br0
 ```
 
-Esta máquina tiene 1 vPUD, 2GB de RAM, un disco de 10GB y está conectada a la red _bridge_ `bridge:br0`; hemos conectado el CD de instalación de Ubuntu Server en la unidad de CD virtual del equipo.
+Esta máquina tiene 1 vPUD, 2GB de RAM, un disco de 10GB y está conectada a la red _bridge_ `bridge:br0`; la ISO de instalación de Ubuntu Server está conectada a la unidad virtual de CDROM de la VM.
 
-> Para realizar la configuración del sistema operativo mediante el instalador, necesitas una máquina con un entorno gráfico.
+> Para realizar la configuración del sistema operativo mediante el instalador, necesitas una máquina con entorno gráfico.
 
 ## Virtual Machine Manager
 
@@ -173,7 +173,7 @@ Para que la máquina virtual tenga acceso a la red _bridge_ debemos especificar 
 
 # Siguientes pasos
 
-Este documento no es más que unas notas "pasadas a limpio" sobre el proceso de instalación y configuración de KVM sobre Ubuntu Server 18.04.
+Esta entrada no es más que unas notas "pasadas a limpio" sobre el proceso de instalación y configuración de KVM sobre Ubuntu Server 18.04.
 
 La instalación se realiza con los paquetes mínimos y sin incluir, al menos inicialmente, `virtinstall`. Más adelante fue necesario instalarlo para poder crear una máquina virtual "desde cero".
 
