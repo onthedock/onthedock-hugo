@@ -20,7 +20,7 @@ thumbnail = "images/linux.png"
 # Clear (floats) {{% clear %}}
 # Twitter {{% twitter tweetid="780599416621297xxx" %}}
 
-title=  "Cómo habilitar virtualizacion anidada en KVM"
+title=  "Cómo habilitar virtualización anidada en KVM"
 date = "2019-02-05T22:14:15+01:00"
 +++
 
