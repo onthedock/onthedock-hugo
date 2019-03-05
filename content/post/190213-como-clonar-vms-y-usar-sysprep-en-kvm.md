@@ -23,7 +23,7 @@ thumbnail = "images/linux.png"
 title=  "Cómo clonar máquinas virtuales y usar virt-sysprep en KVM"
 date = "2019-02-13T20:57:24+01:00"
 +++
-En la entrada anterior hemos visto cómo crear y clonar discos. Si el disco clonado contienen el sistema operativo de una máquina virtual, el clon continene identificadores que deberían ser únicos (como el _machine ID_, direcciones MAC, claves SSH de _host_, etc).
+En la entrada anterior hemos visto cómo crear y clonar discos. Si el disco clonado contiene el sistema operativo de una máquina virtual, el clon continene identificadores que deberían ser únicos (como el _machine ID_, direcciones MAC, claves SSH de _host_, etc).
 
 Podemos usar `virt-sysprep` para eliminar todos estos identificadores únicos.
 <!--more-->
@@ -61,7 +61,7 @@ Clone 'debian-machine-image' created successfully.
 Al tratarse de una _machine image_, es recomendable especificar un nombre significativo para el disco que permita identificarlo fácilmente; para ello, usamos el parámetro `--file` y especificamos el nombre de disco que deseamos:
 
 ```bash
-$ virt-clone --original debian9 --name debian-machine-image2 --file debian-machine-image.qcow2
+$ virt-clone --original debian9 --name debian-machine-image2 --file /var/lib/libvirt/images/debian-machine-image.qcow2
 Allocating 'debian-machine-image.qcow2'                                     |  10 GB  00:00:02
 
 Clone 'debian-machine-image2' created successfully.
