@@ -355,8 +355,8 @@ article.li.sm .header-wrapper {
   margin: 1.5rem 0;
   padding: 1.5rem;
   font-size: .8rem;
-  background-color: #263238;
-  color: #fff;
+  background-color: #eeeeef;
+  color: #444;
   overflow: auto;
 }
 
@@ -384,13 +384,14 @@ article.li.sm .header-wrapper {
   /*box-shadow: 0 -.5rem 0 0 #f06292 inset;*/
   font-style: bold;
   font-weight: 700;
-  color: #ff5722;
+  color: #ff5722; 
 }
 
 .article-body em {
   font-style: normal;
-  /*font-weight: 700;*/
+  /*font-weight: 700; color: #00c300;*/
   color: #00c300;
+  font-style: oblique;
 }
 
 .article-body figure { margin: 1.5rem -2rem; }
