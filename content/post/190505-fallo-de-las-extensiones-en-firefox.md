@@ -25,8 +25,7 @@ Me dirigí a la "tienda" oficial de Mozilla para descargar alguna extensión alt
 
 Tras intentar instalar una extensión similar de bloqueo de anuncios, encontré problemas para descargar la extensión. Probé con otra y obtuve el mismo error.
 
-Después de reiniciar el navegador -y el portátil- decidí investigar en internet y dí con la página 
-[Your Firefox extensions are all disabled? That's a bug!](https://www.ghacks.net/2019/05/04/your-firefox-extensions-are-all-disabled-thats-a-bug/).
+Después de reiniciar el navegador -y el portátil- decidí investigar en internet y dí con la página [Your Firefox extensions are all disabled? That's a bug!](https://www.ghacks.net/2019/05/04/your-firefox-extensions-are-all-disabled-thats-a-bug/).
 
 La página indica que el problema con las extensiones lo ha causado un _bug_ que impide comprobar la firma -obligatoria desde Firefox 48- y que hace que ninguna extensión pueda verificarse.
 
@@ -54,5 +53,3 @@ El micromecenazgo -vía Patreon o similares- permite a los creadores de contenid
 En cuanto a las plataformas, deben ser capaces de mantenerse usando modelos _freemium_ que les permitan ofrecer contenido gratuito -si lo desean- sin agredir al visitante a base de anuncios indiscriminados.
 
 Internet es una relación simbiótica entre creadores de contenido y plataformas por un lado y los visitantes (internautas) por otros; sin cualquiera de ellos, deja de tener sentido y ambas partes deben reconocerse como iguales.
-
-
