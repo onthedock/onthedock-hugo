@@ -3,7 +3,7 @@ draft = false
 
 # CATEGORIES = "dev" / "ops"
 categories = ["ops"]
-tags = ["firefox"]
+tags = ["firefox", "bug"]
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/bug.png"
