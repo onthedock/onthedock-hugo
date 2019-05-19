@@ -1,4 +1,7 @@
 [submodule "public"]
 	path = public
-	url = https://github.com/onthedock/onthedock.git
+	url = https://github.com/onthedock/onthedock.github.io.git
 	branch = master
+[submodule "onthedock.github.io"]
+	path = onthedock.github.io
+	url = https://github.com/onthedock/onthedock.github.io.git
