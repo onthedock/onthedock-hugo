@@ -16,7 +16,7 @@ La configuración del _proxy_ para `APT` en Ubuntu Server 16.04 se realiza a tra
 Crea el fichero si no existe y escribe:
 
 ```sh
-Acquire::http::Proxy "http://${USERNAME}:${PASSWORD}@proxy.ameisin.vwg:8080/amisin.pac";
+Acquire::http::Proxy "http://${USERNAME}:${PASSWORD}@proxy.ameisin.lab:8080/amisin.pac";
 ```
 
 A continuación, ya puedes actualizar los repositorios usando `apt-get update`.
