@@ -19,6 +19,6 @@ googleAnalytics = "" # Optional
 <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 """
-  details = "Un blog sobre Docker, Kubernetes, DevOps y Raspberry Pi por Xavier Aznar"
+  details = "Un blog sobre el Cloud, Kubernetes, DevOps, Docker y Raspberry Pi por Xavier Aznar"
   author = "Xavier Aznar"
   
