@@ -49,8 +49,16 @@ h4, h5, h6 { font-size: 1rem; line-height: 1.5rem; margin: 1.5rem 0; }
   clear: both;
 }
 
-main {
+main{
   display: block;
+}
+
+.searchbar{
+  display: block;
+  border: none;
+  margin: 1em auto;
+  max-width: 780px;
+  text-align: center;
 }
 
 /* Layouts */
