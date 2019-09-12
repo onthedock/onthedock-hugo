@@ -32,7 +32,7 @@ Con el tiempo me he dado cuenta que estas notas personales también ayudan a otr
 
 A veces, alguien deja un comentario y dice que tu artículo le ha ayudado. O te sugiere explicar algo con más detalle. O plantea una pregunta que no te habías hecho... Incluso que te critiquen tiene su valor; como dice el maestro:
 
-{{% twitter tweetid="935890590377697281" %}}
+{{% img src="images/171206/hightower-twitter.png" h="340" w="1058" caption="Kelsey Hightower on Twitter" href="https://twitter.com/kelseyhightower/status/935890590377697281" %}}
 
 Esta interacción le da una nueva dimensión al blog.
 
