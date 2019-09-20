@@ -1,5 +1,7 @@
 config.toml
 onthedock.code-workspace
+# Sensitive data
+*.pem
 
 # Mac specific:
 .DS_STORE
