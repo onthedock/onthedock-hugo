@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 categories = ["dev"]
 tags = ["aws", "iam"]
 thumbnail = "images/aws.png"
