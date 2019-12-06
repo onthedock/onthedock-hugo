@@ -20,7 +20,7 @@ thumbnail = "images/aws.png"
 # Clear (floats) {{% clear %}}
 # Twitter {{% twitter tweetid="780599416621297xxx" %}}
 
-title=  "Cómo leer parametros de Systems Manager Parameter Store usando Boto3"
+title=  "Cómo leer parámetros de Systems Manager Parameter Store usando Boto3"
 date = "2019-12-06T08:36:22+01:00"
 +++
 AWS ofrece, como parte del servicio Systems Manager (y [¡**gratis**!](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store)) [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html). Como su nombre indica, es un almacén de parámetros que podemos usar para evitar *hardcodear* valores de configuración de aplicaciones o scripts.
