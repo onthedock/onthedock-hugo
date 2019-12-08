@@ -26,9 +26,9 @@ date = "2019-12-06T08:36:22+01:00"
 AWS ofrece, como parte del servicio Systems Manager (y [¡**gratis**!](https://aws.amazon.com/systems-manager/pricing/#Parameter_Store)) [Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html). Como su nombre indica, es un almacén de parámetros que podemos usar para evitar *hardcodear* valores de configuración de aplicaciones o scripts.
 
 La documentación de Boto3, el SDK de AWS para Python es muy buena, pero es tedioso tener que ir consultándola a cada momento.
-<!--more-->
-> Esta entrada es una especie de recordatorio personal sencillo sobre cómo acceder a Parameter Store para leer el valor de un parámetro.
 
+> Esta entrada es una especie de recordatorio personal sencillo sobre cómo acceder a Parameter Store para leer el valor de un parámetro.
+<!--more-->
 Parameter Store ofrece tres tipos de parámetros: *String*, *StringList* y *SecureString*.
 
 En los tres casos el proceso es el mismo:
