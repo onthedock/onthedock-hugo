@@ -19,8 +19,6 @@ thumbnail = "images/python.png"
 # Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
 
 +++
-BORRADOR!!!
-
 Para practicar con Python, he instalado una máquina virtual con Alpine 3.9. En esta entrada recojo los diferentes pasos que he realizado para configurarla como entorno de ejecución de Python 3.
 <!--more-->
 ## Habilitar usuario no *root*
