@@ -88,6 +88,17 @@ El comando se conecta a la máquina remota por SSH (autenticándose con la contr
 
 > SSH usa la clave pública `~/.ssh/id_rsa` por defecto; como en mi caso uso un fichero de clave diferente, debo indicar la ruta al fichero que contiene la clave mediante el parámetro `-i ruta/al/fichero/clave`.
 
+## Permisos para las claves SSH
+
+He generado un par de claves: `id_rsa_code` (privada) y `id_rsa_code.pub` (pública).
+
+Si no se establecen los permisos correctos para cada tipo de clave, *Remote - SSH* puede rechazar usar las claves con un mensaje de la forma *permissions are too open*.
+
+Los permisos correctos para cada tipo de clave son:
+
+- Clave privada: 600 `-rw-------`
+- Clave pública: 644 `-rw-r--r--`
+
 ## Instalación de la extensión Remote - SSH
 
 En el panel lateral, pulsa el selector de las Extensiones; busca la extensión que quieres instalar y pulsa *Install*.
