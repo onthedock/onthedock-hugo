@@ -136,7 +136,7 @@ Dado que, aunque todavía está soportada, RedHat ya está trabajando en la rama
 La única manera que me ha funcionado para acceder a la consola es mediante un túnel SSH:
 
 ```bash
-ssh -N -L 8443:127.0.0.1:8443 {username}{vm-ip}
+ssh -N -L 8443:127.0.0.1:8443 {username}@{vm-ip}
 ```
 
 ## Créditos
