@@ -31,7 +31,7 @@ He asignado sólo 1 vCPU -lo que diría que es un error-, pero de momento funcio
 
 Realicé una instalación estándard a partir de Centos 7 (Minimal). La única configuración "especial" durante la instalación fue añadir el soporte para la distribución de teclado "ES".
 
-> Todos los comandos se ejecutar como usuario `root`. Para convertirte en `root`.
+> Todos los comandos se ejecutan como usuario `root`. Para convertirte en `root`, `sudo -i`, por ejemplo.
 
 Tras la instalación, establezco la el *mapa de teclado* mediante (Referencia: [How to change system keyboard keymap layout on CentOS 7 Linux](https://linuxconfig.org/how-to-change-system-keyboard-keymap-layout-on-centos-7-linux)):
 
