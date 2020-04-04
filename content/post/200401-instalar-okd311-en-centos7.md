@@ -110,7 +110,7 @@ Una vez tenemos todos los prerequisitos, podemos arrancar el clúster con `oc cl
 
 Puedes especificar una versión concreta mediante `--version=3.9.0`, por ejemplo. Si la omites, descarga la última versión disponible (la 3.11)
 
-> Para poder acceder a la consola desde un equipo *diferente* a la VM donde estás instalado OKD, pasa el parámetro `--public-hostname=<public ip>`. Sin embargo, esto no me ha funcionado y existe un *issue* abierto al respecto [Access fail with 'oc cluster up --public-hostname={public ip}' and redirect to 127.0.0.1 #20726](https://github.com/openshift/origin/issues/20726)
+> Para poder acceder a la consola desde un equipo *diferente* a la VM donde estás instalando OKD, pasa el parámetro `--public-hostname=<public ip>`. Sin embargo, esto no me ha funcionado y existe un *issue* abierto al respecto [Access fail with 'oc cluster up --public-hostname={public ip}' and redirect to 127.0.0.1 #20726](https://github.com/openshift/origin/issues/20726)
 
 ```bash
 oc cluster up
@@ -125,15 +125,13 @@ Cuando finaliza la instalación, se muestra un mensaje que nos indica cómo acce
 
 ## Conectar a la consola de OpenShift (desde otro equipo)
 
-No he conseguido acceder a la consola de OKD desde un equipo diferente al de la VM.
+Debería ser posible acceder a la consola web de OKD a través de [https://{vm-ip}:8443](https://{vm-ip}:8443) abriendo el firewall. Sin embargo, tras aceptar el *warning* del navegador (por usar un certificado autofirmado), se redirige a [https://localhost:8443/console](https://localhost:8443/console), que sólo funciona si estás intentando acceder a OKD desde la misma máquina donde está instalado.
 
-Debería ser posible acceder a la consola web de OKD a través de [https://{vm-ip}:8443](https://{vm-ip}:8443) abriendo el firewall. Sin embargo, tras aceptar el *warning* del navegador (por usar un certificado autofirmado), se redirige a [https://localhost:8443/console](https://localhost:8443/console).
-
-Como indicaba más adelante, hay un *issue* abierto en GitHub al respecto [Access fail with 'oc cluster up --public-hostname={public ip}' and redirect to 127.0.0.1 #20726](https://github.com/openshift/origin/issues/20726). El *issue* es del 2018 y se informó inicialmente para la versión 3.10, pero en la 3.11 también sucede.
+Como he indicado antes, hay un *issue* abierto en GitHub al respecto [Access fail with 'oc cluster up --public-hostname={public ip}' and redirect to 127.0.0.1 #20726](https://github.com/openshift/origin/issues/20726). El *issue* es del 2018 y se informó inicialmente para la versión 3.10, pero en la 3.11 también sucede.
 
 Dado que, aunque todavía está soportada, RedHat ya está trabajando en la rama 4.x, es poco probable que lo solucionen.
 
-La única manera que me ha funcionado para acceder a la consola es mediante un túnel SSH:
+La única manera con la que he conseguido acceder a la consola es mediante un túnel SSH:
 
 ```bash
 ssh -N -L 8443:127.0.0.1:8443 {username}@{vm-ip}
