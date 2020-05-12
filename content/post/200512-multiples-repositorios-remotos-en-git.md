@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 
 # CATEGORIES = "dev" / "ops"
 categories = ["dev"]
