@@ -9,7 +9,7 @@ title=  "Gitea: la versión mejorada de Gogs"
 date = "2018-07-13T20:04:36+02:00"
 +++
 
-Gogs es un servidor web de repositorios Git (a lo GitHub). He hablado otras veces de lo sencillo que es montarlo usando Docker, de manera independiente ([usando SQLite]({{<ref "171106-gogs-como-crear-tu-propio-servicio-de-hospedaje-de-repos-git.md">}}) como base de datos o [con MySQL]({{<ref "180520-pipeline-gogs-el-repositorio-de-codigo.md">}})).
+Gogs es un servidor web de repositorios Git (a lo GitHub). He hablado otras veces de lo sencillo que es montarlo usando Docker, de manera independiente ([usando SQLite]({{< ref "171106-gogs-como-crear-tu-propio-servicio-de-hospedaje-de-repos-git.md">}}) como base de datos o [con MySQL]({{< ref "180520-pipeline-gogs-el-repositorio-de-codigo.md">}})).
 
 A través de este artículo [6 Github alternatives that are open source and self-hosted](https://www.cyberciti.biz/open-source/github-alternatives-open-source-seflt-hosted/) descubrí hace unos días [Gitea](https://gitea.io) y a continuación te explico porqué creo que es todavía mejor que Gogs.
 <!--more-->
