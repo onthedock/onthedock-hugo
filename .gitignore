@@ -1,4 +1,3 @@
-config.toml
 onthedock.code-workspace
 # Sensitive data
 *.pem
@@ -15,3 +14,4 @@ onthedock.code-workspace
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 
+.vimrc
