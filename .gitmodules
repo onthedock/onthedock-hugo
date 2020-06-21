@@ -1,3 +1,3 @@
 [submodule "onthedock.github.io"]
-	path = onthedock.github.io
+	path = public
 	url = https://github.com/onthedock/onthedock.github.io.git
