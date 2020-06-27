@@ -133,3 +133,10 @@ l$ sudo virsh pool-list --details
 Como ves, la instalación de KVM no tiene ninguna complicación.
 
 En la siguiente entrada creo una máquina virtual desde línea de comandos (usando `virsh`),
+
+---
+
+Referencias:
+
+- [KVM: Bare metal virtualization on Ubuntu with KVM](https://fabianlee.org/2018/08/27/kvm-bare-metal-virtualization-on-ubuntu-with-kvm/)
+- [How to Install KVM on Ubuntu 20.04 LTS Server (Focal Fossa)](https://www.linuxtechi.com/install-kvm-on-ubuntu-20-04-lts-server/)
