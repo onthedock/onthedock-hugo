@@ -134,6 +134,8 @@ Como ves, la instalación de KVM no tiene ninguna complicación.
 
 En la siguiente entrada creo una máquina virtual desde línea de comandos (usando `virsh`),
 
+- [Creación de una máquina virtual en KVM con virsh]({{< ref "200627-creacion-de-vm-en-kvm-con-virsh.md" >}})
+
 ---
 
 Referencias:
