@@ -2,11 +2,11 @@
 draft = false
 
 # CATEGORIES = "dev" / "ops"
-categories = ["linux", "ubuntu", "kvm"]
+tags = ["linux", "ubuntu", "kvm"]
 # TAGS (HW->OS->PRODUCT->specific tag)
 # Example: "raspberry pi", "hypriot os", "kubernetes"
 
-tags = ["ops"]
+categories = ["ops"]
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/linux.png"

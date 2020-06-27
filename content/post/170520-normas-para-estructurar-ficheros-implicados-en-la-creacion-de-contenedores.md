@@ -2,8 +2,8 @@
 date = "2017-05-20T19:59:44+02:00"
 title = "Normas para estructurar ficheros implicados en la creación de contenedores"
 thumbnail = "images/docker.png"
-categories = ["dev", "ops", "enterprise"]
-tags = ["git", "docker"]
+categories = ["dev", "ops"]
+tags = ["git", "docker", "enterprise"]
 draft = false
 
 +++

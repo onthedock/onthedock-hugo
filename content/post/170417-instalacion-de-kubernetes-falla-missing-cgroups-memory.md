@@ -1,10 +1,10 @@
 +++
-tags = ["ops"]
+categories = ["ops"]
 draft = false
 date = "2017-04-17T19:38:11+02:00"
 title = "La instalación de Kubernetes falla en Debian Jessie (Missing cgroups: memory)"
 thumbnail = "images/kubernetes.png"
-categories = ["linux", "debian", "docker", "kubernetes"]
+tags = ["linux", "debian", "docker", "kubernetes"]
 
 +++
 

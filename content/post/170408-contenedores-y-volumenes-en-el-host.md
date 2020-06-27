@@ -2,8 +2,8 @@
 date = "2017-04-08T05:53:59+02:00"
 title = "Contenedores y volúmenes de datos en el host"
 thumbnail = "images/docker.png"
-categories = ["docker"]
-tags = ["ops"]
+tags = ["linux", "docker"]
+categories = ["ops"]
 
 +++
 

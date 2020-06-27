@@ -2,8 +2,8 @@
 date = "2017-04-10T21:30:31+02:00"
 title = "Docker-engine vs Docker.io"
 thumbnail = "images/docker.png"
-categories = ["linux" , "hypriot os", "docker"]
-tags = ["dev", "ops"]
+tags = ["linux" , "hypriot os", "docker"]
+categories = ["dev", "ops"]
 draft = false
 
 +++
