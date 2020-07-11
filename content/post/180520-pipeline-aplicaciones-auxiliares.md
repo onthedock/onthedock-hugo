@@ -30,7 +30,7 @@ Estas aplicaciones son _MailDev_ y _Portainer_.
 
 <!--more-->
 
-# MailDev
+## MailDev
 
 Muchas aplicaciones requieren disponer de un servidor de correo para poder enviar notificaciones. Para disponer de la posibilidad de las notificaciones de correo en un entorno aislado, usamos [MailDev](http://danfarrelly.nyc/MailDev/) de Dan Ferrelly.
 
@@ -65,7 +65,7 @@ Podemos consultar los emails enviados a través del interfaz web de MailDev a tr
 
 {{% img src="images/180520/maildev.png" w="1112" h="483" caption="Bandeja de entrada - MailDev" %}}
 
-# Portainer
+## Portainer
 
 A medida que aumenta el número de contenedores, volúmenes, etc, una herramienta gráfica como [Portainer](https://portainer.io)  puede simplificar la gestión de nuestro entorno.
 
