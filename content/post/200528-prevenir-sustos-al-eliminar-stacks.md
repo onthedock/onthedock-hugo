@@ -23,9 +23,11 @@ thumbnail = "images/aws.png"
 title=  "Prevenir sustos al eliminar stacks de CloudFormation"
 date = "2020-05-28T19:54:41+02:00"
 +++
-Al eliminar un *stack* de CloudFormation **todos** los recursos creados se eliminan automáticamente. Esto te puede provocar un buen susto cuando lanzas la eliminación de un *stack* por error...
+> Actualizado 24 Julio 2020.
 
-En esta entrada indico cómo prevenir esas situaciones a diferentes niveles: aplicando *stack policies* o todo el *stack* o de forma individual a algunos recursos con *DeletionPolicy*.
+Al eliminar un *stack* de CloudFormation **todos** los recursos creados por el *stack* se eliminan automáticamente. Esto te puede provocar un buen susto cuando eliminas uno por error...
+
+En esta entrada indico cómo prevenir esas situaciones a diferentes niveles: aplicando *stack policies* a todo el *stack* o de forma individual en algunos recursos con *DeletionPolicy*.
 <!--more-->
 
 ## DeletionPolicy: Retain
@@ -34,11 +36,11 @@ Empezamos con el [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloud
 
 Si revisas los estados asociados a los recursos en el *stack* observarás que para aquellos recursos con `DeletionPolicy: Retain` se indica `DELETE_SKIPPED`.
 
-Esta opción evita que el recurso se elimine al borrar el *stack*, pero no evita que se elimine si se borra el recurso de la plantilla y ejecutas un *update* del *stack*; es decir, no "marca" el recurso para que no sea borrable, sino que es una propiedad que indica a CloudFormation que no elimine el recurso; si lo borras de la plantilla -y por tanto no tiene la propiedad `DeletionPolicy` establecida en `Retain`- se aplica el valor por defecto que es `Delete`.
+Esta opción evita que el recurso se elimine al borrar el *stack*, pero no evita que se elimine si se borra el recurso de la plantilla y ejecutas un *update* del *stack*; es decir, no "marca" el recurso como *no borrable*, sino que es una propiedad que indica a CloudFormation qué hacer con el recurso si se elimina el *stack*; si eliminas el recurso del fichero de CLoudFormation y lanzas un *update* del *stack*, el recurso ya no tiene la propiedad `DeletionPolicy` establecida en `Retain` y se aplica el valor por defecto, que es `Delete`.
 
-Tampoco evita la eliminación de un recurso para aquellas actualizaciones que requieren un *reemplazo* del recurso durante una actualización. Para este escenario debes usar la propiedad [UpdateReplacePolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html).
+Tampoco evita la eliminación de un recurso para aquellas actualizaciones que requieren un *reemplazo* del recurso durante una actualización del *stack*. Para este escenario debes usar la propiedad [UpdateReplacePolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatereplacepolicy.html).
 
-La diferencia entre `DeletionPolicy` y `UpdateReplacePolicy` es que la primera aplica cuando se intenta borrar el recurso mientras que la segunda aplica durante actualizaciones del recurso que implican un *replacement*. Si un recurso tiene especificada el atributo `UpdateReplacePolicy` en `Retain`, el recurso "reemplazado" se mantiene en vez de borrarse al realizar la actualización (acabamos con dos copias). El recurso "original" queda "fuera" del *scope* del *stack*.
+La diferencia entre `DeletionPolicy` y `UpdateReplacePolicy` es que la primera aplica cuando se intenta borrar el recurso cuando se elimina el *stack* mientras que la segunda aplica durante actualizaciones del recurso que implican un *replacement*. Si un recurso tiene especificada el atributo `UpdateReplacePolicy` en `Retain`, el recurso original que es reemplazado durante la actualización, se mantiene en vez de borrarse (acabamos con dos copias). El recurso "original" queda "fuera" del *scope* del *stack*.
 
 Algunos recursos soportan una tercera opción (además de `Delete` o `Retain`): `Snapshot`. Los recursos que lo soportan son:
 
@@ -52,17 +54,17 @@ Algunos recursos soportan una tercera opción (además de `Delete` o `Retain`): 
 
 ## Políticas de *stack*
 
-Estableciendo el atributo `DeletionPolicy: Retain` se puede evitar la eliminación de los recursos cuando se borra el *stack*, pero establecer el atributo para cada recurso es algo tedioso.
+Estableciendo el atributo `DeletionPolicy: Retain` se evita la eliminación de los recursos cuando se borra el *stack*, pero establecer el atributo para cada recurso es algo tedioso.
 
-Otra forma de proteger recursos concretos o todo el *stack* es usar las *stack policies*: [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
+Mediante las *stack policies* tenemos un mecanismo que permite proteger **todo** el *stack* o sólo algunos recursos específicos: [Prevent Updates to Stack Resources](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html).
 
-Una *stack policy* es un documento JSON que indique qué acciones se pueden realizar sobre qué recursos del *stack*.
+Una *stack policy* es un documento JSON que indica qué acciones se pueden realizar sobre qué recursos del *stack*.
 
-Al establecer una *stack policy* se evitan las actualizaciones de todos los recursos del *stack* **por defecto**. Para permitir actualizaciones sobre recursos concretos, debes especificarlo explícitamente.
+Al establecer una *stack policy* se evitan las actualizaciones de **todos los recursos del *stack* por defecto**. Para permitir actualizaciones sobre recursos concretos, debes permitirlo explícitamente en la política.
 
-Aunque sólo se puede establecer una *stack policy* por *stack*, ésta permite controlar las modificaciones sobre recursos de tantos recursos como queramos del *stack*.
+Aunque sólo se puede establecer una *stack policy* por *stack*, ésta permite controlar las modificaciones sobre tantos recursos del *stack* como queramos.
 
-Debes tener en cuenta que el *stack policy* sólo "protege" los recursos de acciones realizadas a través de actualizaciones realizadas por CloudFormation, pero no impide la modificación de los recursos directamente. Para ello, debes restringir el acceso a los recursos mediante políticas IAM. La *stack policy* es más un mecanismo de protección contra modificaciones inadvertidas sobre recursos de un *stack*.
+Debes tener en cuenta que el *stack policy* sólo "protege" los recursos de acciones realizadas a través de **actualizaciones realizadas a través de CloudFormation**, pero no impide la modificación de los recursos directamente. Si quieres evitar que se modifique o elimine un recurso, debes restringir el acceso mediante políticas IAM. La *stack policy* es un mecanismo de protección contra modificaciones inadvertidas sobre recursos de un *stack*.
 
 Un ejemplo de *stack policy* sería:
 
@@ -91,11 +93,11 @@ Esta política permite cualquier tipo de actualización sobre todos los recursos
 
 Una *stack policy* es una especie de *resource-based policy* aplicada al *stack*; por ello debes especificar el `Principal`, aunque sólo admite el valor `*`.
 
-Por defecto, la presencia de una *stack policy* asociada al *stack* deniega la actualización de todos los recursos del *stack* excepto si se permite explícitamente. Sin embargo, AWS recomienda usar `Deny` explícitos si realmente queremos evitar la modificación de alguno de los recursos contenidos en el *stack*.
+Por defecto, la presencia de una *stack policy* asociada al *stack* **deniega** implícitamente la actualización de todos los recursos del *stack*. Sin embargo, AWS recomienda usar `Deny` **explícitos** si realmente queremos evitar la modificación de alguno de los recursos contenidos en el *stack*.
 
-Los valores de `Action` también son particulares, ya que en vez de ser de la forma `servicio:permiso` son `Update:*`, que permite cualquier tipo de actualización sobre el recurso o `Update:Modify`, `Update:Replace` o `Update:Delete`. Las *stack policy* también aceptan `NotAction`, pero como en el caso de las IAM policies, es mejor evitarlo si es posible.
+Los valores de `Action` también son particulares, ya que en vez de ser de la forma habitual `servicio:permiso` son `Update:*`. Esta acción permite cualquier tipo de actualización sobre el recurso mientras que `Update:Modify`, `Update:Replace` o `Update:Delete` sólo permiten las acciones especificadas. Las *stack policy* también aceptan entradas de tipo `NotAction`, pero como en el caso de las IAM policies, es mejor evitarlas si es posible.
 
-En cuanto a los recursos, la *stack policy* permite usar condiciones del tipo `StringEquals` o `StringLike` para tipos de recursos. Esto permite denegar el borrado de todos los recursos del tipo `AWS::EC2::Instance` e incluso, todos los recursos de tipo EC2 mediante `AWS::EC2::*`: instancias, *security groups*, *subnets*, etc.
+En cuanto a los recursos, la *stack policy* permite usar condiciones del tipo `StringEquals` o `StringLike` para **clases de recursos**. Esto permite denegar el borrado de todos los recursos del tipo `AWS::EC2::Instance` e incluso, todos los recursos de tipo EC2 mediante `AWS::EC2::*`: instancias, *security groups*, *subnets*, etc.
 
 ```json
 "Condition" : {
@@ -107,17 +109,17 @@ En cuanto a los recursos, la *stack policy* permite usar condiciones del tipo `S
 
 ### Aplicar una *stack policy*
 
-Puedes aplicar una *stack policy* a un *stack* vía consola **sólo durante su creación**.
+Sólo puedes aplicar una *stack policy* a un *stack* vía consola **durante su creación**.
 
-Para aplicar una *stack policy* a un *stack* ya creado debes usar la CLI: `aws cloudformation set-stack-policy`. También puedes usar la CLI para aplicar la *stack policy* al crear el *stack* (`aws cloudformation create-stack` y especificando la *stack policy* como un parámetro).
+Para aplicar una *stack policy* a un *stack* existente debes usar la CLI: `aws cloudformation set-stack-policy`. También puedes usar la CLI para aplicar la *stack policy* al crear el *stack* (`aws cloudformation create-stack` y especificando la *stack policy* como un parámetro).
 
 ### Actualizar recursos protegidos con una *stack policy*
 
 Las *stack policy* están pensadas para evitar modificaciones por error de un *stack*, pero ¿cómo actualizas los recursos de un *stack* si la *stack policy* lo impide?
 
-AWS permite especificar una *stack policy* **temporal** para permitir la modificación de un recurso protegido. Desde la consola web de AWS, en la página de configuración de opciones del *stack*, en la sección `Advanced options`, selecciona `Stack policy` y sube la *stack policy* que permita la modificación del recurso.
+AWS permite especificar una *stack policy* **temporal** que permita la modificación de un recurso protegido. Desde la consola web de AWS, en la página de configuración de opciones del *stack*, en la sección `Advanced options`, selecciona `Stack policy` y sube la *stack policy* que permita la modificación del recurso.
 
-Esta *stack policy* que permite la modificación de los recursos protegidos sólo tiene validez durante la actualización del *stack*; cuando finaliza, la *stack policy* "temporal" deja de ser válida y por tanto los recursos vuelven a estar protegidos contra modificaciones.
+Esta *stack policy* temporal sólo tiene validez durante la actualización del *stack*; cuando finaliza, la *stack policy* "temporal" deja de ser válida y por tanto los recursos vuelven a estar protegidos contra modificaciones.
 
 En la documentación de AWS [More Example Stack Policies](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html#stack-policy-samples) tienes algunos ejemplos de *stack policies*, como ésta que evita la actualización de cualquier *stack* anidado:
 
@@ -147,7 +149,7 @@ En la documentación de AWS [More Example Stack Policies](https://docs.aws.amazo
 
 ## Bonus: Usando `DeletionPolicy` para importar recursos en *stacks*
 
-CloudFormation permite crear y actualizar *stacks* partiendo de recursos ya existentes. Para poder incorporar un recurso al *stack* debemos describirlo en la plantilla de CloudFormation y **debemos especificar** la `DeletionPolicy: Retain`.
+CloudFormation permite crear y actualizar *stacks* partiendo de recursos ya existentes. Para incorporar un recurso al *stack* debemos describirlo en la plantilla de CloudFormation y **especificar** `DeletionPolicy: Retain`.
 
 Una manera sencilla y efectiva de incluir todas las propiedades del recurso existente en CloudFormation es usando "get" o "describe" desde la CLI; por ejemplo, para un usuario IAM:
 
