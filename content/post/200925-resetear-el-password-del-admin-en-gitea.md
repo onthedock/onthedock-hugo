@@ -47,7 +47,7 @@ En este caso, sin embargo, es la solución a nuestro problema.
 
 Realiza el cambio de password:
 
-- Usar `gitea admin change-password --username $GITEA_FIRST_USER --password $COMPLEX_PASSWORD
+- Usar `gitea admin change-password --username $GITEA_FIRST_USER --password $COMPLEX_PASSWORD`
 
 ## Acceso al contenedor de Gitea
 
