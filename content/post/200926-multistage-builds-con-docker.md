@@ -247,6 +247,6 @@ Hasta ahora todas las imágenes base que hemos usado son públicas y provienen d
 
 Es habitual que la empresa disponga de un *registry* corporativo privado, con imágenes que han sido *securizadas* y que son examinadas de forma periódica en busca de vulnerabilidades, actualizadas para corregir bugs, etc...
 
-Dado que no es un escenario aplicable únicamente a los *multi-stage builds* -y a que la entrada ya es un pelín larga-, lo comento en un *post* separado.
+Dado que no es un escenario aplicable únicamente a los *multi-stage builds* -y a que la entrada ya es un pelín larga-, lo comento en un *post* separado: [Uso de imágenes de *registries* diferentes a Docker Hub]({{<ref "200926-imagenes-de-registries-diferentes-a-dockerhub.md">}})
 
 En vez de usar un *registry* privado, usaré un *registry* público diferente a Docker Hub. Los registros privados pueden presentar sus propios *challenges*, especialmente por temas de autenticación. Usar un registro público "alternativo" permite mostrar cómo usar registros diferentes al establecido "por defecto" así como el uso de registros privados sin autenticación ("públicos" dentro de perímetro de red de la empresa).
