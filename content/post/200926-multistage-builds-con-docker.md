@@ -39,7 +39,7 @@ En las empresas es habitual que únicamente se soporten/permitan/recomienden det
 
 Esto hace que la elección de la imagen base con el *tooling* de compilación del código deba especificarse de acuerdo a esa normativa interna.
 
-Del mismo modo, es habitual que por motivos de seguridad no se permita el uso de imágenes púbilcas y que se proporcionen imágenes "securizadas" (o las medidas a aplicar) de acuerdo a lo establecido por los equipos de seguridad...
+Del mismo modo, es habitual que por motivos de seguridad no se permita el uso de imágenes públicas y que se proporcionen imágenes "securizadas" (o las medidas a aplicar) de acuerdo a lo establecido por los equipos de seguridad...
 
 El resultado de estas limitaciones es que es soluciones como S2I que actúan "automágicamente" no son viables más allá de las primeras fases de desarrollo, mientras el equipo de proyecto realiza el *onboarding* y se adapta a las regulaciones de cada empresa.
 
@@ -243,7 +243,7 @@ this software.
 
 ## Imágenes en registros diferentes a Docker Hub
 
-Hasta ahora todas las imágenes base que hemos usado son públicas y provienen el *registry* por defecto de Docker: [Docker Hub](https://hub.docker.com/).
+Hasta ahora todas las imágenes base que hemos usado son públicas y provienen del *registry* por defecto de Docker: [Docker Hub](https://hub.docker.com/).
 
 Es habitual que la empresa disponga de un *registry* corporativo privado, con imágenes que han sido *securizadas* y que son examinadas de forma periódica en busca de vulnerabilidades, actualizadas para corregir bugs, etc...
 
