@@ -20,7 +20,7 @@ thumbnail = "images/docker.png"
 # Clear (floats) {{% clear %}}
 # Twitter {{% twitter tweetid="780599416621297xxx" %}}
 
-title=  "Usar una imágen base de un registry diferente a Docker Hub"
+title=  "Imagen base de un registry diferente a Docker Hub"
 date = "2020-09-26T14:02:56+02:00"
 +++
 A continuación de la entrada anterior, [Multi-stage builds con Docker]({{<ref "200926-multistage-builds-con-docker.md">}}), la idea es explicar cómo usar una imagen base de un registro diferente a Docker Hub, que es el registro por defecto para Docker.
