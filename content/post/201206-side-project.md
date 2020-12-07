@@ -23,7 +23,7 @@ thumbnail = "images/roadmap.png"
 title=  "Side Project: devtoolbox"
 date = "2020-12-06T22:02:24+01:00"
 +++
-Ya hace casi dos meses de la última entrada en el blog; en esta entrada explico en qué he estado trabajando que me ha mantenido apartado de la publicación en el blog.
+Ya hace casi dos meses de la última entrada en el blog; en esta entrada explico en qué he estado trabajando y qué me ha mantenido apartado de la publicación en el blog.
 <!--more-->
 
 Una serie de cambios en las tareas que suelo realizar en mi día a día en el trabajo ha hecho pivotar mi atención de la infraestructura *pura y dura* al despliegue de aplicaciones sobre Kubernetes.
