@@ -36,7 +36,7 @@ En este caso, sin embargo, es la solución a nuestro problema.
 
 ## TL;DR
 
-> **UPDATE** En Gitea v1.14 he verificado que la sintaxis del comando para cambiar el password es `gitea dmin user change-password`, no `gitea admin change-password`; he actualizado la entrada con los comandos actualizados.
+> **UPDATE** En Gitea v1.14 he verificado que la sintaxis del comando para cambiar el password es `gitea admin user change-password`, no `gitea admin change-password`; he actualizado la entrada con los comandos actualizados.
 
 - Conectar al contenedor de Gitea (abrir una *shell* interactiva)
 
