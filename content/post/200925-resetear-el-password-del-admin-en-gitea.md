@@ -36,6 +36,8 @@ En este caso, sin embargo, es la solución a nuestro problema.
 
 ## TL;DR
 
+> **UPDATE** En Gitea v1.14 he verificado que la sintaxis del comando para cambiar el password es `gitea dmin user change-password`, no `gitea admin change-password`; he actualizado la entrada con los comandos actualizados.
+
 - Conectar al contenedor de Gitea (abrir una *shell* interactiva)
 
 [OPCIONAL] Si no conoces el nombre del usuario administrador:
@@ -47,7 +49,7 @@ En este caso, sin embargo, es la solución a nuestro problema.
 
 Realiza el cambio de password:
 
-- Usar `gitea admin change-password --username $GITEA_FIRST_USER --password $COMPLEX_PASSWORD`
+- Usar `gitea admin user change-password --username $GITEA_FIRST_USER --password $COMPLEX_PASSWORD`
 
 ## Acceso al contenedor de Gitea
 
@@ -85,14 +87,14 @@ bash-5.0$ gitea change-password --username admin
 bash-5.0$
 ```
 
-En primer lugar, el comando que intento ejecutar es incorrecto; debería ser `gitea admin change-password ...`, y no `gitea change-password ...`. `gitea` no devuelve ningún error, por lo que no me he dado cuenta al momento :(
+En primer lugar, el comando que intento ejecutar es incorrecto; debería ser `gitea admin user change-password ...`, y no `gitea change-password ...`. `gitea` no devuelve ningún error, por lo que no me he dado cuenta al momento :(
 
 ## Lanzar el comando con la sintaxis correcta
 
 Una vez identificado el error, he lanzado el comando *correcto*:
 
 ```bash
-bash-5.0$ gitea admin change-password --username admin --password admin
+bash-5.0$ gitea admin user change-password --username admin --password admin
 2020/09/25 19:25:36 ...dules/setting/git.go:93:newGit() [I] Git Version: 2.26.2, Wire Protocol Version 2 Enabled
 2020/09/25 19:25:36 main.go:111:main() [F] Failed to run app with [gitea admin change-password --username admin --password admin]: Password does not meet complexity requirements
 ```
@@ -114,7 +116,7 @@ El password de Gitea debe cumplir la siguiente política de complejidad:
 Si intentamos establecer una contraseña que cumpla con la política de complejidad:
 
 ```bash
-bash-5.0$ gitea admin change-password --username admin --password Gitea@dm1n
+bash-5.0$ gitea admin user change-password --username admin --password Gitea@dm1n
 2020/09/25 19:26:06 ...dules/setting/git.go:93:newGit() [I] Git Version: 2.26.2, Wire Protocol Version 2 Enabled
 2020/09/25 19:26:06 ...m.io/xorm/core/db.go:286:afterProcess() [I] [SQL] SELECT `id`, `lower_name`, `name`, `full_name`, `email`, `keep_email_private`, `email_notifications_preference`, `passwd`, `passwd_hash_algo`, `must_change_password`, `login_type`, `login_source`, `login_name`, `type`, `location`, `website`, `rands`, `salt`, `language`, `description`, `created_unix`, `updated_unix`, `last_login_unix`, `last_repo_visibility`, `max_repo_creation`, `is_active`, `is_admin`, `is_restricted`, `allow_git_hook`, `allow_import_local`, `allow_create_organization`, `prohibit_login`, `avatar`, `avatar_email`, `use_custom_avatar`, `num_followers`, `num_following`, `num_stars`, `num_repos`, `num_teams`, `num_members`, `visibility`, `repo_admin_change_team_access`, `diff_view_style`, `theme`, `keep_activity_private` FROM `user` WHERE `lower_name`=? LIMIT 1 [admin] - 4.073239ms
 2020/09/25 19:26:06 main.go:111:main() [F] Failed to run app with [gitea admin change-password --username admin --password Gitea@dm1n]: user does not exist [uid: 0, name: admin, keyid: 0]
@@ -203,7 +205,7 @@ Salimos del cliente `sqlite3` con `.exit`.
 Finalmente, lanzamos el comando de cambio de password para el usuario `operador` (con una contraseña que verifica la política de complejidad):
 
 ```bash
-bash-5.0$ gitea admin change-password --username operador --password Gitea@dm1n
+bash-5.0$ gitea admin user change-password --username operador --password Gitea@dm1n
 2020/09/25 19:26:19 ...dules/setting/git.go:93:newGit() [I] Git Version: 2.26.2, Wire Protocol Version 2 Enabled
 2020/09/25 19:26:19 ...m.io/xorm/core/db.go:286:afterProcess() [I] [SQL] SELECT `id`, `lower_name`, `name`, `full_name`, `email`, `keep_email_private`, `email_notifications_preference`, `passwd`, `passwd_hash_algo`, `must_change_password`, `login_type`, `login_source`, `login_name`, `type`, `location`, `website`, `rands`, `salt`, `language`, `description`, `created_unix`, `updated_unix`, `last_login_unix`, `last_repo_visibility`, `max_repo_creation`, `is_active`, `is_admin`, `is_restricted`, `allow_git_hook`, `allow_import_local`, `allow_create_organization`, `prohibit_login`, `avatar`, `avatar_email`, `use_custom_avatar`, `num_followers`, `num_following`, `num_stars`, `num_repos`, `num_teams`, `num_members`, `visibility`, `repo_admin_change_team_access`, `diff_view_style`, `theme`, `keep_activity_private` FROM `user` WHERE `lower_name`=? LIMIT 1 [operador] - 4.473739ms
 operador's password has been successfully updated!
