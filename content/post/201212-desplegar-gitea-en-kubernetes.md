@@ -39,11 +39,11 @@ Gitea requiere una base de datos para almacenar información de configuración d
 
 Esto significa que en esta iteración (voy por la segunda) todavía no puedo escalar el número de réplicas.
 
-> En la primera iteración me concentré en la *kubernetización* de la aplicación; en la segunda, en automatizar completamente el despliekgue, realizando la configuración de Gitea mediante un *configMap*. Más adelante planeo añadir la opción de usar una base de datos externa antes de pasar a realizar un despliegue completo usando Helm.
+> En la primera iteración me concentré en la *kubernetización* de la aplicación; en la segunda, en automatizar completamente el despliegue, realizando la configuración de Gitea mediante un *configMap*. Más adelante planeo añadir la opción de usar una base de datos externa antes de pasar a realizar un despliegue completo usando Helm.
 
 ## Creación del *namespace*
 
-Todoslos componentes los despliego en un *namespace* personalizado llamado *toolbox-${nombre-aplicación}*, así que el primer paso es crear el fichero de definición del *namespace*:
+Todos los componentes los despliego en un *namespace* personalizado llamado *toolbox-${nombre-aplicación}*, así que el primer paso es crear el fichero de definición del *namespace*:
 
 ```yaml
 ---
@@ -86,9 +86,9 @@ spec:
 
 ### Creación del *persistent volume claim*
 
-Al crear el *persistent volume claim* solictamos al clúster una determinada cantidad de almacenamiento del un tipo concreto. Como en nuestro caso la *storageClass* es `manual`, un administrador debe haber creado anteriormente un *persistent volume* que permita satisfacer el requerimiento de almacenamiento expresado en el *claim*.
+Al crear el *persistent volume claim* solictamos al clúster una determinada cantidad de almacenamiento de un tipo concreto. Como en nuestro caso la *storageClass* es `manual`, un administrador debe haber creado anteriormente un *persistent volume* que permita satisfacer el requerimiento de almacenamiento expresado en el *claim*.
 
-Cuando desplegamos el *persistent volume claim*, el sistema asocia un *persistent volume* disponible para que su uso en los pods creados por el *deployment*.
+Cuando desplegamos el *persistent volume claim*, el sistema asocia un *persistent volume* disponible para su uso en los pods creados por el *deployment*.
 
 Si no hay ningún volumen disponible que satisfaga el *claim*, el pod no arranca.
 
