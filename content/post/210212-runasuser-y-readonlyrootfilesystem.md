@@ -20,7 +20,7 @@ thumbnail = "images/kubernetes.png"
 # Clear (floats) {{% clear %}}
 # Twitter {{% twitter tweetid="780599416621297xxx" %}}
 
-title=  "Seguridad en Kubernetes: runAsUser vs readOnlyRootFilesystem"
+title=  "Seguridad en Kubernetes: runAsUser y readOnlyRootFilesystem"
 date = "2021-02-12T23:02:05+01:00"
 +++
 En la entrada anterior [KubeLinter: identifica malas configuraciones en los objetos de Kubernetes]({{< ref "210212-kubelinter.md" >}}), KubeLinter identificaba dos errores que se solucionan usando las opciones: `runAsUser` y `readOnlyRootFilesystem`.
@@ -74,17 +74,7 @@ Filtrando la salida anterior:
 
 El primer aviso apunta a que la solución pasa por especificar un *root file system* en modo lectura. El segundo hace referencia al usuario con el que se ejecuta el contenedor (que no debería ser el usuario *root*).
 
-Aplicando cualquiera de estas medidas, desaparecen los dos avisos; sin embargo, **las dos soluciones no son equivalentes**.
-
-## Ejecutando el contenedor con un usuario diferente a root
-
-```bash
-(...) container "busybox" is not set to runAsNonRoot (...)
-```
-
-El mensaje de salida de KubeLinter proporciona un enlace donde consultar la solución en la documentación oficial de Kubernetes: [Set the security context for a Pod](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/).
-
-Tenemos que especificar un usuario que no sea *root*; para ello, especificamos un *User ID* (por ejemplo, el 1001). Aunque no es necesario para eliminar el aviso de KubeLinter, especificamos también el *Group ID* (si no lo hacemos, el grupo primario por defecto es el 0, (el grupo del usuario *root*)).
+Para solucionar el primer error, especificamos `readOnlyRootFilesystem: true` y para el segundo, especificamos `runAsUser: 1001`:
 
 ```yaml
 ---
@@ -103,6 +93,7 @@ spec:
       securityContext:
         runAsUser: 1001
         runAsGroup: 1001
+        readOnlyRootFilesystem: true
       resources:
         requests:
           memory: "64Mi"
@@ -113,28 +104,11 @@ spec:
   restartPolicy: Always
 ```
 
-Si analizamos la definición del Pod de nuevo:
+## Comparando el efecto de estas opciones
 
-```bash
-$ kube-linter lint $YAML_FOLDER
-No lint errors found!
-```
+### Primer caso: `runAsUser: 1001`
 
-> KubeLinter no devuelve errores incluso si se omite `runAsGroup`.
-
-## Sistema de ficheros en modo sólo lectura
-
-Hemos visto que ejecutar el contenedor con un usuario que no sea *root* desaparecen los dos mensajes de error.
-
-Otra forma de eliminar los dos errores es haciendo que el sistema de ficheros del volumen raíz (*root volume filesystem*) sea de sólo lectura:
-
-```bash
-(...) )container "busybox" does not have a read-only root file system
-(check: no-read-only-root-fs, remediation: Set readOnlyRootFilesystem
- to true in your container's securityContext.)
-```
-
-Tal y como indica la salida de KubeLinter, modificamos el fichero de definición del Pod para incluir la  opción `readOnlyRootFilesystem: true`:
+Abrimos una *shell* en el Pod desplegado con el YAML donde se indica que el contenedor debe ejecutarse como usuario 1001:
 
 ```yaml
 ---
@@ -151,7 +125,9 @@ spec:
         - "3600"
       imagePullPolicy: IfNotPresent
       securityContext:
-        readOnlyRootFilesystem: true
+        runAsUser: 1001
+        runAsGroup: 1001
+        # readOnlyRootFilesystem: true
       resources:
         requests:
           memory: "64Mi"
@@ -161,19 +137,6 @@ spec:
           cpu: "10m"
   restartPolicy: Always
 ```
-
-Comprobamos que KubeLinter no muestra el aviso de que el contenedor debe ejecutarse como un usuario no *root*.
-
-```bash
-$ kube-linter lint $YAML_FOLDER 
-No lint errors found!
-```
-
-## Comparando las opciones
-
-### Primer caso: `runAsUser: 1001`
-
-Abrimos una *shell* en el Pod desplegado con el YAML donde se indica que el contenedor debe ejecutarse como usuario 1001:
 
 ```bash
 kubectl exec -it pod/jumpod -n jumpod -- /bin/sh
@@ -214,6 +177,34 @@ El usuario con `uid: 1001` tiene permisos sobre `/tmp` y puede crear ficheros en
 
 En el segundo caso, si especficamos la opción `readOnlyRootFilesystem: true`, el usuario con el que se ejecutar el Pod es `root`:
 
+```yaml
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: jumpod
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command:
+        - sleep
+        - "3600"
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        #runAsUser: 1001
+        #runAsGroup: 1001
+        readOnlyRootFilesystem: true
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "10m"
+        limits:
+          memory: "64Mi"
+          cpu: "10m"
+  restartPolicy: Always
+```
+
 ```bash
 / # whoami
 root
@@ -244,6 +235,34 @@ touch: /bin/test: Read-only file system
 
 Si desplegamos un Pod en el que especificamos un usuario no-root (`uid: 1001`) y además un **sistema de ficheros de sólo lectura**:
 
+```yaml
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: jumpod
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command:
+        - sleep
+        - "3600"
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
+        readOnlyRootFilesystem: true
+      resources:
+        requests:
+          memory: "64Mi"
+          cpu: "10m"
+        limits:
+          memory: "64Mi"
+          cpu: "10m"
+  restartPolicy: Always
+```
+
 ```bash  hl_lines="2 14 17 18"
 / $ whoami
 whoami: unknown uid 1001
@@ -271,10 +290,6 @@ En este caso, aunque el usuario `uid: 1001` tiene permisos de escritura en `/tmp
 
 Configurar el *root volume filesystem* como sólo lectura es la opción que puede tener un mayor impacto en el funcionamiento de la aplicación. Al activar esta configuración ningún usuario (incluyendo al usuario *root*) puede escribir en el sistema de ficheros raíz.
 
-> Pendiente de comprobar que el usuario puede escribir sobre otros volúmenes.
+Si especificamos sólo `readOnlyRootFilesystem: true` el contenedor sigue ejecutándose como *root*, lo que va en contra de las buenas prácticas. Por tanto, también es recomendable usar la opción de `runAsUser` para usar un usuario con menos privilegios.
 
-El usuario con el que ejecuta el proceso en el contenedor puede escribir sobre el sistema de ficheros de otros volúmenes; la limitación sólo se aplica al volumen raíz.
-
-Pese a que el sistema de ficheros del volumen raíz es de sólo lectura, el proceso sigue ejecutándose como *root*, lo que va en contra de las buenas prácticas. Por tanto, también es recomendable usar la opción de `runAsUser` para usar un usuario con menos privilegios.
-
-Una solución intermedia es la de usar sólo `runAsUser` con un usuario no *root*; de esta forma el sistema de permisos de Linux permite limitar dónde puede escribir el proceso iniciado por el usuario indicado, mientras que permite el acceso a carpetas como `/tmp` que algunos procesos pueden utilizar por defecto.
+Una solución de compromiso podría ser usar sólo `runAsUser` con un usuario no *root*; de esta forma el sistema de permisos de Linux permite limitar dónde puede escribir el proceso iniciado por el usuario indicado, mientras que permite el acceso a carpetas como `/tmp` que algunos procesos pueden utilizar por defecto.
