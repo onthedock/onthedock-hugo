@@ -183,19 +183,15 @@ Además de especificar el UID del usuario con el que se ejecuta el contenedor, t
 Si analizamos la definición del Pod de nuevo:
 
 ```bash
-$ kube-linter lint $YAML_FOLDER
-No lint errors found!
+$ kube-linter $YAML_FOLDER
+jumpod.yaml: (object: <no namespace>/jumpod /v1, Kind=Pod) container "busybox" does not have a read-only root file system (check: no-read-only-root-fs, remediation: Set readOnlyRootFilesystem to true in your container's securityContext.)
+
+Error: found 1 lint errors
 ```
 
-> KubeLinter no devuelve errores incluso si se omite `runAsGroup`.
+> KubeLinter no devuelve errores relacionados con `runAsUser` incluso si se omite `runAsGroup`.
 
-## Solución alternativa `readOnlyRootFilesystem: true`
-
-> Las dos opciones **no son equivalentes**; establecer el sistema de ficheros como *readOnly* impide la creación de ficheros incluso donde el usuario sí tiene permisos para hacerlo.
-
-Hemos visto que ejecutar el contenedor con un usuario que no sea *root* elimina los dos mensajes de error restantes.
-
-Otra forma de eliminar los dos errores es haciendo que el sistema de ficheros del volumen raíz (*root volume filesystem*) sea de sólo lectura:
+## Eliminando el aviso sobre `readOnlyRootFilesystem: true`
 
 ```bash
 (...) )container "busybox" does not have a read-only root file system
@@ -220,6 +216,8 @@ spec:
         - "3600"
       imagePullPolicy: IfNotPresent
       securityContext:
+        runAsUser: 1001
+        runAsGroup: 1001
         readOnlyRootFilesystem: true
       resources:
         requests:
@@ -231,14 +229,14 @@ spec:
   restartPolicy: Always
 ```
 
-Comprobamos que KubeLinter no muestra el aviso de que el contenedor debe ejecutarse como un usuario no *root*.
+Comprobamos de nuevo con KubeLinter y confirmamos que hemos eliminado el último aviso relativo al sistema de ficheros del volumen raíz del contenedor.
 
 ```bash
 $ kube-linter lint $YAML_FOLDER 
 No lint errors found!
 ```
 
-En este caso, **aunque el contenedor se ejecute como *root*, no podrá modificar los ficheros en el *root volume filesystem* porque lo hemos marcado como *readOnly***.
+En este caso, **aunque el contenedor se ejecutara con el usuario *root*, no podría modificar los ficheros en el *root volume filesystem* porque lo hemos marcado como *readOnly***.
 
 ## Conclusión
 
@@ -250,4 +248,4 @@ Esta simple configuración facilita que la aplicación disponga de los recursos 
 
 Además, KubeLinter ha identificado dos configuraciones adicionales relativas a la seguridad: `runAsUser` y `readOnlyRootFilesystem`.
 
-En la próxima entrada, [Seguridad en Kubernetes: runAsUser vs readOnlyRootFilesystem]({{< ref "210212-runasuser-vs-readonlyrootfilesystem.md" >}}) reviso con detalle los efectos de aplicar estas dos medidas, tanto por separado como conjuntamente.
+En la próxima entrada, [Seguridad en Kubernetes: runAsUser y readOnlyRootFilesystem]({{< ref "210212-runasuser-y-readonlyrootfilesystem.md" >}}) reviso con detalle los efectos de aplicar estas dos medidas.
