@@ -38,7 +38,7 @@ toolbox-tekton-pipelines   Terminating   147d
 
 He intentado varias cosas (incluso reiniciando la VM), pero los *namespaces* seguían sin eliminarse...
 
-El problema es que hay "*algo*" que impide que el *namespace* se borre; puedes identificar ese *algo* lanzando un `kubectl get ns ${nombre_namespace} -o yaml` del *namespace* y buscando en la sección de `spec.finalizers`.
+El problema es que hay "*algo*" que impide que el *namespace* se borre; puedes identificar ese *algo* lanzando un `kubectl get ns ${nombre_namespace} -o yaml` del *namespace* y buscando en la sección de `metadata.finalizers`.
 
 ```bash
 [...]
@@ -48,9 +48,9 @@ metadata:
 [...]
 ```
 
-Aunque no puedo borrar este elemento que bloquea el borrado del *Namespace*, sí que puedo **editar** el *Namespace* para **eliminar** el *finalizer*. Así Kubernetes cree que no hay nada que impide la eliminación del objeto.
+Aunque no puedo borrar este elemento que bloquea el borrado del *Namespace*, sí que puedo **editar** el *Namespace* para **eliminar** el *finalizer*. Así Kubernetes cree que no hay nada que impida la eliminación del objeto.
 
-Edito el objeto mediante `kubectl edit ns toolbox-gitea` y elimino la línea correspondiente a `- kubernetes`:
+Edito el objeto mediante `kubectl edit ns toolbox-argocd` y elimino la línea correspondiente a `- controller.cattle.io/namespace-auth`:
 
 ```bash
 [...]
