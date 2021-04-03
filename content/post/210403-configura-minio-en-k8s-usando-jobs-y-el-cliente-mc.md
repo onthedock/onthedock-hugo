@@ -127,7 +127,7 @@ args: ["alias", "set", "minio", "http://minio:9000", $MINIO_ROOT_USER , $MINIO_R
 
 En este caso, `$MINIO_ROOT_USER` y `$MINIO_ROOT_PASSWORD` se interpretan como cadenas literales, no se sustituyen con los valores de las variables de entorno.
 
-Tampoco funcionan el resto de opciones indicadas en la documentación: **Pipe from STDIN**, **Specify temporary host configuration through environment variable**, con `export MC_HOST_<alias>=https://<Access Key>:<Secret Key>@<YOUR-S3-ENDPOINT>).
+Tampoco funcionan el resto de opciones indicadas en la documentación: **Pipe from STDIN**, **Specify temporary host configuration through environment variable**, con `export MC_HOST_<alias>=https://<Access Key>:<Secret Key>@<YOUR-S3-ENDPOINT>`).
 
 ### Plan B: usar un *script*
 
