@@ -172,3 +172,12 @@ minio   NodePort   10.43.117.250   <none>        9000:30712/TCP   35h
 ```
 
 Accede a la interfaz web de MinIO a través del puerto asignado (en mi caso, `30712`) y accede con las credenciales especificadas en el *Secret*.
+
+---
+
+Versiones usadas en este artículo:
+
+- Minio: 2021-03-26T00:00:41Z (linux/amd64)
+- Kubernetes:
+  - Client Version: v1.20.5
+  - Server Version: v1.20.4+k3s1
