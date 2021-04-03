@@ -25,9 +25,7 @@ date = "2021-04-03T09:58:50+02:00"
 +++
 En la entrada anterior, [MinIO en Kubernetes]({{< ref "210403-minio-en-kubernetes.md" >}}), explicaba cómo desplegar MinIO en Kubernetes (de forma manual).
 
-En esta entrada veremos cómo definr Jobs de Kubernetes para usar el cliente de línea de comandos [`mc`](https://docs.min.io/docs/minio-client-quickstart-guide.html) para interaccionar con el servidor de MinIO.
-
-**mc** se puede usar como herramienta de línea de comandos o como contenedor [`minio/mc`](https://hub.docker.com/r/minio/mc); sin embargo, en esta entrada veremos cómo usarlo en *Jobs* de Kubernetes para configurar el *alias* de un servidor de MinIO y crear un *bucket*.
+[`mc`](https://docs.min.io/docs/minio-client-quickstart-guide.html) se puede usar como herramienta de línea de comandos o como contenedor [`minio/mc`](https://hub.docker.com/r/minio/mc); sin embargo, en esta entrada veremos cómo usarlo en *Jobs* de Kubernetes para configurar el *alias* de un servidor de MinIO y crear un *bucket*.
 <!--more-->
 
 En primer lugar, definimos un *Persistent Volume Claim* para almacenar la configuración del cliente de MinIO y no tener que configurarlo en cada ejecución.
