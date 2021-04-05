@@ -7,7 +7,7 @@ baseurl = "https://onthedock.github.io/"
 title = "On The Dock"
 theme = "aglaus-custom"
 
-copyright = "Handmade with &#9829; by Xavier Aznar"
+copyright = "Handmade with &#9829; by Xavi Aznar"
 
 googleAnalytics = "" # Optional
 
@@ -19,8 +19,8 @@ googleAnalytics = "" # Optional
 <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
 <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
 """
-  details = "Un blog sobre Cloud, Kubernetes, DevOps, Docker y Raspberry Pi por Xavier Aznar"
-  author = "Xavier Aznar"
+  details = "Un blog sobre Kubernetes, Cloud, DevOps, Raspberry Pi ..."
+  author = "Xavi Aznar"
 
 [markup]
   defaultMarkdownHandler = "goldmark"
