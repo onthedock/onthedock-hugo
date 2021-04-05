@@ -231,15 +231,7 @@ section>header span {
 
 }
 
-.p-share a.ht { color: #00a4de; }
-.p-share a.fb { color: #3b5998; }
-.p-share a.tw { color: #1da1f2; }
-.p-share a.ln { color: #00c300; }
-
-.p-share a.ht::before { content: 'Hatena'; }
-.p-share a.fb::before { content: 'Facebook'; }
-.p-share a.tw::before { content: 'Twitter'; }
-.p-share a.ln::before { content: 'LINE'; }
+.p-share a { color: #1da1f2; }
 
 /* Parts:terms */
 .p-terms {
