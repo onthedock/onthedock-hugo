@@ -26,6 +26,6 @@ googleAnalytics = "" # Optional
   defaultMarkdownHandler = "goldmark"
   [markup.highlight]
     codeFences = true
-    style = "native"
+    style = "solarized-dark"
     tabWidth = 2
   
