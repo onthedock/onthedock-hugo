@@ -20,7 +20,7 @@ thumbnail = "images/kubernetes.png"
 # Clear (floats) {{% clear %}}
 # Twitter {{% twitter tweetid="780599416621297xxx" %}}
 
-title=  "Eliminar namespace encallado en Terminanting"
+title=  "Eliminar namespace encallado en Terminating"
 date = "2021-03-05T17:53:31+01:00"
 +++
 Al hacer limpieza de uno de los clústers de desarrollo, he borrado dos *namespaces* y los dos se han quedado en estado *Terminating*
