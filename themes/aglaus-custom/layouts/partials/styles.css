@@ -72,11 +72,12 @@ main{
 .l-footer {
   font-size: .8rem;
   padding: 1rem 0;
-  border-top: 1px dashed #cfd8dc;
+  border-top: 1px dashed #a3aaad;
 }
 .l-footer .copyright-notice,
 .l-footer .attribution {
   text-align: center;
+  line-height: 1.5rem;
 }
 
 .l-container {
@@ -92,8 +93,24 @@ main{
 
 .p-logo a {
   color: #000;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   line-height: 2rem;
+}
+.p-sublogo,
+.p-sublogo a {
+  font-size: 1.1rem;
+  line-height: 2.5rem;
+}
+img.linkedin {
+  height: 1.1rem;
+  border: 0;
+  padding: 0;
+  position: relative;
+  top: 0.25rem;
+}
+
+.p-movetop {
+  margin: 0 auto;
 }
 
 /* Parts:section */

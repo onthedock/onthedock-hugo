@@ -43,9 +43,14 @@
 
     <header class="l-header">
       <div class="l-container">
-        <div class="h-logo p-logo">
-          <a href="{{ .Site.BaseURL }}" class="h-logo">{{ .Site.Title }}</a>
-          <p class="h-logo">{{ .Site.Params.Details }}</p>
+        <div class="p-logo">
+          <a href="{{ .Site.BaseURL }}" class="p-logo">{{ .Site.Title }}</a>
+          <p class="p-sublogo">
+            <a href="https://www.linkedin.com/in/xavieraznarcampos/">
+              {{ .Site.Params.Details }}
+              <img class="linkedin" src="{{ $.Site.BaseURL }}/images/linkedin-logo.png" alt="Contacta con  {{ .Site.Params.Author }} en LinkedIn" title="Contacta con {{ .Site.Params.Author }} en LinkedIn">
+            </a>
+          </p>
         </div>
       </div>
     </header>
@@ -58,14 +63,32 @@
 
     <footer class="l-footer">
       <div class="l-container">
-        <p class="copyright-notice">{{ with .Site.Copyright }}{{ . | safeHTML }}{{ else }}<span class="h-logo">&copy; {{ .Site.Title }}</span>{{ end }}</p>
-        <aside>
-          <p class="attribution">Powered by <a href="https://gohugo.io/">Hugo</a> using <a href="https://github.com/dim0627/hugo_theme_aglaus" class="h-logo">Aglaus</a> (designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>).</p>
-        </aside>
+        <p class="attribution">
+          {{ with .Site.Copyright }}
+            {{ . | safeHTML }} 
+          {{ else }}
+            <span class="">&copy; {{ .Site.Title }}</span>
+          {{ end }}
+        </p>
+
+        <p class="attribution">
+          <a href="">
+            <img class="linkedin" src="{{ $.Site.BaseURL }}/images/linkedin-logo.png" alt="Contacta con  {{ .Site.Params.Author }} en LinkedIn" title="Contacta con {{ .Site.Params.Author }} en LinkedIn">
+            {{ .Site.Params.Author }} 
+          </a>
+        </p>
+
+        <p class="attribution">
+          Powered by <a href="https://gohugo.io/">Hugo</a> using a customized version of the <a href="https://github.com/dim0627/hugo_theme_aglaus" class="h-logo">Aglaus</a> theme (designed by <a href="http://yet.unresolved.xyz/">Daisuke Tsuji</a>).
+        </p>
+
+        <p class="attribution">
+          <a href="#" class="p-movetop" title="Vuelve arriba" rel="nofollow">&UpTeeArrow;</a> 
+        </p>
       </div>
     </footer>
 
-    <a href="#" class="p-movetop" title="ページ上部へ戻る" rel="nofollow"></a>
+    
   </body>
 </html>
 
