@@ -32,7 +32,7 @@ Puedes leer cómo desplegar [MinIO en Kubernetes]({{< ref "210403-minio-en-kuber
 
 Velero despliega *Custom Resource Definitions* en el clúster que definen *backups*, *restores*, etc... Para interaccionar con Velero (servidor/operador), se proporciona la herramienta de línea de comandos **velero**.
 
-Como en el caso ed MinIO, vamos a desplegar **velero** (CLI) en un contenedor y realizaremos la configuración de los *backup*, etc en Velero usando *Jobs* en Kubernetes (*a lo GitOps*).
+Como en el caso de MinIO, vamos a desplegar **velero** (CLI) en un contenedor y realizaremos la configuración de los *backup*, etc en Velero usando *Jobs* en Kubernetes (*a lo GitOps*).
 
 ## Construcción de la imagen con **velero** (CLI)
 
