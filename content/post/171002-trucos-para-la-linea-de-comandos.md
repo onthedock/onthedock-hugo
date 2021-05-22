@@ -16,16 +16,16 @@ thumbnail = "images/linux.png"
 # SHORTCODES (for reference)
 
 # YouTube
-# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Imagenes
-# {{% img src="images/image.jpg" w="600" h="400" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="right" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="left" %}}
-# {{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# {{< figure src="/images/image.jpg" w="600" h="400" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="right" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="left" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats)
 # {{% clear %}}
 # Twitter
-# {{% twitter tweetid="780599416621297xxx" %}}
+# {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Trucos para para línea de comandos"
 date = "2017-10-02T20:44:00+02:00"
@@ -43,7 +43,7 @@ Es decir, si ejecutas un comando, por ejemplo `ls -l`, puedes devolverlo a la l�
 
 En el siguiente GIF muestro el historial de comandos con el comando `history` y después pulso repetidas veces la tecla de cursor arriba &uarr;, con lo que se puede observar cómo se van mostrando los comandos ejecutados en orden cronológico inverso:
 
-{{% img src="images/171002/using_arrow.gif" %}}
+{{< figure src="/images/171002/using_arrow.gif" >}}
 
 Puedes avanzar y retroceder por la historia de los comandos ejecutados usando las teclas de cursores arriba y abajo (&uarr; y &darr;).
 
@@ -53,13 +53,13 @@ Puedes avanzar y retroceder por la historia de los comandos ejecutados usando la
 
 En vez de pulsar &uarr;, &larr;, &larr;, ..., &larr;, para retroceder al inicio de la línea y después escribir `sudo`, es mucho más rápido y sencillo lanzar `sudo !!`
 
-{{% img src="images/171002/sudo_last_command.gif" %}}
+{{< figure src="/images/171002/sudo_last_command.gif" >}}
 
 # Limpiar la pantalla
 
 Puedes limpiar la pantalla de la terminal lanzando el comando `clear` (en Linux)... Pero es mucho más rápido conseguir lo mismo mediante la combinación `Ctrl+l`:
 
-{{% img src="images/171002/ctrl+l.gif" %}}
+{{< figure src="/images/171002/ctrl+l.gif" >}}
 
 # Limpiando la línea de comandos
 
@@ -83,7 +83,7 @@ $ scp file.txt operador@|
 
 Puedes combinar el comando `history` y la capacidad de filtro del comando `grep` para buscar un comando concreto que hayas ejecutado anterioremente:
 
-{{% img src="images/171002/history-grep.gif" %}}
+{{< figure src="/images/171002/history-grep.gif" >}}
 
 # Ejecutar un comando anterior
 
@@ -108,17 +108,17 @@ ConditionPathExists=!/etc/ssh/sshd_not_to_be_run
 ...
 ```
 
-{{% img src="images/171002/relaunch-previous-command.gif" %}}
+{{< figure src="/images/171002/relaunch-previous-command.gif" >}}
 
 # Búsqueda inversa
 
 El _combo_ `history + grep + ! #_de_comando` está bien, pero es muy largo; puedes conseguir lo mismo usando la combinación de teclas `Ctrl+r`. En cuanto cambia el _prompt_, puedes escribir y el terminal mostrará la primera coincidencia en el historial de comandos:
 
-{{% img src="images/171002/ctrl+r.gif" %}}
+{{< figure src="/images/171002/ctrl+r.gif" >}}
 
 Si hay varias coincidencias, puedes mostrarlas pulsando repetidamente `Ctrl+r` de nuevo:
 
-{{% img src="images/171002/ctrl+r-cycle.gif" %}}
+{{< figure src="/images/171002/ctrl+r-cycle.gif" >}}
 
 # Resumen
 

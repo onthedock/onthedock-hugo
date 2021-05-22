@@ -16,10 +16,10 @@ thumbnail = "images/jenkins.png"
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 
 title=  "Pipeline - Instalacion y actualizacion de Jenkins"
 date = "2018-05-20T07:43:06+02:00"
@@ -143,31 +143,31 @@ $
 
 Copiamos el password inicial para acceder a Jenkins a través del navegador:
 
-{{% img src="images/180520/jenkins-unlock.png" w="1112" h="542" caption="Jenkins - Acceso con password autogenerado"  %}}
+{{< figure src="/images/180520/jenkins-unlock.png" w="1112" h="542" caption="Jenkins - Acceso con password autogenerado" >}}
 
 Tras acceder, Jenkins nos proporciona la oportunidad de instalar un conjunto de _plugins_ sugeridos o de seleccionar los que queremos instalar.
 
 De momento, seleccionamos la opción  de _Install suggested plugins_:
 
-{{% img src="images/180520/jenkins-suggested-plugins.png" w="1000" h="492" caption="Jenkins - Suggested plugins"  %}}
+{{< figure src="/images/180520/jenkins-suggested-plugins.png" w="1000" h="492" caption="Jenkins - Suggested plugins" >}}
 
 Jenkins descarga los plugins:
 
-{{% img src="images/180520/jenkins-installing-plugins.png" w="1007" h="814" caption="Jenkins - Downloading and Installing plugins"  %}}
+{{< figure src="/images/180520/jenkins-installing-plugins.png" w="1007" h="814" caption="Jenkins - Downloading and Installing plugins" >}}
 
  Tras la descarga, se lanza la opción de crear un nuevo usuario administrador (o continuar con el usuario `admin`):
 
-{{% img src="images/180520/jenkins-create-admin.png" w="999" h="808" caption="Jenkins - Create new admin"  %}}
+{{< figure src="/images/180520/jenkins-create-admin.png" w="999" h="808" caption="Jenkins - Create new admin" >}}
 
 He creado el usuario `operador` (`operador@jenkins.dev`) como usuario administrador de Jenkins.
 
 Tras la creación del nuevo administrador, el proceso de configuración inicial finaliza:
 
-{{% img src="images/180520/jenkins-setup-complete.png" w="1008" h="274" caption="Jenkins - Setup Complete!"  %}}
+{{< figure src="/images/180520/jenkins-setup-complete.png" w="1008" h="274" caption="Jenkins - Setup Complete!" >}}
 
 Al pulsar el botón _Start using Jenkins_ accedemos a la pantalla principal de Jenkins:
 
-{{% img src="images/180520/jenkins-homepage.png" w="1111" h="576" caption="Jenkins - Homepage"  %}}
+{{< figure src="/images/180520/jenkins-homepage.png" w="1111" h="576" caption="Jenkins - Homepage" >}}
 
 ## Configuración del servidor de correo
 
@@ -179,15 +179,15 @@ Introduce la dirección IP del _host_ de Docker, donde se ejecuta el contenedor 
 
 Como nuestro "servidor de correo" usa un puerto diferente al estándar, debemos especificarlo. Para ello, pulsa en el botón _Advanced…_ e introduce el puerto 10025 en el campo _SMTP Port_:
 
-{{% img src="images/180520/jenkins-mailserver-configuration.png" w="771" h="420" caption="Jenkins - Mailserver configuration"  %}}
+{{< figure src="/images/180520/jenkins-mailserver-configuration.png" w="771" h="420" caption="Jenkins - Mailserver configuration" >}}
 
 Después de aplicar (_Apply_) la configuración, podemos probar la configuración enviando un email de prueba:
 
-{{% img src="images/180520/jenkins-test-mail-configuration.png" w="745" h="125" caption="Jenkins - Test mail"  %}}
+{{< figure src="/images/180520/jenkins-test-mail-configuration.png" w="745" h="125" caption="Jenkins - Test mail" >}}
 
 Y en `maildev`:
 
-{{% img src="images/180520/jenkins-received-test-mail.png" w="955" h="275" caption="Jenkins - Mail received"  %}}
+{{< figure src="/images/180520/jenkins-received-test-mail.png" w="955" h="275" caption="Jenkins - Mail received" >}}
 
 ## Actualización de Jenkins
 

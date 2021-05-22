@@ -20,11 +20,11 @@ Kubernetes no permite que el _pod_ consuma más recursos de CPU y RAM de los lí
 
 Si un contenedor excede el límite de RAM, es eliminado.
 
-{{% img src="images/170729/k8s-pod-ram-requests-and-limits.svg" %}}
+{{< figure src="/images/170729/k8s-pod-ram-requests-and-limits.svg" >}}
 
 Si un contenedor excede el límite de CPU, se convierte en un candidato para que su uso de CPU se vea restringido (_throttling_) .
 
-{{% img src="images/170729/k8s-pod-cpu-requests-and-limits.svg" %}}
+{{< figure src="/images/170729/k8s-pod-cpu-requests-and-limits.svg" >}}
 
 # Unidades de CPU y RAM
 

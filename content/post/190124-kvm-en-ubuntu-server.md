@@ -169,7 +169,7 @@ Además de gestionar máquinas de forma local, podemos conectarnos con hiperviso
 
 Para que la máquina virtual tenga acceso a la red _bridge_ debemos especificar en la configuración de red el nombre de la red _bridge_ definida en pasos anteriores:
 
-{{% img src="images/190124/VMM-NETWORK-Conf-2019-01-23 20-07-07.png"  %}}
+{{< figure src="/images/190124/VMM-NETWORK-Conf-2019-01-23 20-07-07.png" >}}
 
 # Siguientes pasos
 

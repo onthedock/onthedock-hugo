@@ -15,10 +15,10 @@ thumbnail = "images/cloud-init.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Automatizando la personalización de máquinas virtuales con cloud-init"
 date = "2018-10-10T20:11:56+02:00"

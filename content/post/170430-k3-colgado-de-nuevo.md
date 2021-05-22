@@ -8,7 +8,7 @@ categories = ["ops"]
 
 +++
 
-En la entrada anterior [Múltiples mensajes 'action 17 suspended' en los logs]({{% ref "170430-multiples-mensajes-action-17-suspended.md" %}}) comentaba que estaba a la espera de obtener resultados; después de apenas unas horas, ya los tengo: **k3** se ha vuelto a _colgar_ mientras que **k2** no.
+En la entrada anterior [Múltiples mensajes 'action 17 suspended' en los logs]({{< ref "170430-multiples-mensajes-action-17-suspended.md" >}}) comentaba que estaba a la espera de obtener resultados; después de apenas unas horas, ya los tengo: **k3** se ha vuelto a _colgar_ mientras que **k2** no.
 
 Este resultado parece demostrar que la mala configuración de _rsyslog_ es la causante de los _cuelgues_ de las RPi 3 en el clúster de Kubernetes.
 

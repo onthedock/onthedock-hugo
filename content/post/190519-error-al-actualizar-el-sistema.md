@@ -6,7 +6,7 @@ thumbnail = "images/linux.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 
 title=  "Error al actualizar el sistema"
 date = "2019-05-19T18:11:23+02:00"

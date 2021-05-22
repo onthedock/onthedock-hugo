@@ -7,7 +7,7 @@ thumbnail = "images/alpine.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 
 title=  "Iniciar dnsmasq durante el inicio del sistema"
 date = "2019-05-19T08:42:05+02:00"

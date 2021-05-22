@@ -15,10 +15,10 @@ thumbnail = "images/gogs.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pipeline: Gogs - El repositorio de código"
 date = "2018-05-20T07:30:49+02:00"
@@ -286,7 +286,7 @@ $ curl localhost:10080
 
 Así que usamos un navegador y apuntamos a `http://{$IPHOSTDOCKER}:10080`:
 
-{{% img src="images/180520/gogs-install.png" w="810" h="616" caption="Gogs install" %}}
+{{< figure src="/images/180520/gogs-install.png" w="810" h="616" caption="Gogs install" >}}
 
 ### Conexión con la base de datos
 
@@ -335,7 +335,7 @@ Después de comprobar que todos los parámetros son correctos, pulsamos _Install
 
 Si todo va como debe, se nos presenta el _Dashboard_ del usuario `operador`:
 
-{{% img src="images/180520/gogs-dashboard.png" w="1018" h="449" caption="Gogs Dashboard" %}}
+{{< figure src="/images/180520/gogs-dashboard.png" w="1018" h="449" caption="Gogs Dashboard" >}}
 
 ### Validación del envío de correo
 
@@ -345,7 +345,7 @@ Si todo va como debe, se nos presenta el _Dashboard_ del usuario `operador`:
 4. En el panel lateral de la izquierda, seleccionamos _Configuration_.
 5. Buscamos la sección _Mailer Configuration_:
 
-{{% img src="images/180520/gogs-test-mail.png" w="459" h="273" caption="Gogs Mail test" %}}
+{{< figure src="/images/180520/gogs-test-mail.png" w="459" h="273" caption="Gogs Mail test" >}}
 
 Podemos introducir una dirección de correo para validar que hemos configurado correctamente el servidor de correo.
 
@@ -353,7 +353,7 @@ Podemos introducir una dirección de correo para validar que hemos configurado c
 
 La prueba de envío de correo fallará con el mensaje de error:
 
-{{% img src="images/180520/gogs-mail-error.png" w="748" h="108" caption="Gogs Mail Error" %}}
+{{< figure src="/images/180520/gogs-mail-error.png" w="748" h="108" caption="Gogs Mail Error" >}}
 
 La causa está en que no se está usando un certificado válido (de hecho, no se ha configurado ningún certificado).
 
@@ -390,14 +390,14 @@ gogs
 
 Tras el reinicio, al enviar una prueba de correo:
 
-{{% img src="images/180520/gogs-mail-sent.png" w="761" h="171" caption="Gogs Mail sent" %}}
+{{< figure src="/images/180520/gogs-mail-sent.png" w="761" h="171" caption="Gogs Mail sent" >}}
 
 Si revisamos la bandeja de entrada de MailDev, comprobamos la recepción del correo de prueba:
 
-{{% img src="images/180520/gogs-maildev-inbox.png" w="613" h="182" caption="Gogs Inbox" %}}
+{{< figure src="/images/180520/gogs-maildev-inbox.png" w="613" h="182" caption="Gogs Inbox" >}}
 
 Si seleccionamos _Mail, Source_, podemos ver todos los detalles del correo enviado (como la dirección _From_, configurada en el fichero `app.ini`):
 
-{{% img src="images/180520/gogs-maildev-inbox-details.png" w="741" h="258" caption="Gogs Mail details" %}}
+{{< figure src="/images/180520/gogs-maildev-inbox-details.png" w="741" h="258" caption="Gogs Mail details" >}}
 
 > En la página [Configuration Cheat Sheet](https://gogs.io/docs/advanced/configuration_cheat_sheet) tienes todas las variables de configuración definidas en Gogs. Por ejemplo, si quieres que al acceder a Gogs se muestre la página _Explore_ (con el listado de repositorios) en vez de _Home_ (con el logo de Gogs), puedes cambiar el comportamiento usando la variable `LANDING_PAGE`.

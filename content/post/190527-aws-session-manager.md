@@ -15,10 +15,10 @@ thumbnail = "images/aws.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Session Manager como herramienta de control de acceso a instancias EC2 en AWS"
 date = "2019-05-27T19:33:13+02:00"
@@ -32,9 +32,9 @@ Aunque Systems Manager incluye múltiples funcionalidades, voy a centrarme únic
 
 Session Manager permite conectar a las instancias en AWS sin necesidad de abrir los puertos para SSH o RDP, lo que puede considerarse una mejora de la seguridad de las máquinas. El acceso, además, se realiza a través del propio navegador, lo que simplifica enormemente la conexión remota desde prácticamente cualquier dispositivo.
 
-{{% img src="images/190527/no-open-ports.png" w="883" h="346" class="center" caption="El grupo de seguridad no permite tráfico entrante." %}}
+{{< figure src="/images/190527/no-open-ports.png" w="883" h="346" class="center" caption="El grupo de seguridad no permite tráfico entrante." >}}
 
-{{% img src="images/190527/security-group.png" w="882" h="431" class="center" caption="Detalle de las reglas del security group." %}}
+{{< figure src="/images/190527/security-group.png" w="882" h="431" class="center" caption="Detalle de las reglas del security group." >}}
 
 La conexión está cifrada usando TLS 1.2, por lo que además de proporcionar una vía conveniente para acceder a las instancias EC2, también es segura.
 
@@ -60,13 +60,13 @@ Para poder iniciar una sesión de Session Manager, es necesario que el usuario t
 
 En la consola de AWS, he buscado el servicio de Systems Manager y en el panel lateral, he pulsado sobre _Managed Instances_. Tal y como era de esperar, la instancia aparece listada.
 
-{{% img src="images/190527/managed-instances.png" w="1080" h="192" class="center" %}}
+{{< figure src="/images/190527/managed-instances.png" w="1080" h="192" class="center" >}}
 
 Para iniciar una sesión, selecciona la instancia y en el menú _Actions_, selecciona _Start session_.
 
 A continuación se abre una nueva pestaña del navegador con una sesión iniciada en la instancia EC2.
 
-{{% img src="images/190527/session.png" w="557" h="278" class="center" %}}
+{{< figure src="/images/190527/session.png" w="557" h="278" class="center" >}}
 
 ## Consideraciones a tener en cuenta
 
@@ -88,7 +88,7 @@ Puedes modificar este comportamiento siguiendo las instrucciones de la documenta
 
 Puedes configurar Session Manager para guardar un registro de todos los comandos que se ejecutan en la instancia remota. Esta información se puede almacenar tanto en CloudWatch logs como en un bucket S3. Esta información se guarda en texto plano por defecto, por lo que deberías considerar encriptar el bucket.
 
-{{% img src="images/190527/preferences.png" w="1100" h="141" class="center" %}}
+{{< figure src="/images/190527/preferences.png" w="1100" h="141" class="center" >}}
 
 ### Encriptación adicional
 

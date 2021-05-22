@@ -26,7 +26,7 @@ El [tutorial de Kubernetes](https://kubernetes.io/docs/tutorials/kubernetes-basi
 
 Idealmente, cualquier cambio en el estado de la aplicación en el clúster debería seguir un flujo similar al de cualquier otra modificación que afecte a un sistema de producción; es decir, el DevOp clona el repositorio con la configuración de la aplicación en su equipo, hace los cambios y los verifica. Una vez satisfecho, los sube al repositorio (pasando por el sistema de aprobación establecido, como por ejemplo, una [_pull request_](https://help.github.com/articles/about-pull-requests/)). Una vez aprobado, se incorpora el cambio al repositorio de configuración de la aplicación en producción, desde donde se aplica al entorno de producción.
 
-{{% img src="images/170716/pull-request-flow.png" caption="Proceso de aprobación basado en pull request." href="https://docs.rhodecode.com/RhodeCode-Enterprise/collaboration/pr-flow.html" %}}
+{{< figure src="/images/170716/pull-request-flow.png" caption="Proceso de aprobación basado en pull request." href="https://docs.rhodecode.com/RhodeCode-Enterprise/collaboration/pr-flow.html" >}}
 
 # Define el _deployment_
 
@@ -322,7 +322,7 @@ Para saber con qué puerto externo se ha conectado el puerto local 80/TCP necesi
 
 En mi caso el `NodePort` asignado es el 31010/TCP. Esto significa que si acceso a la IP del clúster a través del puerto 31010, Kubernetes redirigirá la petición al puerto 80 del servicio, con lo que obtendré la página de bienvenida de Nginx.
 
-{{% img src="images/170716/nginx-en-kubernetes.png" %}}
+{{< figure src="/images/170716/nginx-en-kubernetes.png" >}}
 
 Este es el resultado marcado como éxito para este experimento.
 

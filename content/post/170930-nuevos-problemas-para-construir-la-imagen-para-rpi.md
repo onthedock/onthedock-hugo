@@ -31,7 +31,7 @@ Lo que originalmente debía ser tan sencillo como un cambio de imagen base, no h
 
 La imagen base que pensaba utilizar era [xaviaznar/rpi-alpine-base](https://hub.docker.com/r/xaviaznar/rpi-alpine-base/). Esta imagen está basada en [hypriot/rpi-alpine-scratch](https://hub.docker.com/r/hypriot/rpi-alpine-scratch/), pero resulta que esta imagen no se actualiza desde hace más de un año:
 
-{{% img src="images/170930/alpine-scratch.png" %}}
+{{< figure src="/images/170930/alpine-scratch.png" >}}
 
 Así que los paquetes de PHP 7 no estaban todavía incluidos en los repositorios y la construcción de la imagen ha fallado.
 

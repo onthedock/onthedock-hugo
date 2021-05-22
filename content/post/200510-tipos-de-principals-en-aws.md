@@ -5,10 +5,10 @@ tags = ["aws", "iam"]
 thumbnail = "images/aws.png"
 # Enlaces internos 
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Tipos de Principals en AWS"
 date = "2020-05-10T09:01:57+02:00"
@@ -83,4 +83,4 @@ Como un *topic* tiene asociada una *resource-based policy*, hay que indicar el *
 
 Debo revisar la página [Policy Evaluation Logic](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html) y estudiarla a fondo; creo que al final me imprimiré y colgaré el diagrama de [Determining Whether a Request Is Allowed or Denied Within an Account](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html#policy-eval-denyallow) en un sitio que siempre tenga a la vista:
 
-{{% img src="images/200510/PolicyEvaluationHorizontal.png" w="1111" h="511" caption="Policy evaluation whitin an account" %}}
+{{< figure src="/images/200510/PolicyEvaluationHorizontal.png" w="1111" h="511" caption="Policy evaluation whitin an account" >}}

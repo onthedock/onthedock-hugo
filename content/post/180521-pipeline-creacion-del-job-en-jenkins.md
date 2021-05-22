@@ -15,10 +15,10 @@ thumbnail = "images/jenkins.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pipeline - Creacion del job en Jenkins"
 date = "2018-05-21T12:03:50+02:00"
@@ -85,7 +85,7 @@ Copiamos esta _pipeline_ en el apartado _Pipeline_ del job _Hello World_ y pulsa
 
 Puedes ejecutar este job para comprobar que funciona mediante la opción _Build Now_:
 
-{{% img src="images/180521/jenkins-pipeline-first-run.png" w="1042" h="714" caption="Job - First run" %}}
+{{< figure src="/images/180521/jenkins-pipeline-first-run.png" w="1042" h="714" caption="Job - First run" >}}
 
 ## Checkout del código desde Jenkins
 

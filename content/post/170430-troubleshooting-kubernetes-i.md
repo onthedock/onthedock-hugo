@@ -8,7 +8,7 @@ title = "Troubleshooting Kubernetes (I)"
 
 +++
 
-Tras la alegría inicial pensando que la configuración de _rsyslog_ era la causante de los cuelgues de las dos RPi 3 ([El nodo k3 del clúster colgado de nuevo]({{% ref "170430-k3-colgado-de-nuevo.md" %}})), pasadas unas horas los dos nodos **k2** y **k3** han dejado de responder de nuevo.
+Tras la alegría inicial pensando que la configuración de _rsyslog_ era la causante de los cuelgues de las dos RPi 3 ([El nodo k3 del clúster colgado de nuevo]({{< ref "170430-k3-colgado-de-nuevo.md" >}})), pasadas unas horas los dos nodos **k2** y **k3** han dejado de responder de nuevo.
 
 Así que es el momento de atacar el problema de forma algo más sistemática. Para ello seguiré las instrucciones que proporcina la página de Kubernetes [Troubleshooting Clusters](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/).
 <!--more-->

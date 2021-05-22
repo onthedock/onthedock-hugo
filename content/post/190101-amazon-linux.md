@@ -7,7 +7,7 @@ thumbnail = "images/190101/amazonlinux.png"
 title=  "Probando Amazon Linux 2"
 date = "2019-01-01T16:43:58+01:00"
 +++
-{{% img src="images/190101/what-are-clouds-made-of.jpg" w="600" h="400" %}}
+{{< figure src="/images/190101/what-are-clouds-made-of.jpg" w="600" h="400" >}}
 
 Como dice el chiste, las nubes están compuestas básicamente de servidores Linux. Una de estas nubes, Amazon Web Services (AWS), ofrece su propia distribución de Linux: [Amazon Linux 2](http://amazonlinux.com).
 <!--more-->

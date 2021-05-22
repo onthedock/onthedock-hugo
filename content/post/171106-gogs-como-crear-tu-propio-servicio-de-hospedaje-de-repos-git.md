@@ -18,16 +18,16 @@ thumbnail = "images/gogs.png"
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
 # YouTube
-# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Imagenes
-# {{% img src="images/image.jpg" w="600" h="400" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="right" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="left" %}}
-# {{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# {{< figure src="/images/image.jpg" w="600" h="400" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="right" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="left" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats)
 # {{% clear %}}
 # Twitter
-# {{% twitter tweetid="780599416621297xxx" %}}
+# {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Gogs - Cómo crear tu propio servicio de hospedaje de repositorios Git"
 date = "2017-11-06T22:11:26+01:00"
@@ -176,7 +176,7 @@ $
 
 Accedemos al respositorio a través del navegador y comprobamos que se ha subido el código de nuestro repositorio local:
 
-{{% img src="images/171106/gogsdemo.png" %}}
+{{< figure src="/images/171106/gogsdemo.png" >}}
 
 ## Resumen
 

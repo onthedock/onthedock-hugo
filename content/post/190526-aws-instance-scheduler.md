@@ -15,7 +15,7 @@ thumbnail = "images/aws.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 
 
 title=  "AWS Instance Scheduler"
@@ -28,7 +28,7 @@ Amazon proporciona una plantilla de _AWS CloudFormation_ que permite desplegar t
 
 ## Cómo funciona AWS Instance Scheduler
 
-{{% img src="images/190526/instance-scheduler-architecture.png" w="822" h="460" class="center" caption="AWS Instance Scheduler Architecture" href="https://docs.aws.amazon.com/solutions/latest/instance-scheduler/architecture.html" %}}
+{{< figure src="/images/190526/instance-scheduler-architecture.png" w="822" h="460" class="center" caption="AWS Instance Scheduler Architecture" href="https://docs.aws.amazon.com/solutions/latest/instance-scheduler/architecture.html" >}}
 
 La plantilla de CloudFormation configura eventos en Amazon CloudWatch de manera que se ejecute una acción -la ejecución de una función Lambda- con la frecuencia que especifiquemos.
 
@@ -44,7 +44,7 @@ En la documentación no se indica -en mi opinión- con suficiente detalle cómo 
 
 Curiosamente, si revisas los elementos que contiene la tabla `<NombreDelStack>-ConfigTable-...`, verás que sí que contiene algunas entradas (tanto para definir periodos como _schedules_):
 
-{{% img src="images/190526/rds-config-table-default-items.png" w="833" h="483" class="center" %}}
+{{< figure src="/images/190526/rds-config-table-default-items.png" w="833" h="483" class="center" >}}
 
 Estos valores no aparcen en el fichero de CloudFormation, por lo que no tengo claro desde dónde se introducen en la base de datos.
 
@@ -147,7 +147,7 @@ Otra medida interesante puede ser establecer un periodo que sólo tenga _endtime
 
 Hacia el final de la página sobre AWS Instance Scheduler se menciona lo que es, para mí, una de las mejores características de esta solución: **¡soporte multicuenta!**
 
-{{% img src="images/190526/aws-instance-scheduler-features.png" w="934" h="471" class="center" %}}
+{{< figure src="/images/190526/aws-instance-scheduler-features.png" w="934" h="471" class="center" >}}
 
 Gracias a esta característica puedes definir una serie de _schedules_ en una cuenta y aplicarlos sobre el resto de cuentas en las que tienes instancias/RDS.
 

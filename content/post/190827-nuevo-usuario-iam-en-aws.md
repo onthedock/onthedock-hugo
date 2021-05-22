@@ -14,19 +14,19 @@ A continuación comento cómo crear un usuario IAM.
 
 Al acceder a la consola de AWS, selecciona el servicio IAM; IAM es el acrónimo de _Identity and Access Management_ (gestión de identidades y accesos), que como indica en el _subtítulo_ es el servicio que gestiona los usuarios y las claves de encriptación:
 
-{{% img src="images/190827/iam-service.png" h="178" w="343" %}}
+{{< figure src="/images/190827/iam-service.png" h="178" w="343" >}}
 
 En el panel lateral, selecciona _Usuarios_ (Users):
 
-{{% img src="images/190827/users.png" h="333" %}}
+{{< figure src="/images/190827/users.png" h="333" >}}
 
 En la parte superior, se muestra un gran botón azul con el texto _Add User_; púlsalo para lanzar el asistente para la creación de un usuario.
 
-{{% img src="images/190827/add_user.png" h="192" %}}
+{{< figure src="/images/190827/add_user.png" h="192" >}}
 
 La primera decisión que debes tomar acerca del usuario es cómo se va a llamar ;)
 
-{{% img src="images/190827/user-name.png" h="528" %}}
+{{< figure src="/images/190827/user-name.png" h="528" >}}
 
 En la parte inferior del asistente debes indicar cómo va a "comunicarse" el usuario con AWS. La primera opción, el acceso _programático_ es el adecuado para la interacción de aplicaciones, desde línea de comandos, etc. El acceso a través de la consola -la web de AWS- es el acceso que estamos usando en estos momentos, a través de un navegador. Este es el tipo de acceso que usará una persona, moviendo el ratón y pulsando botones.
 
@@ -36,7 +36,7 @@ En función del tipo de acceso que selecciones, aparecen opciones diferentes en 
 
 En el caso de un usuario de consola, puedes hacer que AWS genere una contraseña o puedes introducirla manualmente. Por defecto, la consola web ofrece la opción de que el usuario deba cambiar el password la primera vez que acceda a AWS. De esta forma se garantiza que sólo el usuario conoce su password.
 
-{{% img src="images/190827/password.png" h="274" %}}
+{{< figure src="/images/190827/password.png" h="274" >}}
 
 Observa que si se deja marcada esta opción, AWS automáticamente asocia al usuario una _política_ llamada `IAMUserChangePassword` que le permite cambiar el password asociado.
 
@@ -48,7 +48,7 @@ A continuación, debes seleccionar qué permisos vas a asociar al usuario.  Aqu�
 - copiar los permisos de otro usuario
 - asignar una política
 
-{{% img src="images/190827/attach-policy.png" h="644" w="982" %}}
+{{< figure src="/images/190827/attach-policy.png" h="644" w="982" >}}
 
 Como puedes ver en la imagen anterior, existen **un montón** de políticas gestionadas por Amazon (actualmente 472). Para empezar, lo habitual es que crees un usuario con permisos de administración total (`AdministratorAccess`).
 Además de las políticas gestionadas por Amazon, puedes crear tus propias políticas, ajustando con tanto detalle como quieres **qué acciones** de **qué servicios** y sobre **qué recursos** permites o deniegas.
@@ -108,13 +108,13 @@ La política _IAMUserChangePassword_ que se asocia al usuario al marcar la casil
 
 Debajo de las políticas, tienes la sección para las _permission boundaries_:
 
-{{% img src="images/190827/boundaries.png" w="988" h="193" %}}
+{{< figure src="/images/190827/boundaries.png" w="988" h="193" >}}
 
 Las _permission boundaries_ permiten establecer un **límite máximo** de permisos que el usuario puede asumir. Se considera una [funcionalidad avanzada](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html), por lo que quizás debas dejarlo para más adelante.
 
 Intento explicarlo de forma **muy simplificada** en el siguiente diagrama:
 
-{{% img src="images/190827/effective-permissions.png" w="526" h="417" %}}
+{{< figure src="/images/190827/effective-permissions.png" w="526" h="417" >}}
 
 Los permisos efectivos sobre el usuario son aquellos definidos por la _permission boundary_ (el círculo rojo). Como son los permisos máximos que puede tener el usuario, aunque apliquemos las políticas `Policy1` y `Policy2` que otorgan más permisos (los círculos azul y naranja) de lo que permite la _boundary_, los **permisos efectivos** serán sólo los permisos de las políticas 1 y 2 que estén dentro de los límites de la _boundary_ (la zona con rayas de color azul y naranja).
 
@@ -124,17 +124,17 @@ Para no complicar las cosas, asigna la política que consideres oportuna y deja 
 
 El siguiente paso es aplicar etiquetas al usuario; es un paso opcional, de manera que no etiquetamos el usuario:
 
-{{% img src="images/190827/tags.png" w="981" h="232" %}}
+{{< figure src="/images/190827/tags.png" w="981" h="232" >}}
 
 Una revisión final antes de crear el usuario; observa que tienes dos políticas aplicadas: `AdministratorAccess` y `IAMUserChangePassword`
 
-{{% img src="images/190827/review.png" w="1000" h="642" %}}
+{{< figure src="/images/190827/review.png" w="1000" h="642" >}}
 
 Los permisos otorgados por `IAMUserChangePassword`están incluidos en la política `AdministratorAccess`; la evaluación de las políticas se describe en [Lógica de evaluación de políticas](https://docs.aws.amazon.com/es_es/IAM/latest/UserGuide/reference_policies_evaluation-logic.html)
 
 Tras la creación del usuario, Amazon te ofrece la posibilidad de descargar las credenciales generadas para el usuario. También tienen un botón para "mostrar" la contraseña generada (y copiarla); en cuanto cierres esta pantalla, no es posible recuperar la contraseña (aunque podrás cambiarla por una nueva).
 
-{{% img src="images/190827/credentials.png" w="991" h="354" %}}
+{{< figure src="/images/190827/credentials.png" w="991" h="354" >}}
 
 Este usuario tiene permiso para acceder a la consola web de Amazon; en una entrada posterior detallaré cómo crear la _Access y Secret key_ para acceder usando AWS CLI.
 

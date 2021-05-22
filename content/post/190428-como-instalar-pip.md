@@ -8,10 +8,10 @@ thumbnail = "images/python.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Cómo instalar pip"
 date = "2019-04-28T13:25:13+02:00"
@@ -32,11 +32,11 @@ Sin embargo, nunca me ha resultado demasiado evidente cómo instalarlo, gracias 
 
 En la página de la PyPA ([Python Packaging Authority](https://www.pypa.io/en/latest/)):
 
-{{% img src="images/190428/pypa_instructions.png" %}}
+{{< figure src="/images/190428/pypa_instructions.png" >}}
 
 Como puedes ver, se indica que se pulse el logo para descargar `pip`. Pero no, en la página de destino, se indica que para instalar `pip`, uses `pip` ¯\\\_(ツ)_/¯:
 
-{{% img src="images/190428/pip_install_pip.png" %}}
+{{< figure src="/images/190428/pip_install_pip.png" >}}
 
 Tras estas informativas instrucciones, más abajo encontramos dos paquetes.
 Soy totalmente _noob_ en Python, así que no sé cual de los dos paquetes descargar o qué hacer con ellos cuando los descargue.

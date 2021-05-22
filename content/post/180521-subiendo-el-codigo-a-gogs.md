@@ -15,10 +15,10 @@ thumbnail = "images/gogs.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pipeline - Subiendo el código a Gogs"
 date = "2018-05-21T09:03:13+02:00"
@@ -48,7 +48,7 @@ $
 
 En primer lugar, accedemos a Gogs y creamos un repositorio para nuestro código:
 
-{{% img src="images/180521/gogs-new-repo.png" w="320" h="205" caption="Gogs - New repository" %}}
+{{< figure src="/images/180521/gogs-new-repo.png" w="320" h="205" caption="Gogs - New repository" >}}
 
 Le damos un nombre como `gs-maven` y tras la creación del repositorio, se nos indica cómo añadir un repositorio existente en el repositorio recién creado:
 

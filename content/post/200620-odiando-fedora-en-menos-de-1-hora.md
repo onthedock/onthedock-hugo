@@ -15,10 +15,10 @@ thumbnail = "images/linux.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Odiando Fedora en menos de 1 hora"
 date = "2020-06-20T19:37:41+02:00"
@@ -54,7 +54,7 @@ He creado una máquina virtual, la he lanzado y Boxes me ha mostrado una pantall
 
 He vuelto a arrancar la VM y sí, `No bootable device`. *Again*. Nuevo cuelgue de Boxes (o *freeze*, o lo que sea), incapaz de reiniciar la máquina virtual con Alpine. *Again*.
 
-{{% img src="images/200620/boxes-alpine-no-boot.png" w="989" h="876" %}}
+{{< figure src="/images/200620/boxes-alpine-no-boot.png" w="989" h="876" >}}
 
 He creado una nueva máquina, con las opciones por defecto (pero a partir de la ISO de Alpine) y la cosa ha mejorado algo, ya que ha aparecido un menú para seleccionar el "medio" de arranque. Por desgracia, ninguna de las opciones ha conseguido "identificar" la ISO asociada la unidad de CD de Boxes ni arrancar Alpine.
 
@@ -64,7 +64,7 @@ Pensaba que Box guardaría algún tipo de copia local, ya que no sé si tiene mu
 
 He realizado una captura de pantalla -ya pensando en realizar esta entrada- y al pulsar sobre la imagen de la captura se ha abierto "Image Viewer". En el "dock" o como se llame en GNOME, una de las aplicaciones *pineadas* es Photos. Así que he pulsado con el botón secundario para hacer un "Abrir con" y así recortar la captura... Pero las únicas aplicaciones mostradas eran Brave y Image Viewer; he pulsado "Todas las aplicaciones" y ni aún así ha aparecido "Photos".
 
-{{% img src="images/200620/no-photos-app.png" w="889" h="595" %}}
+{{< figure src="/images/200620/no-photos-app.png" w="889" h="595" >}}
 
 Esa ha sido la gota que ha colmado el vaso; porque Boxes puede fallar porque Alpine es una distro "especial", porque Boxes intenta hacer muchas cosas a la vez (crear máquinas virtuales, conectarse a máquinas remotas, etc) y, siendo más complejo, puede haber cosas que fallen... Pero cuando incluyes una aplicación en tu sistema operativo, enfocada a un usuario normal, como Photos y la aplicación no aparece en "todas las aplicaciones", es que el sistema operativo no está bien hecho. Y si una aplicación "incluida de fábrica" ya presenta este tipo de problemas de integración con el sistema operativo, no quiero invertir tiempo peleándome con otros fallos que puedan aparecer con otras aplicaciones que necesito para poder disfrutar de mi tiempo y de mi *hobby*.
 

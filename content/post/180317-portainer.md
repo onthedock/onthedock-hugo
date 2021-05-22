@@ -15,10 +15,10 @@ thumbnail = "images/portainer.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Portainer: gestión de servidores Docker"
 date = "2018-03-17T21:44:47+01:00"
@@ -87,7 +87,7 @@ $ sudo systemctl restart docker-service
 
 En el panel lateral de Portainer, selecciona _Endpoints_ e introduce el nombre y la ip:puerto del servidor remoto de Docker:
 
-{{% img src="images/180317/portainer-remote-endpoint.png" %}}
+{{< figure src="/images/180317/portainer-remote-endpoint.png" >}}
 
 Pulsa sobre el botón _+ Add endpoint_ y Portainer conectará con el servidor remoto de Docker a través de la API.
 

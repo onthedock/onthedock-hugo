@@ -11,7 +11,7 @@ thumbnail = "images/linux.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 +++
 Hace relativamente poco que he cambiado de piso, lo que ha afectado a la *toopología* de la red de casa, en particular, ha sido necesario cambiar la IP del equipo de laboratorio donde tengo instalado [Proxmox VE](https://www.proxmox.com/en/).
 
@@ -24,7 +24,7 @@ Después de aceptar todas los cuadros de diálogo de alertas de seguridad del na
 
 En el panel lateral selecciono el nodo `lab`. A continuación, dentro de la sección *System*, selecciono *Certificates*:
 
-{{% img src="images/200119/certificates-ip.png" w="1283" h="341" %}}
+{{< figure src="/images/200119/certificates-ip.png" w="1283" h="341" >}}
 
 El certificado `pve-ssl.pem` contiene la IP del nodo, lo que provocaba las alertas en los navegadores (en la imagen ya aparece la IP actual).
 
@@ -38,7 +38,7 @@ pvecm updatecerts -f
 
 Tras reiniciar el equipo, el servidor ya se identifica usando el nuevo certificado.
 
-{{% img src="images/200119/update-cert.png" w="744" h="428" %}}
+{{< figure src="/images/200119/update-cert.png" w="744" h="428" >}}
 
 En función del comportamiento de tu navegador, puede que siga usando el certificado anterior durante un determinado tiempo. Puedes buscar online cómo eliminar los certificados *cacheados* para agilizar el proceso.
 

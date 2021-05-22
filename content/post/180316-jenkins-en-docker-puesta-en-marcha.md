@@ -15,10 +15,10 @@ thumbnail = "images/jenkins.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Jenkins en Docker: puesta en marcha"
 date = "2018-03-16T21:39:10+01:00"
@@ -74,7 +74,7 @@ Es posible **sobrescribir** los _plugins_ si lo necesitas; para ello debes añad
 
 Abre un navegador y accede a http://IP-del-host-docker:8080. Después de unos segundos en los que Jenkins debe acabar de arrancar, se muestra el siguiente mensaje:
 
-{{% img src="images/180316/jenkins-unlock.png" %}}
+{{< figure src="/images/180316/jenkins-unlock.png" >}}
 
 Jenkins genera una contraseña segura en `/var/jenkins_home/secrets/initialAdminPassword`. Puedes obtener esta contraseña inicial de diferentes maneras, pero la más sencilla es revisando los logs de arranque de Jenkins:
 
@@ -131,27 +131,27 @@ Copia el password e introdúcelo para acceder a Jenkins.
 
 Jenkins ofrece la posibilidad de instalar los _plugins_ sugeridos por la comunidad o realizar nosotros la selección de forma manual. Podemos instalar o desinstalar _plugins_ después, por lo que pulsamos en la opción _Install suggested plugins_:
 
-{{% img src="images/180316/jenkins_suggested_plugins.png" %}}
+{{< figure src="/images/180316/jenkins_suggested_plugins.png" >}}
 
 El sistema descarga los _plugins_:
 
-{{% img src="images/180316/jenkins_suggested_plugins_installation.png" %}}
+{{< figure src="/images/180316/jenkins_suggested_plugins_installation.png" >}}
 
 ## Creación de un usuario administrador
 
 Tras la instalación, se muestra el formulario para crear un usuario administrador:
 
-{{% img src="images/180316/jenkins_first-admin-user.png" %}}
+{{< figure src="/images/180316/jenkins_first-admin-user.png" >}}
 
 Jenkins ofrece la posibilidad de seguir usando el usuario _admin_, sin crear usuarios adicionales.
 
 Tras la creación del usuario, podemos empezar a usar Jenkins:
 
-{{% img src="images/180316/jenkins_is_ready.png" %}}
+{{< figure src="/images/180316/jenkins_is_ready.png" >}}
 
 Si hemos creado un nuevo usuario administrador, accedemos a Jenkins con el usuario recién creado:
 
-{{% img src="images/180316/jenkins_landingpage.png" %}}
+{{< figure src="/images/180316/jenkins_landingpage.png" >}}
 
 ## Resumen
 

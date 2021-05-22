@@ -15,10 +15,10 @@ thumbnail = "images/sonarqube.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pipeline - Troubleshooting del arranque del contenedor con Sonarqube"
 date = "2018-05-21T12:37:10+02:00"
@@ -232,7 +232,7 @@ $
 
 Y accediendo desde el navegador a _http://$IPHOST:9000/_:
 
-{{% img src="images/180521/sonarqube-home.png" w="1111" h="523"  caption="SonarQube home" %}}
+{{< figure src="/images/180521/sonarqube-home.png" w="1111" h="523"  caption="SonarQube home" >}}
 
 ### Volumen data-sonarqube no montado en sonarqube
 

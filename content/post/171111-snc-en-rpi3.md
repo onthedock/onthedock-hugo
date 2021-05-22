@@ -11,16 +11,16 @@ thumbnail = "images/kubernetes.png"
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
 # YouTube
-# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Imagenes
-# {{% img src="images/image.jpg" w="600" h="400" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="right" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="left" %}}
-# {{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# {{< figure src="/images/image.jpg" w="600" h="400" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="right" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="left" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats)
 # {{% clear %}}
 # Twitter
-# {{% twitter tweetid="780599416621297xxx" %}}
+# {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Single node cluster en la RPi3"
 date = "2017-11-11T12:08:36+01:00"

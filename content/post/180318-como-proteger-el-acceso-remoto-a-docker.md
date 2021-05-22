@@ -28,7 +28,7 @@ En el siguiente diagrama se muestra el equipo _Docker remoto_ a la izquierda; el
 
 Portainer corre en otro servidor Docker "local" (a la derecha, en el diagrama), aunque este hecho no es relevante para la protección del servidor remoto.
 
-{{% img src="images/180318/docker-remote-secure-configuration.png" h="323" %}}
+{{< figure src="/images/180318/docker-remote-secure-configuration.png" h="323" >}}
 
 ## Crea una entidad certificadora (CA)
 
@@ -232,15 +232,15 @@ Server:
 
 Si recuedas el escenario descrito al inicio de la entrada, el objetivo era utilizar las conexiones remotas **seguras** desde Portainer para gestionar los contenedores en el servidor de Docker remoto:
 
-{{% img src="images/180318/docker-remote-secure-configuration.png" h="323" %}}
+{{< figure src="/images/180318/docker-remote-secure-configuration.png" h="323" >}}
 
 Después de configurar el servidor de Docker remoto para aceptar únicamente conexiones remotas protegidas por TLS, ahora creamos un nuevo _endpoint_ en Portainer. Habilitamos TLS y seleccionamos la opción _TLS with server and client verification_, para lo que tenemos que subir a la aplicación los certificados  `ca.pem`, `cert.pem` y `key.pem` :
 
-{{% img src="images/180318/portainer-tls-config.png" h="834" %}}
+{{< figure src="/images/180318/portainer-tls-config.png" h="834" >}}
 
 Después de configurar el _endpoint_ seguro, validamos que podemos visualizar la información usando Portainer:
 
-{{% img src="images/180318/portainer-connected-via-tls.png" h="365" %}}
+{{< figure src="/images/180318/portainer-connected-via-tls.png" h="365" >}}
 
 # Resumen
 

@@ -15,10 +15,10 @@ thumbnail = "images/kubernetes.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pods encallados en estado CreatingContainer en Kubernetes con nodos creados usando Vagrant"
 date = "2018-06-10T20:54:27+02:00"
@@ -56,7 +56,7 @@ Finalmente he encontrado la explicación y la solución en [Quorum not being rea
 
 ## Causa
 
-{{% img src="images/vagrant.png" w="198" h="194" class="right" %}}
+{{< figure src="/images/vagrant.png" w="198" h="194" class="right" >}}
 
 Las tres máquinas se han generado a partir de la misma imagen de Vagrant, por lo que el **identificador de máquina** en los ficheros `/etc/machine-id` y `/var/lib/dbus/machine-id` eran el mismo en los tres nodos.
 

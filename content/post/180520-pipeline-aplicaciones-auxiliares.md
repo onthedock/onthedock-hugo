@@ -15,10 +15,10 @@ thumbnail = "images/jenkins.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pipeline: Aplicaciones auxiliares"
 date = "2018-05-20T07:08:04+02:00"
@@ -63,7 +63,7 @@ De esta forma, cualquier aplicación que requiera enviar correo puede hacerlo us
 
 Podemos consultar los emails enviados a través del interfaz web de MailDev a través del puerto 8000.
 
-{{% img src="images/180520/maildev.png" w="1112" h="483" caption="Bandeja de entrada - MailDev" %}}
+{{< figure src="/images/180520/maildev.png" w="1112" h="483" caption="Bandeja de entrada - MailDev" >}}
 
 ## Portainer
 
@@ -105,7 +105,7 @@ $ curl localhost:19000
 
 Accediendo a través del navegador, en el primer acceso podemos definir el nombre de usuario y las credenciales del usuario administrador:
 
-{{% img src="images/180520/portainer-admin-first-login.png" w="626" h="474" caption="Portainer - Login" %}}
+{{< figure src="/images/180520/portainer-admin-first-login.png" w="626" h="474" caption="Portainer - Login" >}}
 
 He cambiado el nombre del usuario adminstrador por `operador` y le he asignado un password.
 
@@ -113,10 +113,10 @@ A continuación, Portainer nos pregunta si vamos a gestionar un Docker local o u
 
 Seleccionamos la opción _Local_ y pulsamos el botón _Connect_:
 
-{{% img src="images/180520/portainer-local.png" w="613" h="447" caption="Portainer - Local Docker" %}}
+{{< figure src="/images/180520/portainer-local.png" w="613" h="447" caption="Portainer - Local Docker" >}}
 
 Al conectar, vemos un _Dashboard_ con el estado de nuestro entorno local.
 
-{{% img src="images/180520/portainer-homepage.png" w="1001" h="552" caption="Portainer - Dashboard" %}}
+{{< figure src="/images/180520/portainer-homepage.png" w="1001" h="552" caption="Portainer - Dashboard" >}}
 
 Usando Portainer es sencillo relacionar un volumen con el contenedor en el que está montado, por ejemplo. También se puede obtener información del uso de CPU, memoria y red de un contenedor y conectar desde la aplicación web al contenedor para ejecutar comandos.

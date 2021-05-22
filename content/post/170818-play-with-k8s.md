@@ -16,16 +16,16 @@ thumbnail = "images/kubernetes.png"
 # SHORTCODES (for reference)
 
 # YouTube
-# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Imagenes
-# {{% img src="images/image.jpg" w="600" h="400" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="right" %}}
-# {{% img src="images/image.jpg" w="600" h="400" class="left" %}}
-# {{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# {{< figure src="/images/image.jpg" w="600" h="400" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="right" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" class="left" >}}
+# {{< figure src="/images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats)
 # {{% clear %}}
 # Twitter
-# {{% twitter tweetid="780599416621297xxx" %}}
+# {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Play With Kubernetes"
 date = "2017-08-18T20:25:31+02:00"
@@ -41,7 +41,7 @@ En el siguiente gif animado puedes ver lo sencillo que es crear un clúster de K
 
 <small>Puedes visualizar el gif en una nueva pestaña, a pantalla completa, pulsando en : <a href="/images/170818/play-with-k8s.gif" target="_blank">Play with K8s</a></small>
 
-{{% img src="images/170818/play-with-k8s.gif" %}}
+{{< figure src="/images/170818/play-with-k8s.gif" >}}
 
 Para crear el clúster de Kubernetes, sigue los pasos indicados en la pantalla:
 
@@ -55,7 +55,7 @@ En la última versión de PWD, el equipo de PWK anunciaba a través de [Easiest 
 
 <small>Puedes visualizar el gif en una nueva pestaña, a pantalla completa, pulsando en : <a href="/images/170818/pwk-uploads.gif" target="_blank">Subida de ficheros a PWK</a></small>
 
-{{% img src="images/170818/pwk-uploads.gif" %}}
+{{< figure src="/images/170818/pwk-uploads.gif" >}}
 
 # Resumen
 

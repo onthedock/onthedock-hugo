@@ -11,7 +11,7 @@ thumbnail = "images/bug.png"
 # SHORTCODES (for reference)
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 
 title=  "Fallo en las extensiones de Firefox"
 date = "2019-05-05T18:50:31+02:00"

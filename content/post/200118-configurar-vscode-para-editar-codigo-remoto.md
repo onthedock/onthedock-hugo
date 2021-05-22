@@ -4,7 +4,7 @@ tags = ["linux", "visual studio code", "ssh"]
 thumbnail = "images/code.jpg"
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 
 title=  "Configurar Visual Studio Code para editar código remoto"
 date = "2020-01-18T20:52:06+01:00"

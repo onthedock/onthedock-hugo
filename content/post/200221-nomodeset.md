@@ -13,7 +13,7 @@ La solución para estos problemas durante el arranque se puede conseguir mediant
 
 En algunos casos, como en [Zorin OS](https://zorinos.com/), el instalador ofrece una opción de arranque con "con gráficos seguros", mientras que en Ubuntu se pueden pasar diferentes tipos de parámetros opcionales pulsando cualquier tecla cuando se muestra el menú inicial (`nomodeset` se encuentra dentro del menú mostrado al pulsar `F6 Other Options`):
 
-{{% img src="images/200221/ubuntu-installer-options.png" w="640" h="480" %}}
+{{< figure src="/images/200221/ubuntu-installer-options.png" w="640" h="480" >}}
 
 Una excelente explicación de algunas de las diferentes opciones que se pueden pasar al *kernel* durante el arranque es [How to set NOMODESET and other kernel boot options in grub2](https://ubuntuforums.org/showthread.php?t=1613132). Aunque se trata de una entrada del 2010, el primer párrafo de esta entrada está tomada, casi literalmente, de ese artículo:
 

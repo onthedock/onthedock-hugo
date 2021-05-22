@@ -18,7 +18,7 @@ El proceso es el siguiente:
 1. El *administrador* realiza una llamada a la API de AWS para validar que tiene los permisos necesarios (`s3:GetObject`) para acceder al fichero en el *bucket*. La API devuelve un token de acceso al fichero. Con el token y el nombre del *bucket* se genera el enlace firmado al objeto en el *bucket*. Este enlace es válido sólo durante el tiempo de validez del token generado (por defecto, 3600 segundos, 1h).
 1. El "administrador" comunica el enlace firmado (la *presigned URL*) al usuario final. El usuario pulsa sobre el enlace y accede a la URL del bucket. Al intentar acceder al objeto en el *bucket*, S3 obtiene el token de la URL y verifica si es válido (o si ya ha expirado). Si el token es válido, se proporciona acceso al fichero, que se descarga al equipo del usuario.
 
-{{% img src="images/200517/presigned-urls.svg" %}}
+{{< figure src="/images/200517/presigned-urls.svg" >}}
 
 ## Generar el enlace firmado a un objeto en S3
 

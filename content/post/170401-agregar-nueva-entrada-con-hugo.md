@@ -1,6 +1,6 @@
 +++
 title = "Agregar nueva entrada con Hugo"
-thumbnail = "images/hugo.png"
+thumbnail = "/images/hugo.png"
 categories = ["dev"]
 tags = ["Hugo"]
 date = "2017-04-01T22:36:46+02:00"
@@ -33,7 +33,7 @@ A continuación, elige un tema (o crea el tuyo propio con `hugo new theme`).
 
 Configura los parámetros usados en el tema que hayas escogido en el fichero `$HUGO/config.toml` y ¡listo!.
 
-{{% img src="images/170401/hugo-publicacion-01.png" h="412" %}}
+{{< figure src="/images/170401/hugo-publicacion-01.png" h="412" >}}
 
 ## Crea una entrada
 
@@ -46,7 +46,7 @@ hugo new post/mi-primera-entrada.md
 
 Esta acción crea el fichero `$HUGO/content/post/nueva-entrada.md`.
 
-{{% img src="images/170401/hugo-publicacion-02.png" h="256" %}}
+{{< figure src="/images/170401/hugo-publicacion-02.png" h="256" >}}
 
 ## Edita la entrada
 
@@ -55,7 +55,7 @@ Abre el fichero de la nueva entrada. Encontrarás algo como:
 ```yaml
 +++
 title = "mi primera entrada"
-thumbnail = "images/thumbnail.png"
+thumbnail = "/images/thumbnail.png"
 categories = [""]
 tags = [""]
 date = "2017-04-01T22:36:46+02:00"
@@ -82,7 +82,7 @@ Para crear estos ficheros a partir de tus entradas y el tema que has escogido, s
 
 Hugo hace su magia y genera todos los ficheros necesarios, analizando el contenido de los ficheros. Estos ficheros se generan en la carpeta $HUGO/public`.
 
-{{% img src="images/170401/hugo-publicacion-03.png" h="428" %}}
+{{< figure src="/images/170401/hugo-publicacion-03.png" h="428" >}}
 
 ## Sube los ficheros al servidor web
 
@@ -105,7 +105,7 @@ cd $HUGO/public
 scp -r * pirate@rpi.local:/home/pirate/web
 ```
 
-{{% img src="images/170401/hugo-publicacion-04.png" h="428" %}}
+{{< figure src="/images/170401/hugo-publicacion-04.png" h="428" >}}
 
 Desde un navegador, comprueba que el blog se ha actualizado con la nueva entrada.
 

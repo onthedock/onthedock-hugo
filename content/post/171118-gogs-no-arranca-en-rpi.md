@@ -8,9 +8,9 @@ thumbnail = "images/gogs.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Imagenes
-# {{% img src="images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# {{< figure src="/images/image.jpg" w="600" h="400" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 
 
 title=  "Gogs No Arranca en la Raspberry Pi después de la configuración inicial"
@@ -30,7 +30,7 @@ Para que los cambios sean efectivos, es necesario reiniciar Gogs, lo que em mi c
 
 Pero al arrancar de nuevo, la interfaz web no se muestra:
 
-{{% img src="images/171118/not-found.png" height="708" width="623" %}}
+{{< figure src="/images/171118/not-found.png" height="708" width="623" >}}
 
 He comprobado que el contenedor estaba arrancado y he consultado los logs, que no muestran nada anormal:
 
@@ -250,7 +250,7 @@ En los logs -que he truncado- se repite una y otra vez el mismo patrón: el cont
 
 He revisado en DockerHub y, efectivamente, la imagen para la versión 0.11.33 se ha construido automáticamente hace apenas dos horas...
 
-{{% img src="images/171118/gogs-image-2h-ago.png" w="808" h="573" %}}
+{{< figure src="/images/171118/gogs-image-2h-ago.png" w="808" h="573" >}}
 
 Y a todo esto, tengo problemas para descargar la última versión:
 
@@ -262,11 +262,11 @@ Error response from daemon: Get https://registry-1.docker.io/v2/: dial tcp: look
 
 La [solución](https://github.com/docker/for-mac/issues/1317) pasa por desinstalar y volver a instalar Docker (¿¡!?) y cuando lo intento descubro que la máquina virtual tiene algún problema con la resolución de nombres (usando los DNSs de Google (¡¡¿¿??!!)), así que después de cambiar de nuevo a IP dinámica, reiniciar, recuperar la conectividad, reinstalar Docker, descargar la última versión de la imagen de Gogs (0.11.33) la página de configuración vuelve a mostrarse.
 
-{{% img src="images/171118/gogs-back-to-live.png" w="914" h="411" %}}
+{{< figure src="/images/171118/gogs-back-to-live.png" w="914" h="411" >}}
 
 En cuanto a la imagen para Raspberry Pi, también se ha construido una nueva versión:
 
-{{% img src="images/171118/gogs-rpi-image-4min-ago.png" w="716" h="483" %}}
+{{< figure src="/images/171118/gogs-rpi-image-4min-ago.png" w="716" h="483" >}}
 
 Después de comprobar que todo ha sido un problema puntual, he vuelto a establecer IP estática en el _host_ y he verificado que Gogs sigue arrancando después de parar el contenedor (y de modificar la configuración).
 

@@ -7,8 +7,8 @@ thumbnail = "images/hugo.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 
 
 title=  "Cambios en el blog"
@@ -32,7 +32,7 @@ La causa raíz del problema se encuentra en el tema que uso para el blog: _Aglau
 
 He estado probando otros temas de forma local pero he descubierto que los temas, en general, no son fácilmente intercambiables: la mayoría no producen ninguna salida en HTML al _compilar_ o directamente la creación del blog falla debido a problemas como que no se encuentra el _shortcode_ para las imágenes...
 
-{{% img src="images/190419/xkcd-927-standards.png" caption="XKCD" href="https://xkcd.com/927/" %}}
+{{< figure src="/images/190419/xkcd-927-standards.png" caption="XKCD" href="https://xkcd.com/927/" >}}
 
 _Me temo_ que la solución será invertir tiempo en desarrollar un tema propio: un tema simple, sin toda la funcionalidad de los temas más sofisticados, pero que sea sencillo de mantener.
 

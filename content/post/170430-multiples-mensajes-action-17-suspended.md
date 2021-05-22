@@ -67,4 +67,4 @@ Informaré en cuanto tenga resultados.
 
 Ya tenngo resultados: la configuración de _rsyslog_ es la que causa el cuelgue del sistema en las RPi3.
 
-Échale un vistazo a cómo solucionar este error en la entrada: [El nodo k3 del clúster colgado de nuevo]({{% ref "170430-k3-colgado-de-nuevo.md" %}}).
+Échale un vistazo a cómo solucionar este error en la entrada: [El nodo k3 del clúster colgado de nuevo]({{< ref "170430-k3-colgado-de-nuevo.md" >}}).

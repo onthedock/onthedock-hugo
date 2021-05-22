@@ -13,10 +13,10 @@ thumbnail = "images/jenkins.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Integración continua con Jenkins y Docker"
 date = "2018-05-18T06:42:34+02:00"
@@ -44,7 +44,7 @@ Algunos de los factores que tenido en cuenta a la hora de seleccionarlas:
 
 A nivel de funcionalidades, Gogs es prácticamente equivalente a GitHub, que se ha convertido en el estándar para almacenar código.
 
-{{% img src="images/180518/gogs.png" w="1257" h="499" %}}
+{{< figure src="/images/180518/gogs.png" w="1257" h="499" >}}
 
 Otra opción interesante es [BitBucket](https://bitbucket.org) que permite repositorios privados en la versión gratuita (a diferencia de GitHub).
 

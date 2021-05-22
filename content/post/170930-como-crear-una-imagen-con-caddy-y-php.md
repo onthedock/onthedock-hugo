@@ -97,7 +97,7 @@ Por ejemplo:
 docker run --rm -d --name test -p 8911:2015 xaviaznar/alpine-caddy-php
 ```
 
-{{% img src="images/170930/it_works.png" %}}
+{{< figure src="/images/170930/it_works.png" >}}
 
 ### Caddy+PHP para Dokuwiki
 
@@ -116,7 +116,7 @@ Si observas errores del tipo `[ERROR 0 /index.php] Primary script unknow`, lo m�
 
 Otro indicador de que puede haber problemas de acceso a alguna de las subcarpetas del Dokuwiki es:
 
-{{% img src="images/170930/dokuwiki_setup_error.png" %}}
+{{< figure src="/images/170930/dokuwiki_setup_error.png" >}}
 
 Para solucionarlo, ejecuta:
 
@@ -126,7 +126,7 @@ sudo chown -R 777 /shared/wiki/www
 
 Si todo está correctamente configurado, pulsando el enlace _run the installer_ podrás configurar tu nuevo wiki:
 
-{{% img src="images/170930/dokuwiki_installer.png" %}}
+{{< figure src="/images/170930/dokuwiki_installer.png" >}}
 
 ## Versión para Raspberry Pi
 

@@ -6,10 +6,10 @@ thumbnail = "images/aws.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Cambio de rol en AWS"
 date = "2019-11-23T06:49:30+01:00"
@@ -83,7 +83,7 @@ El número de cuenta especificado indica desde dónde se puede asumir este rol. 
 
 Si revisas el rol recién creado, observarás que se proporciona un enlace poder acceder a la consola *asumiendo* el rol:
 
-{{% img src="images/191123/link-to-switch-role.png" w="931" h="239" %}}
+{{< figure src="/images/191123/link-to-switch-role.png" w="931" h="239" >}}
 
 A nosotros nos interesa poder cambiar entre el rol *admin* y el *rol de laboratorio* sin tener que estar entrando y saliendo de la cuenta.
 
@@ -91,11 +91,11 @@ A nosotros nos interesa poder cambiar entre el rol *admin* y el *rol de laborato
 
 Si pulsas sobre el desplegable que indica con qué usuario estás *logado* en la cuenta de AWS observarás que existe la opción de *switch role*, que es justo lo que necesitamos:
 
-{{% img src="images/191123/switch-role-menu.png" w="523" h="419" %}}
+{{< figure src="/images/191123/switch-role-menu.png" w="523" h="419" >}}
 
 Al pulsar sobre esta opción se presenta una pantalla con isntrucciones sobre el proceso de cambio de rol:
 
-{{% img src="images/191123/switch-role-screen.png" w="1110" h="625" %}}
+{{< figure src="/images/191123/switch-role-screen.png" w="1110" h="625" >}}
 
 Pulsa sobre el botón *Switch role* y proporciona la información que se solicita:
 
@@ -104,11 +104,11 @@ Pulsa sobre el botón *Switch role* y proporciona la información que se solicit
 - Nombre para mostrar cuando asumas el rol
 - Color con el que quieres que se resalte el rol asumido
 
-{{% img src="images/191123/switch-role-form.png" w="1092" h="423" %}}
+{{< figure src="/images/191123/switch-role-form.png" w="1092" h="423" >}}
 
 Una vez proporcionada la información, podemos cambiar al rol de laboratorio a través del desplegable del menú de *login*:
 
-{{% img src="images/191123/switch-role-info-on-dropdown.png" w="629" h="438" %}}
+{{< figure src="/images/191123/switch-role-info-on-dropdown.png" w="629" h="438" >}}
 
 Como ves, el rol **activo** se indica en la parte superior con el nombre y color elegido; además, en el desplegable, ahora se muestra con qué usuario (recuadro amiarillo) y en qué cuenta (en azul claro) se ha realizado el login, así como el rol y cuenta **activo** en este momento.
 

@@ -9,10 +9,10 @@ thumbnail = "images/aws.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Envío de eventos de CloudFormation a CloudWatch Events"
 date = "2020-05-07T19:25:58+02:00"
@@ -205,7 +205,7 @@ Al configurar el *target*, podemos incluir la información del evento tal y como
 
 En el siguiente diagrama se muestra el esquema de las acciones que hemos configurado para poder obtener una notificación con información de un evento creado vía CloudFormation.
 
-{{% img src="images/200507/reacting-to-resource-creation-on-cfn-wout-lambdas.svg" %}}
+{{< figure src="/images/200507/reacting-to-resource-creation-on-cfn-wout-lambdas.svg" >}}
 
 La clave del mecanismo es poder enviar un evento con la información que necesitamos a CloudWatch desde CloudFormation. Usamos la capacidad de "disparar" acciones basándose en determinadas reglas como sustituto de la ejecución de una Lambda.
 

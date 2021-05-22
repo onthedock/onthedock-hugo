@@ -15,10 +15,10 @@ thumbnail = "images/jenkins.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pipeline - Análisis de código con Sonarqube"
 date = "2018-05-23T12:12:06+02:00"
@@ -53,11 +53,11 @@ Pulsamos _Create User_.
 
 Para el usuario _autosonar_, en la columna _Tokens_, pulsamos en _Update Tokens_ para mostrar el cuadro de diálogo de creación de un nuevo token:
 
-{{% img src="images/180523/sonarqube-tokens-0.png" w="991" h="98" caption="SonarQube - Update tokens" %}}
+{{< figure src="/images/180523/sonarqube-tokens-0.png" w="991" h="98" caption="SonarQube - Update tokens" >}}
 
 En el cuadro de diálogo, introducimos un nombre para el token y pulsamos el botón _Generate_:
 
-{{% img src="images/180523/sonarqube-token-generated.png" w="541" h="367" caption="SonarQube - Token generated" %}}
+{{< figure src="/images/180523/sonarqube-token-generated.png" w="541" h="367" caption="SonarQube - Token generated" >}}
 
 Debemos copiar el token generado, ya que al cerra el cuadro de diálogo queda almacenado en SonarQube pero no puede consultarse.
 
@@ -184,8 +184,8 @@ INFO: ------------------------------------------------------------------------
 
 El _pipeline_ se muestra en verde, indicando que todos los pasos se han ejecutado con éxito:
 
-{{% img src="images/180523/jenkins-pipeline-all-green.png" w="779" h="241" caption="Jenkins - Pipeline ok." %}}
+{{< figure src="/images/180523/jenkins-pipeline-all-green.png" w="779" h="241" caption="Jenkins - Pipeline ok." >}}
 
 También podemos revisar el detalle del análisis en SonarQube:
 
-{{% img src="images/180523/sonarqube-analisis-ok.png" w="1211" h="989" caption="SonarQube - Quelity Gate: Passed." %}}
+{{< figure src="/images/180523/sonarqube-analisis-ok.png" w="1211" h="989" caption="SonarQube - Quelity Gate: Passed." >}}

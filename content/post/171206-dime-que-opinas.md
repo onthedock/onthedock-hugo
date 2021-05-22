@@ -15,10 +15,10 @@ thumbnail = "images/MabelAmber-mini.png"
 
 # Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
 
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" %}}
-# Imagenes {{% img src="images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" %}}
+# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
+# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
 # Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" %}}
+# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Dime qué opinas"
 date = "2017-12-06T08:22:03+01:00"
@@ -32,7 +32,7 @@ Con el tiempo me he dado cuenta que estas notas personales también ayudan a otr
 
 A veces, alguien deja un comentario y dice que tu artículo le ha ayudado. O te sugiere explicar algo con más detalle. O plantea una pregunta que no te habías hecho... Incluso que te critiquen tiene su valor; como dice el maestro:
 
-{{% img src="images/171206/hightower-twitter.png" h="340" w="1058" caption="Kelsey Hightower on Twitter" href="https://twitter.com/kelseyhightower/status/935890590377697281" %}}
+{{< figure src="/images/171206/hightower-twitter.png" h="340" w="1058" caption="Kelsey Hightower on Twitter" href="https://twitter.com/kelseyhightower/status/935890590377697281" >}}
 
 Esta interacción le da una nueva dimensión al blog.
 

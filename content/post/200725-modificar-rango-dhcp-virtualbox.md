@@ -31,7 +31,7 @@ Usando NAT todas las máquinas virtuales reciben la misma dirección IP, 10.0.2.
 
 Aunque este modo no permite conexiones directas desde el equipo anfitrión a la red *nateada*, es posible acceder mediante *port-forwarding*.
 
-{{% img src="images/200725/VirtualBox-network-settings-–-the-NAT-Network-mode.png" w="1154" h="641" %}}
+{{< figure src="/images/200725/VirtualBox-network-settings-–-the-NAT-Network-mode.png" w="1154" h="641" >}}
 
 Como puede observarse en la imagen (obtenida desde la página de Nakivo a la que enlazo más arriba), las máquinas virtuales obtienen una IP desde el DHCP en 10.0.2.3 del rango 10.0.2.0/24.
 
