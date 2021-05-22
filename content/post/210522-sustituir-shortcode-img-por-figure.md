@@ -32,7 +32,7 @@ En esta entrada comento los pasos que he seguido para actualizar **todos** los a
 
 **TL;DR;** He usado la función de *buscar y reemplazar* de *VS Code* para modificar todas las referencias al *shortcode* `img`, proporcionado por la plantilla del tema *Aglaus* y lo he sustituido por el *shortcode* nativo de Hugo [`figure`](https://gohugo.io/content-management/shortcodes/#figure).
 
-VS Code proporciona la posibilidad de buscar y reemplazar en todos los ficheros de una carpeta. Como el *shortcode* era "&#123;&#123;&#37; img src="ruta/a/la/imagen.png" &#37;&#125;&#125;", he buscado primero la parte inicial de la cadena y la he sustituido por "&#123;&#123; figure src=\"/".
+VS Code proporciona la posibilidad de buscar y reemplazar en todos los ficheros de una carpeta. Como el *shortcode* era "&#123;&#123;&#37; img src="ruta/a/la/imagen.png" &#37;&#125;&#125;", he buscado primero la parte inicial de la cadena y la he sustituido por "&#123;&#123;< figure src=\"/".
 
 Además de modificar el código del *shortcode* (de `img` a `figure`), también es necesario que la ruta de a la imagen sea absoluta (anteriormente era relativo). Por eso incluyo en la cadena de reemplazo la `/` tras `src=`.
 
