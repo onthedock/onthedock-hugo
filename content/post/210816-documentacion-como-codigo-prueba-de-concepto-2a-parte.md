@@ -2,30 +2,19 @@
 draft = false
 categories = ["dev"]
 tags = ["linux", "kubernetes", "k3s", "mkdocs"]
-
-# Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/mkdocs-material-logo.svg"
-
-# SHORTCODES (for reference)
-
-# Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
-
-# Imagenes {{< figure src="/images/<date>/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
-# Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Documentación como código - 2a parte"
 date = "2021-08-16T20:16:34+02:00"
 +++
 
 En la [entrada anterior]({{< ref "210731-documentacion-como-codigo-poc-1a-parte.md" >}}) indicaba la idea general en la que estoy trabajando para implementar una solución funcional de *documentación como código*.
-<!--more-->
+
 
 Reducida a su mínima expresión, la prueba de concepto lo que tiene que mostrar es la *velocidad* a la que se puede ir actualizando la documentación si se sigue el mismo proceso -y herramientas- de desarrollo a las que está acostumbrado el equipo de proyecto.
 
 No se trata de crear un sistema listo para producción, sino de mostrar *algo* que **funcione** &trade; más o menos, como funcionaría la solución final.
-
+<!--more-->
 La prueba de concepto se ha montado sobre un clúster *mono-nodo* de **K3s**:
 
 {{< figure src="/images/210816/doc-as-code.svg" width="100%" >}}
@@ -218,7 +207,7 @@ git clone https://github.com/onthedock/k8s-devops.git /docs
 
 La URL del repositorio la pasaremos al contenedor a través de una variable de entorno cargada desde un *ConfigMap*.
 
-Generamos el *ConfigMap* usando la opción `--dry-run`:
+Generamos el *ConfigMap* usando la opción `--dry-run=client`:
 
 ```bash
 kubectl create configmap doc-as-code-repo-url \
