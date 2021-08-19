@@ -23,6 +23,9 @@ thumbnail = "images/kubernetes.png"
 title=  "Instalación de Sealed Secrets (SealedSecrets-I)"
 date = "2021-08-19T20:18:20+02:00"
 +++
+- [Instalación de SealedSecrets (SealedSecrets - I)]({{< ref "210819-sealed-secrets.md" >}})
+- [Creación de SealedSecrets (SealedSecrets - II)]({{< ref "210819-sealed-secrets-ii.md" >}})
+
 Uno de los problemas abiertos de Kubernetes es la gestión de los *secretos*; es decir, aquella información sensible que, al menos de momento, se guarda en texto plano y cuya única medida de "seguridad" consiste en codificarla en [base64](https://es.wikipedia.org/wiki/Base64).
 
 Tal y como se indica en el `README.md` de [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets), **puedes gestionar toda la configuración de Kubernetes en Git... excepto los *Secrets***, precisamente porque los *Secrets* no son seguros...
