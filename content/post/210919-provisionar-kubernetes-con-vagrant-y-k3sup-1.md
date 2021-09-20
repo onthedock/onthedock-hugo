@@ -23,6 +23,10 @@ thumbnail = "images/kubernetes.png"
 title=  "Provisionar Kubernetes con Vagrant y K3sup - 1a parte"
 date = "2021-09-19T10:31:17+02:00"
 +++
+
+1. [Provisionar Kubernetes con Vagrant y K3sup - 1a parte]({{< ref "210919-provisionar-kubernetes-con-vagrant-y-k3sup-1.md" >}})
+1. [Provisionar Kubernetes con Vagrant y K3sup - 2a parte]({{< ref "210920-provisionar-kubernetes-con-vagrant-y-k3sup-2.md" >}})
+
 Desde mis inicios con Kubernetes, una de las cosas más pesadas del proceso de creación del clúster (para mí) ha sido el tener que desplegar y configurar las máquinas que formarán el clúster.
 
 En esta entrada explico algo de mi relación histórica con Vagrant y el proceso de automatización que estoy siguiendo para desplegar clústers locales (*no cloud*) en mi laboratorio.
