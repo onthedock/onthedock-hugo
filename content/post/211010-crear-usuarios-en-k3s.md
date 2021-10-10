@@ -27,7 +27,7 @@ En Kubernetes no existe el concepto de usuario; sólo se confía en quien presen
 
 Para obtener los certificados de la CA, lo más sencillo es acceder a un nodo *server*; los certificados (`ca.cert` y `ca.key`) se encuentran en `/etc/kubernetes/pki/`.
 
-> Existe otra opción que pasa or generar un objeto `CertificateSigningRequest` para firmar el certificado de usuario.
+> Existe otra opción que pasa por generar un objeto `CertificateSigningRequest` para firmar el certificado de usuario.
 
 El proceso implica generar un certificado al usuario, solicitar que lo firme la *Certificate Authority* del clúster y después autenticarse con él.
 
