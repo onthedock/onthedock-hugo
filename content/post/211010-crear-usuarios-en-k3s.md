@@ -36,6 +36,8 @@ Para poder autenticarse en el clúster, necesitamos configurar un cliente, por e
 Finalmente, el nuevo usuario debe estar autorizado a realizar algunas acciones en el clúster; para ello definiremos un conjunto de permisos en un *Role* o un *ClusterRole* y lo asociaremos al usuario mediante un *RoleBinding* (o un *ClusterRoleBinding*).
 <!--more-->
 
+> En la entrada [Script para crear usuarios en Kubernetes (y en K3s)]({{<ref "211010-crear-usuarios-en-k3s-script.md" >}}) puedes encontrar un *script* que automatiza todo el proceso descrito aquí.
+
 ## Creación del certificado de usuario
 
 Para generar el certificado de usuario, usamos *openssl*:
