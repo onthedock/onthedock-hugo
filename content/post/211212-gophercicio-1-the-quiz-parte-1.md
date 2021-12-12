@@ -333,3 +333,5 @@ De esta forma podríamos definir tests para cada una de las funciones, comproban
 El código lo he subido a [onthedock/gophercicios/01-quiz](https://github.com/onthedock/gophercicios/tree/main/01-quiz) en GitHub.
 
 P.S. También hay un fichero de problemas adicionales (`capitals.csv`) para validar que el programa también funciona con respuestas que contienen múltiples espacios.
+
+Ahora, a por la segunda parte del ejercicio: [Quiz Game, 2a parte (Ejercicios en Go) #gophercises]({{< ref "211212-gophercicio-1-the-quiz-parte-2.md" >}})
