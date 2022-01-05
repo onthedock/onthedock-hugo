@@ -26,6 +26,8 @@ date = "2021-12-29T23:22:36+01:00"
 [Oh My Zsh](https://ohmyz.sh/) es un *framework* para gestionar la configuración de Zsh.
 
 [Zsh](https://es.wikipedia.org/wiki/Zsh) es un *shell* alternativo a [BASH](https://es.wikipedia.org/wiki/Bash), el *shell* por defecto de la mayoría de distribuciones Linux. Sin embargo, desde Mac OS Catalina, Zsh se convirtió en el *shell* del terminal de los Mac. Este hecho, junto a la *vistosidad* de los temas que pueden aplicarse al *prompt* en Zsh (en especial, gracias a Oh My Zsh), ha convertido Zsh en un *shell* cada vez más popular.
+
+> **Update** : [Joe Block](https://github.com/unixorn/) ha sido tan amable de incluir mi tema de Oh My Zsh en la lista que mantiene en GitHub [unixorn/awesome-zsh-plugins](https://github.com/unixorn/awesome-zsh-plugins).
 <!--more-->
 
 El *prompt* del *shell* de Linux, se puede personalizar; lo habitual suele ser indicar el nombre de usuario y en el nombre del sistema en el que se ha inciado sesión, junto con la ruta actual en el sistema:
