@@ -1,24 +1,11 @@
 +++
 draft = false
 
-# CATEGORIES = "dev" / "ops"
 categories = ["dev", "ops"]
-# TAGS (HW->OS->PRODUCT->specific tag)
-# Example: "raspberry pi", "hypriot os", "kubernetes"
 
 tags = ["linux", "integracion continua", "sonarqube", "jenkins"]
 
-# Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/jenkins.png"
-
-# SHORTCODES (for reference)
-
-# Enlaces internos [Titulo de la entrada]({{<ref "nombre-del-fichero.md" >}})
-
-# YouTube {{% iframe src="https://www.youtube.com/embed/XXXXXXX" w="560" h="315" >}}
-# Imagenes {{< figure src="/images/image.jpg" w="600" h="400" class="right" caption="Referenced from wikipedia." href="https://en.wikipedia.org/wiki/Lorem_ipsum" >}}
-# Clear (floats) {{% clear %}}
-# Twitter {{% twitter tweetid="780599416621297xxx" >}}
 
 title=  "Pipeline - Análisis de código con Sonarqube"
 date = "2018-05-23T12:12:06+02:00"
@@ -26,17 +13,20 @@ date = "2018-05-23T12:12:06+02:00"
 
 En entradas anteriores hemos [subido el código de la aplicación al repositorio en Gogs]({{< ref "180521-subiendo-el-codigo-a-gogs.md" >}}) y hemos [instalado SonarQube]({{< ref "180521-pipeline-instalacion-de-sonarqube.md" >}}) y [Jenkins]({{< ref "180520-pipeline-instalacion-y-actualizacion-de-jenkins.md" >}}). Ahora, vamos a configurar Jenkins para que analice el código de la aplicación y detectar fallos incluso antes de compilar la aplicación.
 
+> **Update 2022-01-06** He actualizado los enlaces externos hacia la documentación de SonarQube. Por favor, revisa la documentación oficial actualizada ya que este artículo se escribió para una versión anterior de SonarQube.
 <!--more-->
 
-Usamos como referencia [Analyzing with SonarQube Scanner for Jenkins](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins).
+**Update (2022-01-06)**: El enlace a la web de SonarQube ya no funciona; la página que describe la configuración de SonarScanner para Jenkins se encuentra ahora en [SonarScanner for Jenkins](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/)
+~~Usamos como referencia [Analyzing with SonarQube Scanner for Jenkins](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner+for+Jenkins)</span>.~~
 
 El análisis de código por Sonarqube usando Jenkins se realiza mediante la instalación del _plugin_ **SonarQube Scanner for Jenkins**.
 
-# Creación de un usuario en SonarQube
+## Creación de un usuario en SonarQube
 
 Para que Jenkins pueda invocar el análisis de código en SonarQube, es necesario proporcionar las credenciales o un _token de acceso_ a Jenkins.
 
-[Referencia: User Token en SonarQube](https://docs.sonarqube.org/display/SONAR/User+Token)
+**Update (2022-01-06)** El enlace a la web de SonarQube ha dejado de funcionar. La documentación sobre el token de usuario se encuentra ahora en [Generating and Using Tokens](https://docs.sonarqube.org/latest/user-guide/user-token/)
+~~[Referencia: User Token en SonarQube](https://docs.sonarqube.org/display/SONAR/User+Token)~~
 
 Creamos un usuario específico en SonarQube.
 
@@ -53,15 +43,15 @@ Pulsamos _Create User_.
 
 Para el usuario _autosonar_, en la columna _Tokens_, pulsamos en _Update Tokens_ para mostrar el cuadro de diálogo de creación de un nuevo token:
 
-{{< figure src="/images/180523/sonarqube-tokens-0.png" w="991" h="98" caption="SonarQube - Update tokens" >}}
+{{< figure src="/images/180523/sonarqube-tokens-0.png" width="100%" caption="SonarQube - Update tokens" >}}
 
 En el cuadro de diálogo, introducimos un nombre para el token y pulsamos el botón _Generate_:
 
-{{< figure src="/images/180523/sonarqube-token-generated.png" w="541" h="367" caption="SonarQube - Token generated" >}}
+{{< figure src="/images/180523/sonarqube-token-generated.png" width="100%" caption="SonarQube - Token generated" >}}
 
 Debemos copiar el token generado, ya que al cerra el cuadro de diálogo queda almacenado en SonarQube pero no puede consultarse.
 
-# Instalación del plugin de SonarQube en Jenkins
+## Instalación del plugin de SonarQube en Jenkins
 
 Instalamos el plugin en Jenkins.
 
@@ -83,13 +73,13 @@ En el apartado _SonarQube servers_, pulsamos el botón _Add SonarQube_ e indicam
 - _Server URL_: `http://192.168.1.209:9000/`
 - _Server authentication token_: `02ad2efb4226051bbebdd4888cb0986f4534954c`
 
-# Descarga del sonar-scanner
+## Descarga del sonar-scanner
 
 Para poder analizar el código, es necesario descargar la versión adecuada del _sonar-scanner_.
 
-Como en el contenedor de Jenkins tenemos instalado Java, usaremos la versión _Any_ de SonarQube Scanner: [Analyzing with SonarQube Scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner).
+Como en el contenedor de Jenkins tenemos instalado Java, usaremos la versión _Any_ de SonarQube Scanner: (**Update 2022-01-06** [SonarScanner](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/)) ~~[Analyzing with SonarQube Scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)~~.
 
-Para instalar SonarQube Scanner, entramos en el contenedor mediante `docker exec`, lo descargamos y descomprimimos en la carpeta ´/var/jenkins_home/tools/sonar-scanner/` que hemos creado en el volumen:
+Para instalar SonarQube Scanner, entramos en el contenedor mediante `docker exec`, lo descargamos y descomprimimos en la carpeta `/var/jenkins_home/tools/sonar-scanner/` que hemos creado en el volumen:
 
 ```shell
 $ sudo docker exec -it jenkins /bin/sh
@@ -128,7 +118,7 @@ Este fichero especica una serie de _metadatos_ de configuración del análisis d
 
 > La propiedad `sonar.java.binaries=.` debe incluirse desde SonarQube 4.12; si no se obtiene el error _Please provide compiled classes of your project with sonar.java.binaries property_.
 
-# Análisis con SonarQube Scanner
+## Análisis con SonarQube Scanner
 
 Cuando lanzamos el job de análisis, falla con el mensaje de error:
 
@@ -184,8 +174,8 @@ INFO: ------------------------------------------------------------------------
 
 El _pipeline_ se muestra en verde, indicando que todos los pasos se han ejecutado con éxito:
 
-{{< figure src="/images/180523/jenkins-pipeline-all-green.png" w="779" h="241" caption="Jenkins - Pipeline ok." >}}
+{{< figure src="/images/180523/jenkins-pipeline-all-green.png" width="100%" caption="Jenkins - Pipeline ok." >}}
 
 También podemos revisar el detalle del análisis en SonarQube:
 
-{{< figure src="/images/180523/sonarqube-analisis-ok.png" w="1211" h="989" caption="SonarQube - Quelity Gate: Passed." >}}
+{{< figure src="/images/180523/sonarqube-analisis-ok.png" width="100%" caption="SonarQube - Quelity Gate: Passed." >}}
