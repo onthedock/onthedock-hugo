@@ -29,15 +29,15 @@ Estuve tomando notas sobre el vídeo de solución de Jon al ejercicio, pausando 
 
 Hoy he vuelto a revisar las notas con la intención de publicarlas, como hice con el ejercicio anterior ([Quiz Game, 1a parte]({{< ref "211212-gophercicio-1-the-quiz-parte-1.md" >}}) y [Quiz Game, 2a parte]({{< ref "211212-gophercicio-1-the-quiz-parte-2.md" >}})). Sin embargo, quiero aprovechar el *flow* (y el tiempo libre) para repasar con calma la documentación de los diferentes paquetes usados en el ejercicio, revisar el tema de los *constructores* y otros aspectos más teóricos que Jon usa con total naturalidad y que a mí me resultan completamente marcianos...
 
-<--more-->
+<!--more-->
 
-## Ejercicio: Contruir una versión web *Elige tu propia aventura*
+## Ejercicio: Construir una versión web *Elige tu propia aventura*
 
 El ejercicio consiste en construir una versión web de los libros de [Elige tu propia aventura](https://es.wikipedia.org/wiki/Elige_tu_propia_aventura).
 
 Jon proporciona un fichero JSON (`gopher.json`) con los diferentes capítulos de la historia y las opciones para ir al siguiente punto del *libro* tras cada capítulo (en función de lo que elije el lector).
 
-El primer reto consiste en convertir el fichero JSON en algo manipulable desde la aplicación. Para ello, Jon define un par de [*struct*](https://gobyexample.com/structs), en vez de uns *struct* con una estructura complicada:
+El primer reto consiste en convertir el fichero JSON en algo manipulable desde la aplicación. Para ello, Jon define un par de [*struct*](https://gobyexample.com/structs), en vez de un *struct* con una estructura complicada:
 
 ```go
 type Chapter struct {
@@ -52,11 +52,11 @@ type Option struct {
 }
 ```
 
-### Debugging
+### *Debugging*
 
 En el fichero `gopher.json` los campos del fichero JSON **no corresponden** con los definidos en estos *struct*. Jon inicialmente llamó `arc` a los `chapter` y `story` a los `paragraphs`...
 
-Esto provocó que, aunque durante todo el desarrollo inicial del *parser* del fichero JSON se mostrara por consola la *struct*, **no me fijé** en que algunos de los campos estaba vacíos. En realidad, no le di importancia porque, en la definición del ejercicio se comentaba que `Options` podía estar vacío (al final de una historia, por ejemplo).
+Esto provocó que, aunque durante todo el desarrollo inicial del *parser* del fichero JSON se mostrara por consola la *struct*, **no me fijara** en que algunos de los campos estaba vacíos. En realidad, no le di importancia porque, en la definición del ejercicio se comentaba que `Options` podía estar vacío (al final de una historia, por ejemplo).
 
 El caso es que no fue hasta *mucho* después, al empezar a mostrar la *aventura* en el navegador, que descubrí que había algo que fallaba: el título y las opciones tras cada capítulo se mostraban, pero no el contenido del capítulo en sí (el contenido de `Paragraphs`).
 
@@ -76,11 +76,11 @@ type handler struct {
 }
 ```
 
-Y no contendo con ello, un *método* asociado al *handler* `func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request)`.
+Y no contento con ello, un *método* asociado al *handler* `func (h handler) ServeHTTP(w http.ResponseWriter, r *http.Request)`.
 
 En este punto me dejé llevar; por un lado, era consciente *grosso modo* de lo que estaba haciendo Jon, pero sin los conocimientos/experiencia necesarios para poder entenderlo *a fondo*.
 
-Justo tras la publicación vía web descubrí el problema de que el cuerpo de cada capítulo no se mostraba en el navegador, aunque el resto funcionaba correctamente (y no se mostraba ningún error por consola)... Mi primera idea era que había cometigo algún error con todo el tema del *handler*; pero el sin errores y fallando únicamente en el *cuerpo* del capítulo, no parecía probable.
+Justo tras la publicación vía web descubrí el problema de que el cuerpo de cada capítulo no se mostraba en el navegador, aunque el resto funcionaba correctamente (y no se mostraba ningún error por consola)... Mi primera idea era que había cometigo algún error con todo el tema del *handler*; pero sin errores en la salida por consola y fallando únicamente en el *cuerpo* del capítulo, no parecía probable.
 
 Como comentaba más arriba, estuve un rato buscando qué pasaba hasta dar con la solución (y descubrir que no tenía nada que ver con el *handler*).
 
