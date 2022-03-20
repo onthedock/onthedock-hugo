@@ -25,12 +25,12 @@ date = "2022-03-20T19:44:20+01:00"
 +++
 Hoy en día es **obligatorio** usar un gestor de contraseñas. En mi caso, uso [Bitwarden](https://bitwarden.com/) (la [edición *Personal*](https://bitwarden.com/pricing/)).
 
-Como cada vez paso más tiempo en la línea de comando, he decido probar la [versión CLI](https://bitwarden.com/help/cli/) de Bitwarden.
+Como cada vez paso más tiempo en la línea de comandos, he decido probar la [versión CLI](https://bitwarden.com/help/cli/) de Bitwarden.
 <!--more-->
 
 ## Instalación
 
-`bw` (el nombre del *cliente* para línea de comandos de Bitwarden) es un binario sin dependencias external. La *instalación* es tan sencilla como seleccionar la plataforma, descargar el paquete comprimido y extraer `bw` a una carpeta incluida en el `PATH`.
+`bw` (el nombre del *cliente* para línea de comandos de Bitwarden) es un binario sin dependencias externas. La *instalación* es tan sencilla como descargar el paquete comprimido y extraer `bw` a una carpeta incluida en el `PATH`.
 
 ```bash
 $ wget https://vault.bitwarden.com/download/\?app\=cli\&platform\=linux -O bw.zip
@@ -105,7 +105,7 @@ Como ves, al iniciar sesión con éxito, se te proporciona información sobre c�
 
 ## Obtención de una contraseña
 
-En principio, este es el principal caso de uso de un gestor de contraseñas, obtener el *password* asociado a un *login*.
+Este es el principal caso de uso de un gestor de contraseñas: obtener el *password* asociado a un *login*.
 
 El comando es:
 
@@ -116,7 +116,9 @@ Sup3rS3cr3tP@55w0rD # Not my actual password ;)
 
 *So far, so good*...
 
-¿Qué pasa si el *login* está asociado a más de un servicio/cuenta? Como es muy habitual que el nombre de usuario de los servicios sea la dirección de correo, en este caso:
+Cada vez es más habitual que como nombre de usuario se utilice la dirección de correo...
+
+¿Qué pasa si el *login* está asociado a más de un servicio/cuenta? Esta es la salida del mismo comando `bw get username` en ese caso:
 
 ```bash
 $ bw get password multiple@example.org
@@ -132,9 +134,9 @@ d675b1ef-a075-1234-1234-ae4f006ef572
 
 *WTF?!*
 
-Curiosamente, no podemos filtrar -por lo que sé- usando el valor el campo `Name`, que sería lo que nos podría ayudar a identificar fácilmente en qué servicio, al menos directamente...
+Curiosamente, no podemos filtrar -por lo que sé- usando el valor el campo `Name`, que sería lo que nos podría ayudar a identificar de qué servicio queremos obtener el *password*...
 
-La "solución" que he encontrado es un poco *macgyvera*; aunque funciona.
+La "solución" que he encontrado es un poco *macgyvera*, pero **funciona**.
 
 En primer lugar, usamos el subcomando [`list`](https://bitwarden.com/help/cli/#list) para buscar *items* mediante `--search` con el contenido del nombre definido para el elemento en el que estamos interesados. Siguiendo con el ejemplo anterior:
 
@@ -145,7 +147,7 @@ $ bw list items --search multiple@example.org | jq '. | length'
 7
 ```
 
-Sin embargo, cada una de estas entradas -que comparte el nombre de usuario- las identifico mediante un **nombre** único en Bitwarden. Por tanto, en el argumento `--search`, uso el contenido del campo **nombre** (de forma completa o parcial):
+Sin embargo, cada una de estas entradas -con el mismo nombre de usuario- las identifico mediante un **nombre** único en Bitwarden. Por tanto, en el argumento `--search`, uso el contenido del campo **nombre** (de forma completa o parcial):
 
 ```bash
 $ bw list items --search 'NOMBRE_ENTRADA' | jq '. | length'
@@ -154,7 +156,7 @@ $ bw list items --search 'NOMBRE_ENTRADA' | jq '. | length'
 
 Afortunadamente, `bw` busca el contenido especificado en `--search` ignorando si se trata de mayúsculas o minúsculas y aunque la coincidencia sea parcial.
 
-El resultado devuelto por `bw list items` es un *array*, por lo que para obtener el contenido del campo `id`, debemos referencia el primer elemento del array:
+El resultado devuelto por `bw list items` es un *array*, por lo que para obtener el contenido del campo `id`, debemos referencia el primer elemento del *array*:
 
 ```bash
 $ bw list items --search 'NOMBRE_ENTRADA' | jq '.[0].id'
@@ -196,6 +198,6 @@ Sup3rS3cr3tP@55w0rD # Not my actual password ;)
 
 Disponer de acceso a un almacén de información sensible desde la línea de comando (tanto de forma interactiva como desde un *script* o aplicación) es la mejor forma de evitar *hardcodear* contraseñas en el código. Esto puede llevar a exponer la contraseña de forma inadvertida al subir código a un repositorio público, comprometiendo la seguridad de la aplicación.
 
-En el caso de BitWarden, la utilidad de la aplicación en uno de los casos de uso más habituales está limitada al no poder filtrar para obtener (`bw get`) la contraseña asociada a un *login*. Es especialmente sorprendente cuando la funcionalidad sí que está disponible para otros comandos (como `bw list`).
+En el caso de Bitwarden, la utilidad de la aplicación en uno de los casos de uso más habituales está limitada al no poder filtrar para obtener (`bw get`) la contraseña asociada a un *login*. Es especialmente sorprendente cuando la funcionalidad sí que está disponible para otros comandos (como `bw list`).
 
 Se puede *apañar* mediante una solución alternativa -por ejemplo, usando una función en Bash-, pero no dejo de pensar que debería ser una función integrada en la propia aplicación.
