@@ -101,7 +101,7 @@ You can also pass the session key to any command with the `--session` option. ex
 $ bw list items --session EXAMPLE_eDxBGxfPR[ ... ]dQT8XJomwd52Upg3iXcBcdqyW1w==
 ```
 
-Como ves, al iniciar sesión con éxito, se te proporciona información sobre cómo *desbloquear* tu *vaul* para poder consultar tus contraseñas.
+Como ves, al iniciar sesión con éxito, se te proporciona información sobre cómo *desbloquear* tu *vault* para poder consultar tus contraseñas.
 
 ## Obtención de una contraseña
 
