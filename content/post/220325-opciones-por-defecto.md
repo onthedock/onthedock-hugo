@@ -3,7 +3,7 @@ draft = false
 
 # CATEGORIES = "dev" / "ops"
 categories = ["dev", "ops"]
-# TAGS (HW->OS->PRODUCT->specific tag)
+# TAGS (HW->OS->PRODUCT->specific tag)`
 # Example: "raspberry pi", "hypriot os", "kubernetes"
 
 tags = ["linux", "docker"]
@@ -97,3 +97,30 @@ La solución es tan sencilla y evidente como poco común: establecer claramente 
 Especificar una versión concreta de la imagen (no admitiendo `latest`) o exigir el uso del *hash* para identificar la imagen usada permite tener un mayor control sobre los cambios del software contenido en la imagen.
 
 El proceso de actualización se realiza entonces de manera voluntaria, de forma controlada y realizando las pruebas que aseguren el correcto funcionamiento de la aplicación tras la actualización. Permite además, actualizar la documentación, si es necesario.
+
+## Conclusión
+
+Especifica **siempre** el nombre *completo* de las imágenes usadas en, por ejemplo, los ficheros de configuración de Cloud Build.
+
+Indicando el *registry* en el que se encuentra la image, se documenta específicamente a qué URL debe tener acceso la plataforma de CI/CD interna, si la salida a internet está restringida o limitada desde la zona corporativa en la que se encuentren estos equipos.
+
+Elige, de entre las imágenes necesarias para realizar las tareas, aquella con menor número de componentes. Esto no sólo reduce los tiempos de descarga y los recursos necesarios para la plataforma de CI/CD, sino que además reduce el riesgo de que la imagen contenga vulnerabilidades.
+
+Es habitual que los usuarios ofrezcan una versión basada en *alpine* o algún tipo de variante *slim*; por tanto, siempre que sea posible, lo ideal sería seleccionar la imagen más *compacta*.
+
+Respecto a las imágenes basadas en Alpine, es necesario validar que ninguna de las elecciones que hacen que Alpine sea tan ligera interfiere con el funcionamiento de la aplicación o con el *standard* adoptado.
+
+Por ejemplo, si se define Bash como intérprete de *shell scripts* (como hace Google, por ejemplo en [Shell Style Guide](https://google.github.io/styleguide/shellguide.html#s1.1-which-shell-to-use)), debes tener en cuenta que en Alpine, el intérprete de comandos de la *shell* es `ash`, no `bash`; en general, no es relevante, pero puede introducir pequeñas diferencias en cómo se ejecutar tus *scripts* o aplicaciones que pueden generar errores difíciles de detectar.
+
+En el caso específico de Cloud Build, especifica siempre el `entrypoint` y sé consistente; si quieres usar `bash`, define en el [*shebang*](https://en.wikipedia.org/wiki/Shebang_(Unix)) de tus *scripts* `#!/bin/bash` y no cualquier otra forma. Esto es aplicable a los *shell scripts* en cualquier otro entorno.
+
+Fíjate que, en la Wikipedia, se indica (las negritas son mías):
+
+> - `#!/bin/sh` – Execute the file using the Bourne shell, **or a compatible shell**, assumed to be in the /bin directory
+> - `#!/bin/bash` – Execute the file using the Bash shell
+
+Es decir, que usando `#!/bin/sh`, puede usarse un intérpre *shell* **diferente** a `bash` y eso, de nuevo, puede introducir erres o comportamientos difíciles de diagnosticar.
+
+Recuerda finalmente que se considera una **mala práctica** usar la etiqueta `latest` para indicar la versión de la imagen de contenedor. Por ejemplo, el artículo (de 2015 pero completamente vigente) [Docker: The latest Confusion](https://blog.container-solutions.com/docker-latest-confusion) de Adrian Mouat describe todos los problemas y *malentendidos* acerca de la etiqueta `latest`.
+
+Y tampoco cuesta tanto escribir *un poquito más* e indicar `index.docker.io/hashicorp/terraform:1.1.7` en vez de `hashicorp/terraform` teniendo en cuenta todos los problemas que te puedes ahorrar ;)
