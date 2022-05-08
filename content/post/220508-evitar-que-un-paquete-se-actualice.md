@@ -20,7 +20,7 @@ thumbnail = "images/linux.png"
 # Highlight         {{< highligth language >}}...{{< /highlight >}}
 # Twitter           {{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
 
-title=  "Ubuntu: Evitar que un paquete se actualice"
+title=  "Ubuntu: Evita que un paquete se actualice con \"apt-mark hold\""
 date = "2022-05-08T13:14:23+02:00"
 +++
 La solución para el [Error en Vagrant tras actualizar a Pop_Os! 22.04]({{< ref "post/220507-error-en-vagrant-tras-actualizar-a-pop-os-22-04.md" >}}) es la instalación de una versión concreta del software, en este caso, la 2.2.19.
