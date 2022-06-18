@@ -6,10 +6,10 @@ categories = ["dev"]
 # TAGS (HW->OS->PRODUCT->specific tag)
 # Example: "raspberry pi", "hypriot os", "kubernetes"
 
-tags = ["linux", "curl"]
+tags = ["linux", "bash", "curl"]
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
-thumbnail = "images/linux.png"
+thumbnail = "images/bash.svg"
 
 # SHORTCODES (for reference) https://gohugo.io/content-management/shortcodes/
 
