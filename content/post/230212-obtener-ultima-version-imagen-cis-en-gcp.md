@@ -20,7 +20,7 @@ thumbnail = "images/google-cloud.svg"
 # Highlight         {{< highligth language >}}...{{< /highlight >}}
 # Twitter           {{< tweet user="SanDiegoZoo" id="1453110110599868418" >}}
 
-title=  "Obtén la última versión de imágenes publicadas por el CIS en Google Cloug Platform"
+title=  "Obtén la última versión de imágenes publicadas por el CIS en Google Cloud Platform"
 date = "2023-02-12T21:23:23+01:00"
 +++
 El CIS publica imágenes *hardenizadas* en el Marketplace público de Google Cloud Platform (GCP). Estas imágenes se actualizan de vez en cuando, por lo que es importante usar siempre la versión más actualizada.
