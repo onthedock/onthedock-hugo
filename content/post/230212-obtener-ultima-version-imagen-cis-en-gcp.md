@@ -64,7 +64,7 @@ El siguiente paso es obtener la última disponible...
 ```bash
 latest_version() {
   local image_name="$1"
-  local filter="name${image_name}-*"
+  local filter="name:${image_name}-*"
   available_versions=$(gcloud compute images list --project=cis-public --format="value(NAME) --filter="${filter}")
   latest=0
   for v in $available_versions; do
