@@ -146,5 +146,5 @@ $ tree .
 2 directories, 3 files
 ```
 
-> La documentación oficial para [`sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout) (en este caso, para la versión 2.39.2) inidica que `git sparse-checkout init --clone` está *deprecated* y que puede ser eliminado en el futuro.
+> La documentación oficial para [`sparse-checkout`](https://git-scm.com/docs/git-sparse-checkout) (en este caso, para la versión 2.39.2) inidica que `git sparse-checkout init --cone` está *deprecated* y que puede ser eliminado en el futuro.
 > Este artículo de GitHub [Bring your monorepo down to size with sparse-checkout](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/) del 2020 (actualizado en Marzo 2021) que me ha servido como punto de partido todavía hace referencia a `git sparse-checkout init --cone`.
