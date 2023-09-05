@@ -27,7 +27,7 @@ En una entrada anterior ([Usa un contenedor como entorno de desarrollo con 'devc
 
 Desde entonces uso Devcontainers más y más; por ejemplo, para desarrollar en Go ya no tengo que levantar una máquina virtual o instalar Go en mi equipo: genero un fichero `devcontainer.json`, indico la imagen oficial de Go y ¡listo!
 
-No todo es perfecto; por ejemplo, una de las cosas que últimamente estaba *sufriendo* es que Git no autocompletaba, por ejemplo, los nombres de las ramas.
+No todo es perfecto; una de las cosas que últimamente estaba *sufriendo* es que Git no autocompleta, por ejemplo, los nombres de las ramas.
 
 La solución a la que siempre acabo acudiendo (y ejecutando manualmente) es [Autocomplete Git Commands and Branch Names](https://pagepro.co/blog/autocomplete-git-commands-and-branch-names-in-terminal/).
 
@@ -46,7 +46,7 @@ En mi caso, quiero configurar el fichero `~/.bashrc` en el contenedor cuando se 
 }
 ```
 
-En la carpeta `.devcontainer/`, he creado el fichero `post-creat.sh`, con el siguiente contenido:
+En la carpeta `.devcontainer/`, he creado el fichero `post-create.sh`, con el siguiente contenido:
 
 ```console
 /usr/bin/env bash
