@@ -102,7 +102,7 @@ El operador `OR` (representado en Bash por `||`), es `true` si uno (o los dos) o
 Usamos esta propiedad de manera para conseguir el resultado que queremos:
 
 ```bash
-grep --quiet --fixed-strings --line-regexp '  path: /path/to/some/myapp.conf' config.yaml || echo '  path: /path/to/some/myapp.conf' config.yaml
+grep --quiet --fixed-strings --line-regexp '  path: /path/to/some/myapp.conf' config.yaml || echo '  path: /path/to/some/myapp.conf' >> config.yaml
 ```
 
 Si `grep` devuelve `0` (todo Ok), significa que se ha encontrado la línea en el fichero.
