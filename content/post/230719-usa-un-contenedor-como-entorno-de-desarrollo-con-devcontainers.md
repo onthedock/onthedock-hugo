@@ -6,10 +6,10 @@ categories = ["dev"]
 # TAGS (HW->OS->PRODUCT->specific tag)
 # Example: "raspberry pi", "hypriot os", "kubernetes"
 
-tags = ["docker", "vscode"]
+tags = ["docker", "vscode", "devcontainer"]
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
-thumbnail = "images/docker.png"
+thumbnail = "images/vscode.png"
 
 # SHORTCODES (for reference) https://gohugo.io/content-management/shortcodes/
 
