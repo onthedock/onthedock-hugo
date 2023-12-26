@@ -32,6 +32,11 @@ Imagina que quieres crear un objeto `pizza`. Pero no todo el mundo quiere la mis
 ¿Cómo defines la función `NewPizza` para que puedas *satisfacer* a todos tus clientes? Tampoco quieres tener que cambiar la función cada vez que se añada una nueva opción o ingrediente a la pizza...
 
 La solución son las *funcional options*.
+
+> Actualización: 26/12/2023 {{< figure src="/images/exclamation-warning-round-yellow-red-icon.svg" width="100%" height="100" alt="notice" >}} Algunos aspectos de este artículo quizás no están del todo bien explicados; por ejemplo, las propiedades en `config` están en mayúsculas (exportadas), por lo que se puede establecer sin necesidad de *functional options*. La *signatura* de la función `NewClient` es incorrecta, pues no incluye que devuelve `(*DBClient, error)`... En vez de corregirla, he creado una entrada más concisa y sin errores conocidos, al menos por ahora.
+>
+> La nueva entrada es [Functional Options revisitadas]({{< ref "231216-funcional-options-revisadas.md" >}})
+
 <!--more-->
 ## Contexto
 
