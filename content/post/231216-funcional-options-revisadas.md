@@ -22,7 +22,7 @@ Hace un tiempo escribí una artículo sobre el patrón de *functional options*: 
 
 En este entrada reviso alguno de los errores que cometí al redactarla.
 <!--more-->
-## Refrescando la memoria: qué son las "funcional options" y porqué deberías conocerlas
+## Refrescando la memoria: qué son las "functional options" y porqué deberías conocerlas
 
 El patrón de *functional options* fue descrito inicialmente por Dave Cheney; puedes consultar el artículo original en [Functional options for friendly APIs](https://dave.cheney.net/2014/10/17/functional-options-for-friendly-apis).
 
