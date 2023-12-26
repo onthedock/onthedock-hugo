@@ -15,7 +15,7 @@ thumbnail = "images/go.png"
 # Enlaces internos  [Titulo de la entrada]({{< ref "nombre-del-fichero.md" >}})
 # Imagenes          {{< figure src="/images/image.jpg" width="600" height="480" >}}
 
-title=  "Funcional Options revisitadas"
+title=  "Functional Options revisitadas"
 date = "2023-12-26T18:30:56+01:00"
 +++
 Hace un tiempo escribí una artículo sobre el patrón de *functional options*: [Patrón de 'functional options']({{< ref "230708-funcional-options-pattern.md" >}}).
