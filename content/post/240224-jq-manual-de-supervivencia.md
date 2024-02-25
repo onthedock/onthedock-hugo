@@ -41,7 +41,7 @@ Una gran cantidad de APIs aceptan y devuelven datos en forma de ficheros JSON. A
 
 Jq obtiene el documento JSON como entrada, lo "procesa" y produce una salida.
 
-> Aquí sólo voy a comentar la capacidad de Jq para filtrar un fichero y obtener, a la salida, un *subconjunto* de los objeto inicial.
+> Aquí sólo voy a comentar la capacidad de Jq para filtrar un fichero y obtener, a la salida, un *subconjunto* del objeto inicial.
 > Jq puede hace muchas más cosas a parte de *filtrar*.
 
 Para procesar el fichero `pod.json`, los dos comandos mostrados a continuación son equivalentes:
