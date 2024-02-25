@@ -27,6 +27,9 @@ Jq es una herramienta realmente potente; pero "con un gran poder", llega una cur
 Por eso me he decidido a escribir este artículo: no porque sea un super gurú de Jq, que no lo soy; pero creo que puedo aportar algo de claridad sobre la manera de *aproximarse* a Jq evitando los problemas más habituales.
 
 <!--more-->
+
+> TL;DR: Al final de la entrada hay un resumen en formato *bullet points* [Resumen: manual de supervivencia para Jq](#resumen-manual-de-supervivencia-para-jq)
+
 ## Qué es Jq
 
 Jq es una herramienta con la manipular ficheros JSON.
@@ -300,7 +303,7 @@ two-containers
 
 > Observa que para que el resultado final no contenga "comillas duras" es necesario usar `-r` en el último comando Jq.
 
-Mi recomendación es usar concatenar los filtros siempre que sea necesario; si usamos funciones de Jq, usar la *pipe* interna; no sólo es más compacto, sino que además mantiene la estructura de `jq '{filtro}' ${nombre_fichero}`.
+Mi recomendación es concatenar los filtros siempre que sea necesario; si usamos funciones de Jq, usar la *pipe* interna; no sólo es más compacto, sino que además mantiene la estructura de `jq '{filtro}' ${nombre_fichero}`.
 
 ## Errores
 
