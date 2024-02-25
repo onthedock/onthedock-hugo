@@ -300,7 +300,7 @@ two-containers
 
 > Observa que para que el resultado final no contenga "comillas duras" es necesario usar `-r` en el último comando Jq.
 
-Mi recomendación es usar concatenar los fitrlos siempre que sea necesario; si usamos funciones de Jq, usar la *pipe* interna; no sólo es más compacto, sino que además mantiene la estructura de `jq '{filtro}' ${nombre_fichero}`.
+Mi recomendación es usar concatenar los filtros siempre que sea necesario; si usamos funciones de Jq, usar la *pipe* interna; no sólo es más compacto, sino que además mantiene la estructura de `jq '{filtro}' ${nombre_fichero}`.
 
 ## Errores
 
