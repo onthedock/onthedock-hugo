@@ -15,7 +15,7 @@ thumbnail = "images/linux.png"
 # Enlaces internos  [Titulo de la entrada]({{< ref "nombre-del-fichero.md" >}})
 # Imagenes          {{< figure src="/images/image.jpg" width="600" height="480" >}}
 
-title=  "Arregla el aviso 'key is stored in legacy trusted.gpg keyring"
+title=  "Arregla el aviso 'key is stored in legacy trusted.gpg keyring'"
 date = "2024-05-25T10:58:33+02:00"
 +++
 Al intentar actualizar la máquina en la que el otro día instalé Docker (usando Ansible), me he encontrado con el error `key i stored in legacy trusted.gpg keyring`.
