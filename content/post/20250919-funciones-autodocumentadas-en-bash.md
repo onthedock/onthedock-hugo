@@ -293,7 +293,7 @@ $ tail -n +4 saludo.sh | head -n 6
 
 ## Retoques finales
 
-Ya sólo queda hacer que la salida tenga mejor aspecto; al llamar a la función `print-help`, como tenemos el nombre la función, podemos añadir un *encabezado* como `Documentation for '$func_name$':`, y filtrar los `#` con `sed` para obtener:
+Ya sólo queda hacer que la salida tenga mejor aspecto; al llamar a la función `print-help`, como tenemos el nombre la función, podemos añadir un *encabezado* como `Documentation for '$func_name':`, y filtrar los `#` con `sed` para obtener:
 
 ```console
 $ ./saludo.sh --help
