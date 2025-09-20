@@ -55,7 +55,7 @@ Help for 'saludo':
     - despedida
 ```
 
-El texto que se muestra con el *flag* `--help` proviene de los comentarios de la función `saludo`:
+El texto que se muestra con el *flag* `--help` proviene de los comentarios de la función `saludo` (por eso lo de funciones *auto-documentadas* ;)):
 
 ```bash
 saludo() {
@@ -118,16 +118,13 @@ Para el caso en el que se proporciona `--help`, llamamos a la función `print-he
 
 `${FUNCNAME[@]}` es un *array* en Bash que contiene el *stack* de funciones en ejecución ([documentación de Bash](https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html#index-FUNCNAME)).
 
-Esto significa que, cuando la ejecución del *script* se encuentra ejecutando la función `saludos_arg`, que se ha llamado desde la función `saludo`. Todas las funciones que se van ejecutando durante la ejecución se van añadiendo o eliminando del *stack*, aka, el *array* `${FUNCNAME[@]}`. Por tanto, `${FUNCNAME[0]}=saludo_args` y `${FUNCNAME[1]}=saludo`.
+Bash va añadiendo a la pila las funciones que se ejecutan (las añade al principio del *array*). Por tanto, cuando se está ejecutando `saludos_arg`, el *stack* contiene `saludos_arg` y `saludo` (desde donde llamó `saludos_arg`: `${FUNCNAME[0]}=saludo_args` y `${FUNCNAME[1]}=saludo`.
 
 En el caso de ejecutar un comando, por ejemplo `saludo.sh bienvenida --help`, la última función llamada es `bienvenida_args` (`${FUNCNAME[0]}`), llamada desde `bienvenida`, `${FUNCNAME[1]}` (que a su vez fue llamada desde `saludos_args` (`${FUNCNAME[2]}`)), etc... El caso es que, siempre tenemos el nombre de la función que corresponde al *comando* en ejecución en la variable `${FUNCNAME[1]}`, en la *penúltima* posición en el *stack* `${FUNCNAME[@]}` (Bash inserta la última función en ejecutarse al principio del *array* `${FUNCNAME[@]}`).
 
 ## De qué sirve saber el nombre de la función
 
-La "ayuda" o documentación de la función se encuentra, en comentarios, tras la definición de la función, un poco como los [docstring](https://peps.python.org/pep-0257/#what-is-a-docstring) en Python:
-
-> Google coloca la documentación de la función **antes** de la declaración: [Guía de estilo para Bash (EN)](https://google.github.io/styleguide/shellguide.html#function-comments), pero para la prueba de concepto, resulta más sencillo que se encuentre **después**.
-> Usando las mismas técnicas descritas más adelante, podemos mostrar la ayuda también si se encuentra **antes** de la delcaración de la función.
+La "ayuda" o documentación de la función se encuentra, en forma de comentarios, tras la definición de la función, un poco como los [docstring](https://peps.python.org/pep-0257/#what-is-a-docstring) en Python:
 
 ```bash
 my-func() {
@@ -137,6 +134,9 @@ my-func() {
     ...
 }
 ```
+
+> Google coloca la documentación de la función **antes** de la declaración: [Guía de estilo para Bash (EN)](https://google.github.io/styleguide/shellguide.html#function-comments), pero para la prueba de concepto, resulta más sencillo que se encuentre **después**.
+> Usando las mismas técnicas descritas más adelante, podemos mostrar la ayuda también si se encuentra **antes** de la declaración de la función.
 
 Por tanto, la *ayuda* (o *documentación*) que queremos mostrar para la función, se encuentra **a continuación** del nombre de la función en el código.
 
@@ -161,7 +161,7 @@ Por un lado, tenemos el nombre de la función para la que queremos obtener la ay
 Por otro lado, tenemos la ruta al fichero donde se encuentra la función en `${BASH_SOURCE[@]}` (con `realpath`).
 
 Si buscamos el nombre de la función -de nuevo, usando `grep`-, obtenemos la línea en la que se encuentra.
-En la documentación de `grep` vemos que podemos usar [`-n`](https://www.gnu.org/software/grep/manual/grep.html#index-_002dn) (o la versión larga, `--line-number`) para obtener el *número de línea* en el que se se produce *match*.
+Para ello, usamos [`-n`](https://www.gnu.org/software/grep/manual/grep.html#index-_002dn) (o la versión larga, `--line-number`) para que `grep` muestre el *número de línea* en el que se produce *match* del patrón buscado.
 
 Por ejemplo:
 
@@ -234,23 +234,21 @@ $ ❯ tail -n +4 saludo.sh | grep -n '#'
 ...
 ```
 
-Observando la salida, vemos que los números de línea en los que se encuentran los `#` que documentan la función son consecutivos hasta la línea 6, y que después **saltan** hasta la línea 11, donde empieza la documentación de otra función... Podemos usar ese *salto* en los números como indicador del final de las líneas que *documentan* la función.
+Observando la salida del comando anterior, vemos que los números de línea en los que se encuentran los `#` que documentan la función son consecutivos hasta la línea 6 (1..6), y que después **saltan** hasta la línea 11, donde empieza la documentación de otra función... Podemos usar ese *salto* en los números como indicador del final de las líneas que *documentan* la función que nos interesa.
 
 > Si hay una o más líneas en blanco entre la definición de la función y la documentación, ésta no empezará en la línea 1, sino en la 2 ó la 3... Para simplificar, asumo que es 1.
 > En cualquier caso, los números de línea de la documentación de una función son consecutivos... Del mismo modo, si hay líneas en blanco tras las líneas de la *documentación*, igualmente se produce un salto en los números de línea en los que `grep` encuentra `#`.
 
 ## Almacenando los números de línea en un *array*
 
-Para poder analizar los números de línea y encontrar dónde se produce *el salto*, tenemos que almacenarlos en un *array*.
-Sin embargo, la aproximación directa:
+Para poder analizar los números de línea y encontrar dónde se produce *el salto*, los almaceno en un *array*.
+Sin embargo, la aproximación directa falla:
 
 ```console
 $ read -a doc <<< $(tail -n +4 saludo.sh | grep -n '#' | cut -d ':' -f1)
 $ echo ${doc[*]}
 1
 ```
-
-... no funciona :(
 
 Tenmos que usar `xargs`:
 
@@ -262,7 +260,7 @@ $echo ${doc[*]}
 
 ## Detectando el *salto* en los números de línea
 
-Recorremos el *array* comparando cada elemento del *array* con el *siguiente* elemento en la lista:
+Recorremos el *array* comparando cada elemento con el *siguiente* en la lista:
 
 ```console
 help_line=${doc[0]}
@@ -275,13 +273,13 @@ for match in ${doc[@]:1}; do
 done
 ```
 
-Si el *siguiente* elemento del *array* no es el *elemento anterior `+1`*, tenemos *el salto*.
+Si el *siguiente* elemento del *array* no es el *elemento anterior `+1`*, significa que hemos encontrado *el salto*.
 
 Así, hemos conseguido identificar la última línea que corresponde a la *documentación*, en nuestro caso, la línea 6 tras la definición de la función.
 
 Lo único que queda pendiente ahora es imprimir las líneas de la documentación, entre el número siguiente a donde se encuentra la definición de la función (donde empieza la documentación) y la última línea de *documentación* de la función.
 
-Usamos una combinación de `tail` y `head`, para quedarnos sólo con las primeras *n* líneas de la salida de `tail`:
+Usamos una combinación de `tail` y `head`, para quedarnos sólo con las primeras *n* líneas de la salida de `tail` y `head` para limitar la salida hasta la última línea de la documentación:
 
 ```console
 $ tail -n +4 saludo.sh | head -n 6
@@ -295,7 +293,7 @@ $ tail -n +4 saludo.sh | head -n 6
 
 ## Retoques finales
 
-Ya sólo queda hacer que la salida tenga mejor aspecto; al llamar a la función `print-help`, como tenemos el nombre la función, podemos añadir un *encabezado* como `Documentation for 'saludo':`, y filtrar los `#` con `sed` para obtener:
+Ya sólo queda hacer que la salida tenga mejor aspecto; al llamar a la función `print-help`, como tenemos el nombre la función, podemos añadir un *encabezado* como `Documentation for '$func_name$':`, y filtrar los `#` con `sed` para obtener:
 
 ```console
 $ ./saludo.sh --help
@@ -310,11 +308,11 @@ Help for 'saludo':
 
 ## Resumen
 
-Podemos emular el comportamiento de aplicaciones como `git`, `kubectl`, etc en Bash, de manera que se muestre *ayuda* general para la aplicación o específica para cualquiera de sus *comandos* en Bash.
+Podemos emular el comportamiento de aplicaciones como `git`, `kubectl`, etc en Bash, de manera que se muestre *ayuda* general para la aplicación (o específica para cualquiera de sus *comandos*) en Bash.
 
 Usamos `${FUNCNAME[@]}` para obtener el nombre de la función que implementa el *comando* para el que se ha añadido el *flag* `--help`.
 Usamos también `${BASH_SOURCE[@]}` para obtener el nombre del fichero en el que se encuentra la función.
 
-Usando `grep`, `tail` y `head`, extraemos las líneas correspndientes a la *documentación* de la función.
+Usando `grep`, `tail` y `head`, extraemos las líneas correspondientes a la *documentación* de la función.
 
 El único requisito es que la *documentación* de la función esté en un *bloque continuo* de comentarios.
