@@ -2,11 +2,11 @@
 draft = false
 
 # CATEGORIES = "dev" / "ops"
-categories = ["dev", "ops"]
+categories = ["dev"]
 # TAGS (HW->OS->PRODUCT->specific tag)
 # Example: "raspberry pi", "hypriot os", "kubernetes"
 
-tags = ["google-cloud", "apikey", "security"]
+tags = ["google-cloud", "apikey", "go"]
 
 # Optional, referenced at `$HUGO_ROOT/static/images/thumbnail.jpg`
 thumbnail = "images/go.png"
