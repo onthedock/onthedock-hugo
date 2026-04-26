@@ -13,7 +13,7 @@ thumbnail = "images/thumbnail.png"
 
 # SHORTCODES (for reference) https://gohugo.io/content-management/shortcodes/
 # Enlaces internos  [Titulo de la entrada]({{< ref "nombre-del-fichero.md" >}})
-# Imagenes          {{< figure src="/images/image.jpg" width="600" height="480" >}}
+# Imagenes          {{< figure src="/images/260426/process.png" width="100%" >}}
 
 title=  "{{ replace .TranslationBaseName "-" " " | title }}"
 date = "{{ .Date }}"
