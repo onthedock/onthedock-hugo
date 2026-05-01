@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 
 # CATEGORIES = "dev" / "ops"
 categories = ["dev"]
@@ -64,7 +64,7 @@ Se deberían añadir a los *import* los siguientes paquetes; ejecuta `go mod tid
     "cloud.google.com/go/resourcemanager/apiv3/resourcemanagerpb"
 ```
 
-## Si se proporciona un *projectId*, usarlo; sino, buscar API keys en todos
+## Si se proporciona un *projectId*, úsalo; sino, busca API keys en todos los proyectos
 
 Actualmente, validamos que el `projectId` no esté vacío, ya que lo necesitamos para poder buscar API keys en un proyecto.
 
@@ -90,11 +90,10 @@ Y ahora:
 // ... before
     projectIds := []string{*projectId}
 // ... after
-    var projectList []string
-    if *projectId != "" {
-        projectList = []string{*projectId}
+    projectList := []string{*projectId}
+    if *projectId == "" {
+        projectList = projects.Search()
     }
-    projectList = projects.Search()
 ```
 
 También tenemos que reemplazar `projectIds` por `projectList` en:
