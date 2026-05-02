@@ -142,3 +142,13 @@ Como hemos definido `maxDays` pero no lo usamos, el *linter* se queja; para evit
 ```
 
 En la siguiente entrada, pondremos el foco en explorar las propiedades de las API keys para identificar cuáles nos pueden interesar para identificar las que deben ser rotadas.
+
+## Serie completa
+
+* [API keys rotation checker - I](({{< ref "post/260425-apikey-checker-i.md" >}}))
+* [API keys rotation checker - II](({{< ref "post/260425-apikey-checker-ii.md" >}}))
+* [API keys rotation checker - III](({{< ref "post/260426-apikey-checker-iii.md" >}}))
+* [API keys rotation checker - IV](({{< ref "post/260426-apikey-checker-iv.md" >}}))
+* [API keys rotation checker - V](({{< ref "post/260426-apikey-checker-v.md" >}}))
+* [API keys rotation checker - VI](({{< ref "post/260429-apikey-checker-vi.md" >}}))
+* [API keys rotation checker - VII](({{< ref "post/260501-apikey-checker-vii.md" >}}))
