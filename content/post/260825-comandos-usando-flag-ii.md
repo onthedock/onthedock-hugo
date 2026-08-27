@@ -15,7 +15,7 @@ thumbnail = "images/go.png"
 # Enlaces internos  [Titulo de la entrada]({{< ref "nombre-del-fichero.md" >}})
 # Imagenes          {{< figure src="/images/260426/process.png" width="100%" >}}
 
-title=  "Comandos Usando el paquete Flag (II)"
+title=  "Comandos usando el paquete 'flag' (II)"
 date = "2026-08-25T20:22:12+02:00"
 +++
 Una de las limitaciones del paquete `flag` es que no proporciona soporte para comandos o subcomandos. Sin embargo, podemos simularlos de manera sencilla.
