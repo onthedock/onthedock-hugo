@@ -70,9 +70,60 @@ func main() {
     // ...
 ```
 
+## Update: A veces, menos es más
+
+En vez de intentar generalizar el código, podemos quedarnos con *el concepto* y escribir el *comando raíz* del mismo modo que el resto de comandos.
+
+Definimos el comando *root* como cualquier otro comando:
+
+```go
+type Cmd struct {
+    Name  string
+    Args  []string
+    Usage string
+}
+```
+
+Definimos cómo deben *parsearse* los argumentos:
+
+```go
+func (c *Cmd) Parse(args []string) error {
+    fs := flag.NewFlagSet("myapp", flag.ExitOnError)
+    fs.Usage = func() { fmt.Println(c.Usage) }
+    if err := fs.Parse(args); err != nil {
+        return err
+    }
+    if fs.NArg() >= 1 {
+        c.Name = fs.Arg(0)
+        c.Args = fs.Args()[1:]
+        return nil
+    }
+    fs.Usage()
+    return errors.New("no command provided")
+}
+```
+
+En la función `main`, en vez de llamar a `New()`, simplemente instanciamos el comando `Cmd` (o `Root` o como prefieras llamarlo):
+
+```go
+const usage string = `Usage of 'myapp':
+    myapp read --file <path/to/file>
+    myapp write --text "<text>" --file <path/to/file>`
+
+func main() {
+    cmd := &cmds.Cmd{}
+    cmd.Usage = usage
+    if err := cmd.Parse(os.Args[1:]); err != nil {
+        log.Fatal(err)
+    }
+    // ...
+```
+
+## Otros comandos
+
 A continuación podemos hacer un `switch` para ejecutar cada uno de los comandos que incluya la aplicación.
 
-Para homogeneizar, definimos un *struct* con las *opciones* de cada comando... Definimos un *interface*:
+El resto de comandos también los definimos como un *struct* que satisface la interfaz:
 
 ```go
 type CmdParser interface {
@@ -80,7 +131,7 @@ type CmdParser interface {
 }
 ```
 
-Todos los *comandos* deben satisfacer esta interfaz:
+Así, por ejemplo un nuevo comando `Write`:
 
 ```go
 type Write struct {
